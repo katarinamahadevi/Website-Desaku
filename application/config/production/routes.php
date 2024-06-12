@@ -116,6 +116,8 @@ $route['logout'] = 'user/auth_ctl/logout';
 // USER PAGE
 $route['beranda']  = 'user/controller_ctl/beranda';
 
+$route['favorit']  = 'user/controller_ctl/favorit';
+
 
 $route['user_function']  = 'user/function_ctl';
 
