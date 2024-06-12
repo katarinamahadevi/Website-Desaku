@@ -101,3 +101,27 @@ ERROR - 2024-06-12 17:02:44 --> 404 Page Not Found: /index
 ERROR - 2024-06-12 17:02:44 --> 404 Page Not Found: /index
 ERROR - 2024-06-12 17:02:44 --> 404 Page Not Found: /index
 ERROR - 2024-06-12 17:04:13 --> 404 Page Not Found: /index
+ERROR - 2024-06-12 17:07:09 --> Severity: error --> Exception: Unknown database 'desaku' C:\xampp\htdocs\desaku\system\database\drivers\mysqli\mysqli_driver.php 203
+ERROR - 2024-06-12 17:29:51 --> 404 Page Not Found: /index
+ERROR - 2024-06-12 17:31:03 --> 404 Page Not Found: /index
+ERROR - 2024-06-12 17:32:19 --> 404 Page Not Found: /index
+ERROR - 2024-06-12 17:32:36 --> 404 Page Not Found: /index
+ERROR - 2024-06-12 17:33:38 --> 404 Page Not Found: /index
+ERROR - 2024-06-12 17:36:03 --> 404 Page Not Found: /index
+ERROR - 2024-06-12 17:36:37 --> 404 Page Not Found: /index
+ERROR - 2024-06-12 17:36:52 --> 404 Page Not Found: /index
+ERROR - 2024-06-12 17:45:23 --> 404 Page Not Found: /index
+ERROR - 2024-06-12 17:45:23 --> 404 Page Not Found: /index
+ERROR - 2024-06-12 17:45:34 --> 404 Page Not Found: /index
+ERROR - 2024-06-12 17:45:59 --> 404 Page Not Found: /index
+ERROR - 2024-06-12 17:46:07 --> 404 Page Not Found: /index
+ERROR - 2024-06-12 17:46:32 --> 404 Page Not Found: /index
+ERROR - 2024-06-12 17:46:41 --> 404 Page Not Found: /index
+ERROR - 2024-06-12 17:46:50 --> 404 Page Not Found: /index
+ERROR - 2024-06-12 17:48:12 --> 404 Page Not Found: /index
+ERROR - 2024-06-12 17:49:14 --> 404 Page Not Found: /index
+ERROR - 2024-06-12 17:51:51 --> 404 Page Not Found: /index
+ERROR - 2024-06-12 17:52:06 --> 404 Page Not Found: /index
+ERROR - 2024-06-12 17:53:53 --> 404 Page Not Found: /index
+ERROR - 2024-06-12 18:07:12 --> 404 Page Not Found: /index
+ERROR - 2024-06-12 18:08:19 --> 404 Page Not Found: /index

@@ -133,7 +133,7 @@
                                                     </li>
                                                 </ol>
                                                 <div class="d-flex align-items-center justify-content-start d-none">
-                                                    <a class="btn-hover-bg btn btn-primary text-white py-2 px-4" href="#">Read More</a>
+                                                    <a class="btn-hover-bg btn btn-primary text-white py-2 px-4" href="#">Selengkapnya</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -174,7 +174,7 @@
                                                     </div>                                               
                                                 </div>
                                                 <div class="d-flex align-items-center justify-content-start d-none">
-                                                    <a class="btn-hover-bg btn btn-primary text-white py-2 px-4" href="#">Read More</a>
+                                                    <a class="btn-hover-bg btn btn-primary text-white py-2 px-4" href="#">Selengkapnya</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -214,7 +214,7 @@
                                                     </li>
                                                 </ol>
                                                 <div class="d-flex align-items-center justify-content-start d-none">
-                                                    <a class="btn-hover-bg btn btn-primary text-white py-2 px-4" href="#">Read More</a>
+                                                    <a class="btn-hover-bg btn btn-primary text-white py-2 px-4" href="#">Selengkapnya</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -378,7 +378,7 @@
                                 </li>
                             </ul>
                             <div class="card-footer bg-transparent ps-0 border-0">
-                                <a class="btn-hover-bg btn btn-primary text-white py-2 px-4" href="#">Read More</a>
+                                <a class="btn-hover-bg btn btn-primary text-white py-2 px-4" data-bs-toggle="modal" href="#modalDetailBerita" role="button">Selengkapnya</a>
                             </div>
                         </div>
                     </div>
@@ -407,7 +407,7 @@
                                 </li>
                             </ul>
                             <div class="card-footer bg-transparent ps-0">
-                                <a class="btn-hover-bg btn btn-primary text-white py-2 px-4" href="blog.html">Read More</a>
+                                <a class="btn-hover-bg btn btn-primary text-white py-2 px-4" data-bs-toggle="modal" href="#modalDetailBerita" role="button">Selengkapnya</a>
                             </div>
                         </div>
                     </div>
@@ -436,7 +436,7 @@
                                 </li>
                             </ul>
                             <div class="card-footer bg-transparent ps-0">
-                                <a class="btn-hover-bg btn btn-primary text-white py-2 px-4" href="blog.html">Read More</a>
+                                <a class="btn-hover-bg btn btn-primary text-white py-2 px-4" data-bs-toggle="modal" href="#modalDetailBerita" role="button">Selengkapnya</a>
                             </div>
                         </div>
                     </div>
@@ -465,7 +465,7 @@
                                 </li>
                             </ul>
                             <div class="card-footer bg-transparent ps-0">
-                                <a class="btn-hover-bg btn btn-primary text-white py-2 px-4" href="blog.html">Read More</a>
+                                <a class="btn-hover-bg btn btn-primary text-white py-2 px-4" data-bs-toggle="modal" href="#modalDetailBerita" role="button">Selengkapnya</a>
                             </div>
                         </div>
                     </div>
@@ -492,7 +492,7 @@
                             <span class="text-body"><i class="fas fa-map-marker-alt me-2"></i>Pagerwojo, Desaku</span>
                             <!-- <span class="text-body"><i class="fas fa-calendar-alt me-2"></i>01 Des, 2024</span> -->
                             <div class="hello"> 
-                                <button class="like" id="like"> 
+                                <button class="like" id="like" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasFavorit" aria-controls="offcanvasFavorit"> 
                                     <i class="bx bx-heart fs-3" style="color: #757575;"></i>
                                 </button> 
                             </div>
@@ -509,7 +509,7 @@
                             <span class="text-body"><i class="fas fa-map-marker-alt me-2"></i>Pagerwojo, Desaku</span>
                             <!-- <span class="text-body"><i class="fas fa-calendar-alt me-2"></i>01 Des, 2024</span> -->
                             <div class="hello"> 
-                                <button class="like" id="like"> 
+                                <button class="like" id="like" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasFavorit" aria-controls="offcanvasFavorit"> 
                                     <i class="bx bx-heart fs-3" style="color: #757575;"></i>
                                 </button> 
                             </div>
@@ -526,7 +526,7 @@
                             <span class="text-body"><i class="fas fa-map-marker-alt me-2"></i>Pagerwojo, Desaku</span>
                             <!-- <span class="text-body"><i class="fas fa-calendar-alt me-2"></i>01 Des, 2024</span> -->
                             <div class="hello"> 
-                                <button class="like" id="like"> 
+                                <button class="like" id="like" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasFavorit" aria-controls="offcanvasFavorit"> 
                                     <i class="bx bx-heart fs-3" style="color: #757575;"></i>
                                 </button> 
                             </div>
@@ -543,7 +543,7 @@
                             <span class="text-body"><i class="fas fa-map-marker-alt me-2"></i>Pagerwojo, Desaku</span>
                             <!-- <span class="text-body"><i class="fas fa-calendar-alt me-2"></i>01 Des, 2024</span> -->
                             <div class="hello"> 
-                                <button class="like" id="like"> 
+                                <button class="like" id="like" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasFavorit" aria-controls="offcanvasFavorit"> 
                                     <i class="bx bx-heart fs-3" style="color: #757575;"></i>
                                 </button> 
                             </div>
