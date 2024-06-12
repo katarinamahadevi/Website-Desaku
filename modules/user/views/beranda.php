@@ -1,5 +1,3 @@
-
-
 <!-- Banner Start -->
 <section id="banner">
     <div class="container-fluid carousel-header vh-100 px-0">

@@ -29,4 +29,15 @@ class Controller_ctl extends MY_User
         $this->data['content'] = $this->load->view('beranda', $mydata, TRUE);
         $this->display();
     }
+
+    public function favorit()
+    {
+        $mydata = [];
+
+        $this->data['title'] = $mydata['title'] =  'Selamat datang di Desaku';
+        
+        // LOAD VIEW
+        $this->data['content'] = $this->load->view('favorit', $mydata, TRUE);
+        $this->display();
+    }
 }
