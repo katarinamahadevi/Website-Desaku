@@ -9,9 +9,9 @@ class Function_ctl extends MY_Auth
     {
         // Load the constructer from MY_Controller
         parent::__construct();
-        $this->id_role = $this->session->userdata('hpalnickel_id_role');
-        $this->id_user = $this->session->userdata('hpalnickel_id_user');
-        $this->nama = $this->session->userdata('hpalnickel_nama');
+        $this->id_role = $this->session->userdata(PREFIX_SESSION.'_id_role');
+        $this->id_user = $this->session->userdata(PREFIX_SESSION.'_id_user');
+        $this->nama = $this->session->userdata(PREFIX_SESSION.'_nama');
 
         if (in_array($this->uri->segment(2),['login','register','forgotpassword'])) {
             if ($this->id_user != '') {
@@ -87,12 +87,12 @@ class Function_ctl extends MY_Auth
             $insert = $this->action_m->insert('user', $arrInsert);
 
             if ($insert) {
-                $arrSession['hpalnickel_id_user'] = $insert;
-                $arrSession['hpalnickel_nama'] = $nama;
-                $arrSession['hpalnickel_notelp'] = $notelp;
-                $arrSession['hpalnickel_id_role'] = 3;
-                $arrSession['hpalnickel_foto'] = '';
-                $arrSession['hpalnickel_role'] = get_role(3);
+                $arrSession[PREFIX_SESSION.'_id_user'] = $insert;
+                $arrSession[PREFIX_SESSION.'_nama'] = $nama;
+                $arrSession[PREFIX_SESSION.'_notelp'] = $notelp;
+                $arrSession[PREFIX_SESSION.'_id_role'] = 3;
+                $arrSession[PREFIX_SESSION.'_foto'] = '';
+                $arrSession[PREFIX_SESSION.'_role'] = get_role(3);
 
 
                 $this->session->set_userdata($arrSession);
@@ -143,12 +143,12 @@ class Function_ctl extends MY_Auth
                         $data['status'] = 500;
                         $data['alert']['message'] = '<b>'.$result->nama.'</b> kamu dilarang masuk ke dalam sistem'.$reason;
                     }else{
-                        $arrSession['hpalnickel_id_user'] = $result->id_user;
-                        $arrSession['hpalnickel_nama'] = $result->nama;
-                        $arrSession['hpalnickel_id_role'] = $result->role;
-                        $arrSession['hpalnickel_notelp'] = $result->notelp;
-                        $arrSession['hpalnickel_foto'] = $result->foto;
-                        $arrSession['hpalnickel_role'] = get_role($result->role);
+                        $arrSession[PREFIX_SESSION.'_id_user'] = $result->id_user;
+                        $arrSession[PREFIX_SESSION.'_nama'] = $result->nama;
+                        $arrSession[PREFIX_SESSION.'_id_role'] = $result->role;
+                        $arrSession[PREFIX_SESSION.'_notelp'] = $result->notelp;
+                        $arrSession[PREFIX_SESSION.'_foto'] = $result->foto;
+                        $arrSession[PREFIX_SESSION.'_role'] = get_role($result->role);
 
                         $this->session->set_userdata($arrSession);
 
@@ -181,12 +181,12 @@ class Function_ctl extends MY_Auth
 
     public function logout()
     {
-        $this->session->unset_userdata('hpalnickel_id_user');
-        $this->session->unset_userdata('hpalnickel_nama');
-        $this->session->unset_userdata('hpalnickel_id_role');
-        $this->session->unset_userdata('hpalnickel_role');
-        $this->session->unset_userdata('hpalnickel_notelp');
-        $this->session->unset_userdata('hpalnickel_email');
+        $this->session->unset_userdata(PREFIX_SESSION.'_id_user');
+        $this->session->unset_userdata(PREFIX_SESSION.'_nama');
+        $this->session->unset_userdata(PREFIX_SESSION.'_id_role');
+        $this->session->unset_userdata(PREFIX_SESSION.'_role');
+        $this->session->unset_userdata(PREFIX_SESSION.'_notelp');
+        $this->session->unset_userdata(PREFIX_SESSION.'_email');
 
         redirect('landing');
     }

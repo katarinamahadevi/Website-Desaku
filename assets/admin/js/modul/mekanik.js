@@ -301,3 +301,4 @@ function pagination(element, e) {
     drag.classList.add('d-none');
     filter.classList.remove('d-none');
 }
+

@@ -121,13 +121,13 @@ class MY_User extends MY_Controller
         parent::__construct();
 
         $this->path_theme = 'main_user';
-        if ($this->session->userdata('hpalnickel_id_user')) {
-            if (!in_array($this->session->userdata('hpalnickel_id_role'),[3])) {
-                redirect('dashboard');
-            }
-        }else{
-            redirect('landing');
-        }
+        // if ($this->session->userdata('hpalnickel_id_user')) {
+        //     if (!in_array($this->session->userdata('hpalnickel_id_role'),[3])) {
+        //         redirect('dashboard');
+        //     }
+        // }else{
+        //     redirect('landing');
+        // }
         
     }
 
@@ -187,13 +187,13 @@ class MY_Admin extends MY_Controller
         parent::__construct();
 
         $this->path_theme = 'main_admin';
-        if ($this->session->userdata('hpalnickel_id_user')) {
-            if (!in_array($this->session->userdata('hpalnickel_id_role'),[1,2])) {
-                redirect('home');
-            }
-        }else{
-            redirect('landing');
-        }
+        // if ($this->session->userdata('hpalnickel_id_user')) {
+        //     if (!in_array($this->session->userdata('hpalnickel_id_role'),[1,2])) {
+        //         redirect('home');
+        //     }
+        // }else{
+        //     redirect('landing');
+        // }
         
         
     }

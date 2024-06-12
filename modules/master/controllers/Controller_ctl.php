@@ -8,8 +8,8 @@ class Controller_ctl extends MY_Admin
     {
         // Load the constructer from MY_Controller
         parent::__construct();
-        $this->id_role = $this->session->userdata('hpalnickel_id_role');
-        $this->id_user = $this->session->userdata('hpalnickel_id_user');
+        $this->id_role = $this->session->userdata(PREFIX_SESSION.'_id_role');
+        $this->id_user = $this->session->userdata(PREFIX_SESSION.'_id_user');
     }
 
     public function index()
@@ -31,47 +31,26 @@ class Controller_ctl extends MY_Admin
         $this->data['js_add'][] = '<script src="' . base_url() . 'assets/admin/js/modul/master/user.js"></script>';
 
         // LOAD DATA
-        $limit = 5;
-        $offset = $this->uri->segment(3);
-        $params = [];
-        $paramsuser = [];
-        if ($status != 'all') {
-            if (in_array($status, ['Y', 'N'])) {
-                $where['blocked'] = $status;
-            }
-        }
-        if ($search) {
-            $paramsuser['columnsearch'][] = 'nama';
-            $paramsuser['columnsearch'][] = 'notelp';
-            $paramsuser['search'] = $search;
-        }
-        if (!$role || $role == 'all') {
-            $where['user.role > '] = 1;
-        }else{
-            if (in_array($role,[2,3])) {
-                $where['user.role'] = $role;
-            }else{
-                $where['user.role > '] = 1;
-            }
-        }
-        if ($this->id_role == 2) {
-            $where['user.id_user !='] = $this->id_user;
-        }
-      
-        $jumlah = $this->action_m->cnt_where_params('user', $where, '*', $paramsuser);
-        $paramsuser['limit'] = $limit;
-        if ($offset) {
-            $paramsuser['offset'] = $offset;
-        }
-        $user = $this->action_m->get_where_params('user', $where, '*', $paramsuser);
-        // CETAK DATA
-        $mydata['result'] = $user;
-        $mydata['search'] = $search;
+        // $limit = 5;
+        // $offset = $this->uri->segment(3);
+        // $params = [];
+        // $paramsuser = [];
+        // if ($status != 'all') {
+        //     if (in_array($status, ['Y', 'N'])) {
+        //         $where['blocked'] = $status;
+        //     }
+        // }
+        // if ($search) {
+        //     $paramsuser['columnsearch'][] = 'nama';
+        //     $paramsuser['columnsearch'][] = 'notelp';
+        //     $paramsuser['search'] = $search;
+        // }
+        // load_pagination('master/user', $limit, $jumlah);
 
-        load_pagination('master/user', $limit, $jumlah);
 
+        $mydata['result'] = false;
         // LOAD VIEW
-        $this->data['content'] = $this->load->view('user', $mydata, TRUE);
+        $this->data['content'] = $this->load->view('table', $mydata, TRUE);
         $this->display();
     }
 

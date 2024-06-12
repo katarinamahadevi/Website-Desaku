@@ -10,8 +10,6 @@ $(function () {
 
 
 function edit_user(element, id) {
-    var image = document.getElementById('display_foto');
-    var foto = $(element).data('image');
     var form = document.getElementById('form_user');
     var label_password = document.getElementById('label_password');
     var label_repassword = document.getElementById('label_repassword');
@@ -28,7 +26,6 @@ function edit_user(element, id) {
             // console.log('loading...')
         },
         success: function (data) {
-            image.style.backgroundImage = "url('" + foto + "')";
             var reason = '';
             if (data.user.block_reason) {
                 reason = '</br>Alasan : ' + data.user.block_reason;
@@ -43,8 +40,8 @@ function edit_user(element, id) {
             }
             $('input[name="id_user"]').val(data.user.id_user);
             $('input[name="nama"]').val(data.user.nama);
+            $('input[name="email"]').val(data.user.email);
             $('input[name="notelp"]').val(data.user.notelp);
-            $('input[name="nama_foto"]').val(data.user.foto);
 
             $('select[name="role"]').val(data.user.role);
             $('select[name="role"]').trigger('change');
@@ -53,8 +50,6 @@ function edit_user(element, id) {
 }
 
 function tambah_user() {
-    var image = document.getElementById('display_foto');
-    var base_foto = BASE_URL + 'data/default/user.jpg';
     var form = document.getElementById('form_user');
     var label_password = document.getElementById('label_password');
     var label_repassword = document.getElementById('label_repassword');
@@ -62,7 +57,6 @@ function tambah_user() {
     label_repassword.classList.add('required');
     form.setAttribute('action', BASE_URL + 'master_function/tambah_user');
     $('#title_modal').text('Tambah User');
-    image.style.backgroundImage = "url('" + base_foto + "')";
     $('#form_user input').val('');
     $('#form_user select').val('');
     $('#form_user select').trigger('change');
@@ -76,12 +70,13 @@ function switch_block(element, e, id, two = false) {
     const icon = 'question';
     if ($(element).is(':checked')) {
         var value = 'Y';
-        var type = "textarea";
-        var message = 'Anda yakin akan melakukan blockir pada user ini? user tidak akan bisa mengakses sistem';
-    } else {
-        var value = 'N';
         var type = false;
         var message = 'Anda yakin akan membuka blockir pada user ini? Selanjutnya user akan bisa mengakses sistem';
+    } else {
+        var value = 'N';
+        var type = "textarea";
+        var message = 'Anda yakin akan melakukan blockir pada user ini? user tidak akan bisa mengakses sistem';
+        
     }
     Swal.fire({
         text: message,

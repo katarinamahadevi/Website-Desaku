@@ -311,6 +311,9 @@ switch (ENVIRONMENT) {
 
     define('VIEWPATH', $view_folder.DIRECTORY_SEPARATOR);
 
+    define('MAINTITLE','NAMA APLIKASI');
+    define('PREFIX_SESSION','apk');
+
 /*
  * --------------------------------------------------------------------
  * LOAD THE BOOTSTRAP FILE
@@ -319,3 +322,4 @@ switch (ENVIRONMENT) {
  * And away we go...
  */
 require_once BASEPATH.'core/CodeIgniter.php';
+

@@ -4,7 +4,7 @@
 
 <head>
     <base href="../" />
-    <title>HPAL <?= (isset($title)) ? '| ' . $title : '';  ?></title>
+    <title><?= MAINTITLE; ?> <?= (isset($title)) ? '| ' . $title : '';  ?></title>
     <meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -14,12 +14,13 @@
     <!--end::Fonts-->
     <link rel="shortcut icon" href="<?= image_check($setting->icon,'icon'); ?>" />
     <!--begin::Vendor Stylesheets(used for this page only)-->
-    <link href="<?= base_url(); ?>assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
-    <link href="<?= base_url(); ?>assets/plugins/custom/vis-timeline/vis-timeline.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="<?= base_url(); ?>assets/public/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="<?= base_url(); ?>assets/public/plugins/custom/vis-timeline/vis-timeline.bundle.css" rel="stylesheet" type="text/css" />
     <!--end::Vendor Stylesheets-->
     <!--begin::Global Stylesheets Bundle(mandatory for all pages)-->
-    <link href="<?= base_url(); ?>assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="<?= base_url(); ?>assets/public/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
     <link href="<?= base_url(); ?>assets/admin/css/admin.css" rel="stylesheet" type="text/css" />
+    <link href="<?= base_url(); ?>assets/public/css/custom_pribadi.css" rel="stylesheet" type="text/css" />
     <!--end::Global Stylesheets Bundle-->
     <?php
     if (isset($css_add) && is_array($css_add)) {
@@ -32,9 +33,6 @@
     ?>
 
     <style>
-        .bg-primary{
-            background-color: #252E6F !important;
-        }
         .cursor-pointer{
             cursor: pointer !important;
         }

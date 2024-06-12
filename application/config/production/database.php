@@ -158,7 +158,7 @@ $db['default'] = array(
 
 	'password' => '',
 
-	'database' => 'hpalnickel',
+	'database' => 'desaku',
 
 	'dbdriver' => 'mysqli',
 
