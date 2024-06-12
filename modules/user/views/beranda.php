@@ -497,7 +497,7 @@
                         </div>
                         <h4 class="mb-4">Air Terjun DESAKU</h4>
                         <p class="mb-4">Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip sed eiusmod tempor.</p>
-                        <button type="button" data-bs-toggle="modal" data-bs-target="#modalOrder" class="btn-hover-bg btn btn-primary text-white py-2 px-4">Pesan Tiket</button>
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#modalOrder" class="btn-hover-bg btn btn-primary text-white py-2 px-4">Detail Tiket</button>
                     </div>
                 </div>
                 <div class="event-item">
