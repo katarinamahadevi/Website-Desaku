@@ -1,0 +1,35 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+
+ERROR - 2024-06-11 15:48:17 --> Severity: Warning --> Undefined property: stdClass::$nik C:\xampp\htdocs\new_hpalnickel\modules\user\views\page\profil\ubah.php 139
+ERROR - 2024-06-11 15:48:46 --> Severity: Warning --> Undefined property: stdClass::$nik C:\xampp\htdocs\new_hpalnickel\modules\user\views\page\profil\ubah.php 139
+ERROR - 2024-06-11 16:33:13 --> Severity: Warning --> Undefined property: stdClass::$nik C:\xampp\htdocs\new_hpalnickel\modules\user\views\page\profil\ubah.php 139
+ERROR - 2024-06-11 16:33:44 --> Severity: Warning --> Undefined property: stdClass::$nik C:\xampp\htdocs\new_hpalnickel\modules\user\views\page\profil\ubah.php 139
+ERROR - 2024-06-11 16:33:46 --> Severity: Warning --> Undefined property: stdClass::$nik C:\xampp\htdocs\new_hpalnickel\modules\user\views\page\profil\ubah.php 139
+ERROR - 2024-06-11 16:33:46 --> Severity: Warning --> Undefined property: stdClass::$nik C:\xampp\htdocs\new_hpalnickel\modules\user\views\page\profil\ubah.php 139
+ERROR - 2024-06-11 16:33:46 --> Severity: Warning --> Undefined property: stdClass::$nik C:\xampp\htdocs\new_hpalnickel\modules\user\views\page\profil\ubah.php 139
+ERROR - 2024-06-11 16:34:34 --> Severity: Warning --> Undefined property: stdClass::$nik C:\xampp\htdocs\new_hpalnickel\modules\user\views\page\profil\ubah.php 139
+ERROR - 2024-06-11 16:34:35 --> Severity: Warning --> Undefined property: stdClass::$nik C:\xampp\htdocs\new_hpalnickel\modules\user\views\page\profil\ubah.php 139
+ERROR - 2024-06-11 16:34:35 --> Severity: Warning --> Undefined property: stdClass::$nik C:\xampp\htdocs\new_hpalnickel\modules\user\views\page\profil\ubah.php 139
+ERROR - 2024-06-11 16:34:35 --> Severity: Warning --> Undefined property: stdClass::$nik C:\xampp\htdocs\new_hpalnickel\modules\user\views\page\profil\ubah.php 139
+ERROR - 2024-06-11 16:34:35 --> Severity: Warning --> Undefined property: stdClass::$nik C:\xampp\htdocs\new_hpalnickel\modules\user\views\page\profil\ubah.php 139
+ERROR - 2024-06-11 16:34:35 --> Severity: Warning --> Undefined property: stdClass::$nik C:\xampp\htdocs\new_hpalnickel\modules\user\views\page\profil\ubah.php 139
+ERROR - 2024-06-11 16:34:35 --> Severity: Warning --> Undefined property: stdClass::$nik C:\xampp\htdocs\new_hpalnickel\modules\user\views\page\profil\ubah.php 139
+ERROR - 2024-06-11 16:35:09 --> Severity: Warning --> Undefined property: stdClass::$nik C:\xampp\htdocs\new_hpalnickel\modules\user\views\page\profil\ubah.php 139
+ERROR - 2024-06-11 16:35:42 --> Severity: Warning --> Undefined property: stdClass::$nik C:\xampp\htdocs\new_hpalnickel\modules\user\views\page\profil\ubah.php 139
+ERROR - 2024-06-11 16:35:42 --> Severity: Warning --> Undefined property: stdClass::$nik C:\xampp\htdocs\new_hpalnickel\modules\user\views\page\profil\ubah.php 139
+ERROR - 2024-06-11 16:35:43 --> Severity: Warning --> Undefined property: stdClass::$nik C:\xampp\htdocs\new_hpalnickel\modules\user\views\page\profil\ubah.php 139
+ERROR - 2024-06-11 16:35:43 --> Severity: Warning --> Undefined property: stdClass::$nik C:\xampp\htdocs\new_hpalnickel\modules\user\views\page\profil\ubah.php 139
+ERROR - 2024-06-11 16:35:43 --> Severity: Warning --> Undefined property: stdClass::$nik C:\xampp\htdocs\new_hpalnickel\modules\user\views\page\profil\ubah.php 139
+ERROR - 2024-06-11 16:35:43 --> Severity: Warning --> Undefined property: stdClass::$nik C:\xampp\htdocs\new_hpalnickel\modules\user\views\page\profil\ubah.php 139
+ERROR - 2024-06-11 16:35:43 --> Severity: Warning --> Undefined property: stdClass::$nik C:\xampp\htdocs\new_hpalnickel\modules\user\views\page\profil\ubah.php 139
+ERROR - 2024-06-11 16:37:20 --> Severity: Warning --> Undefined property: stdClass::$nik C:\xampp\htdocs\new_hpalnickel\modules\user\views\page\profil\ubah.php 139
+ERROR - 2024-06-11 16:37:21 --> Severity: Warning --> Undefined property: stdClass::$nik C:\xampp\htdocs\new_hpalnickel\modules\user\views\page\profil\ubah.php 139
+ERROR - 2024-06-11 16:37:21 --> Severity: Warning --> Undefined property: stdClass::$nik C:\xampp\htdocs\new_hpalnickel\modules\user\views\page\profil\ubah.php 139
+ERROR - 2024-06-11 16:37:21 --> Severity: Warning --> Undefined property: stdClass::$nik C:\xampp\htdocs\new_hpalnickel\modules\user\views\page\profil\ubah.php 139
+ERROR - 2024-06-11 16:37:21 --> Severity: Warning --> Undefined property: stdClass::$nik C:\xampp\htdocs\new_hpalnickel\modules\user\views\page\profil\ubah.php 139
+ERROR - 2024-06-11 16:37:21 --> Severity: Warning --> Undefined property: stdClass::$nik C:\xampp\htdocs\new_hpalnickel\modules\user\views\page\profil\ubah.php 139
+ERROR - 2024-06-11 16:37:21 --> Severity: Warning --> Undefined property: stdClass::$nik C:\xampp\htdocs\new_hpalnickel\modules\user\views\page\profil\ubah.php 139
+ERROR - 2024-06-11 16:38:21 --> Severity: Warning --> Undefined property: stdClass::$nik C:\xampp\htdocs\new_hpalnickel\modules\user\views\page\profil\ubah.php 139
+ERROR - 2024-06-11 16:38:48 --> Severity: Warning --> Undefined property: stdClass::$nik C:\xampp\htdocs\new_hpalnickel\modules\user\views\page\profil\ubah.php 139
+ERROR - 2024-06-11 16:39:03 --> Severity: Warning --> Undefined property: stdClass::$nik C:\xampp\htdocs\new_hpalnickel\modules\user\views\page\profil\ubah.php 139
+ERROR - 2024-06-11 16:45:01 --> Severity: Warning --> Undefined property: stdClass::$nik C:\xampp\htdocs\new_hpalnickel\modules\user\views\page\profil\ubah.php 139
