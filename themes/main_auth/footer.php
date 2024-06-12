@@ -1,1 +1,0 @@
-FOOTER AUTH </br>

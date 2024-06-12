@@ -103,39 +103,18 @@ defined('BASEPATH') or exit('No direct script access allowed');
 require_once(BASEPATH .'database/DB'. EXT);
 
 // AUTH PAGE
-$route['landing']  = 'auth/controller_ctl/base/landing';
 
-$route['login']  = 'auth/controller_ctl/base/login';
+$route['auth_function']  = 'user/auth_ctl';
 
-$route['register']  = 'auth/controller_ctl/base/register';
+$route['auth_function/(:any)'] = 'user/auth_ctl/$1';
 
-$route['auth_function']  = 'auth/function_ctl';
+$route['auth_function/(:any)/(:any)'] = 'user/auth_ctl/$1/$2';
 
-$route['auth_function/(:any)'] = 'auth/function_ctl/$1';
-
-$route['auth_function/(:any)/(:any)'] = 'auth/function_ctl/$1/$2';
-
-$route['logout'] = 'auth/function_ctl/logout';
+$route['logout'] = 'user/auth_ctl/logout';
 
 
 // USER PAGE
-$route['home']  = 'user/controller_ctl/base/home';
-
-$route['investasi']  = 'user/controller_ctl/base/investasi';
-
-$route['transaksi']  = 'user/controller_ctl/base/transaksi';
-
-$route['transaksi/(:any)']  = 'user/controller_ctl/base/transaksi/$1';
-
-$route['rekening']  = 'user/controller_ctl/base/rekening';
-
-$route['informasi']  = 'user/controller_ctl/base/informasi';
-
-$route['list_investasi']  = 'user/controller_ctl/base/list_investasi';
-
-$route['profil']  = 'user/controller_ctl/base/profil';
-
-$route['profil/ubah']  = 'user/controller_ctl/base/profil/ubah';
+$route['beranda']  = 'user/controller_ctl/beranda';
 
 
 $route['user_function']  = 'user/function_ctl';
@@ -231,7 +210,7 @@ $route['cetak/(:any)'] = 'cetak/controller_ctl/$1';
 $route['cetak/(:any)/(:any)'] = 'cetak/controller_ctl/$1/$2';
 
 // DEFAULT PAGE
-$route['default_controller'] = 'auth/controller_ctl/';
+$route['default_controller'] = 'user/controller_ctl/';
 
 
 // MANIPULASI LINK
