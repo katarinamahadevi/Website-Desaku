@@ -360,35 +360,20 @@
     <div class="offcanvas-body">
         <div class="row mx-2">
             <div class="col-xl-12">
-                <div class="event-item d-none mb-5">
-                    <div style="width: 100%; height: 325px; background-image: url('<?= base_url('assets/user/') ?>img/produk/waterfall.jpg'); background-position: center; background-repeat: no-repeat; background-size: cover;"></div>
-                    <div class="event-content p-4" style="background-color: #f3e0c6 !important;">
-                        <div class="d-flex justify-content-between mb-4">
-                            <span class="text-body"><i class="fas fa-map-marker-alt me-2"></i>Pagerwojo, Desaku</span>
-                            <!-- <span class="text-body"><i class="fas fa-calendar-alt me-2"></i>01 Des, 2024</span> -->
-                            <div class="hello"> 
-                                <button class="like" id="like" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasFavorit" aria-controls="offcanvasFavorit"> 
-                                    <i class="bx bx-heart fs-3" style="color: #757575;"></i>
-                                </button> 
-                            </div>
-                        </div>
-                        <h4 class="mb-4">Air Terjun DESAKU</h4>
-                        <p class="mb-4">Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip sed eiusmod tempor.</p>
-                        <button type="button" data-bs-toggle="modal" data-bs-target="#modalOrder" class="btn-hover-bg btn btn-primary text-white py-2 px-4">Pesan Tiket</button>
-                    </div>
-                </div>
-
                 <div class="card mb-3" style="max-width: 540px;">
                     <div class="row g-0">
                         <div class="col-md-4">
                             <img src="<?= base_url('assets/user/')?>img/produk/waterfall.jpg" class="img-fluid h-100 rounded-start" alt="...">
                         </div>
                         <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">Air Terjun DESAKU</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip sed eiusmod tempor.</p>
-                            <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-                        </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Air Terjun DESAKU</h5>
+                                <p class="card-text">Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip sed eiusmod tempor.</p>
+                                <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                            </div>
+                            <div class="card-footer bg-transparent border-0">
+                                <button type="button" data-bs-toggle="modal" data-bs-target="#modalOrder" class="btn-hover-bg btn-sm btn btn-primary text-white mb-2 py-2 px-4">Pesan Tiket</button>
+                            </div>
                         </div>
                     </div>
                 </div>
