@@ -285,6 +285,72 @@
     </div>
 </div>
 
+<!-- Modal Detail Tiket -->
+<div class="modal fade" id="modalDetailTiket" tabindex="-1" aria-labelledby="modalDetailBeritaLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content" style="border-radius: 15px;">
+            <div class="modal-header">
+                <h1 class="modal-title fs-4 mb-0" id="modalDetailBeritaLabel">Detail Tiket</h1>
+            </div>
+            <div class="modal-body px-4 py-3" style="width: 100%;">
+                <div class="row">
+                    <div class="col-xl-8">
+                        <div style="overflow-y: scroll; height: 500px;">
+                            <div class=" me-2">
+                                <img src="<?= base_url('assets/user/') ?>img/produk/waterfall.jpg" alt="Image" style="width: 100%; height: 250px;">
+                            </div>
+                            <div class="content me-2">
+                                <h4 class="my-3">Informasi seputar DESAKU</h4>
+                                <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil adipisci cum neque harum et similique fugiat sed    temporibus reiciendis, ipsum vitae ut nisi rerum beatae. Explicabo sunt officia expedita ipsum.</p>
+
+                                <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil adipisci cum neque harum et similique fugiat sed    temporibus reiciendis, ipsum vitae ut nisi rerum beatae. Explicabo sunt officia expedita ipsum.</p>
+
+                                <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil adipisci cum neque harum et similique fugiat sed    temporibus reiciendis, ipsum vitae ut nisi rerum beatae. Explicabo sunt officia expedita ipsum.</p>
+
+                                <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil adipisci cum neque harum et similique fugiat sed    temporibus reiciendis, ipsum vitae ut nisi rerum beatae. Explicabo sunt officia expedita ipsum.</p>
+
+                                <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil adipisci cum neque harum et similique fugiat sed    temporibus reiciendis, ipsum vitae ut nisi rerum beatae. Explicabo sunt officia expedita ipsum.</p>
+
+                                <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil adipisci cum neque harum et similique fugiat sed    temporibus reiciendis, ipsum vitae ut nisi rerum beatae. Explicabo sunt officia expedita ipsum.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-4">
+                        <div class="row">
+                            <h5 class="mb-2">Fasilitas Wisata Air Terjun DESAKU</h5>
+                            <div class="col-xl-6 mb-2">
+                                <div class="d-flex justify-content-center align-items-center flex-column">
+                                    <i class="bi bi-wifi text-dark" style="font-size:2rem"></i>
+                                    <h6>Bebas Wifi</h6>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 mb-2">
+                                <div class="d-flex justify-content-center align-items-center flex-column">
+                                    <i class="bi bi-p-circle text-dark" style="font-size:2rem"></i>
+                                    <h6>Bebas Parkir</h6>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 mb-2">
+                                <div class="d-flex justify-content-center align-items-center flex-column">
+                                    <i class="bi bi-clock-history text-dark" style="font-size:2rem"></i>
+                                    <h6>24 Jam </h6>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 mb-2">
+                                <div class="d-flex justify-content-center align-items-center flex-column">
+                                    <i class="bi bi-fire text-dark" style="font-size:2rem"></i>
+                                    <h6 class="text-center">Area Bebas Rokok</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Offcanvas Favorit -->
 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasFavorit" aria-labelledby="offcanvasFavoritLabel" style="width: 500px;">
     <div class="offcanvas-header">
@@ -294,7 +360,7 @@
     <div class="offcanvas-body">
         <div class="row mx-2">
             <div class="col-xl-12">
-                <div class="event-item mb-5">
+                <div class="event-item d-none mb-5">
                     <div style="width: 100%; height: 325px; background-image: url('<?= base_url('assets/user/') ?>img/produk/waterfall.jpg'); background-position: center; background-repeat: no-repeat; background-size: cover;"></div>
                     <div class="event-content p-4" style="background-color: #f3e0c6 !important;">
                         <div class="d-flex justify-content-between mb-4">
@@ -311,55 +377,19 @@
                         <button type="button" data-bs-toggle="modal" data-bs-target="#modalOrder" class="btn-hover-bg btn btn-primary text-white py-2 px-4">Pesan Tiket</button>
                     </div>
                 </div>
-                <div class="event-item mb-5">
-                    <div style="width: 100%; height: 325px; background-image: url('<?= base_url('assets/user/') ?>img/produk/garden.jpg'); background-position: center; background-repeat: no-repeat; background-size: cover;"></div>
-                    <div class="event-content p-4" style="background-color: #f3e0c6 !important;">
-                        <div class="d-flex justify-content-between mb-4">
-                            <span class="text-body"><i class="fas fa-map-marker-alt me-2"></i>Pagerwojo, Desaku</span>
-                            <!-- <span class="text-body"><i class="fas fa-calendar-alt me-2"></i>01 Des, 2024</span> -->
-                            <div class="hello"> 
-                                <button class="like" id="like" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasFavorit" aria-controls="offcanvasFavorit"> 
-                                    <i class="bx bx-heart fs-3" style="color: #757575;"></i>
-                                </button> 
-                            </div>
+
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="<?= base_url('assets/user/')?>img/produk/waterfall.jpg" class="img-fluid h-100 rounded-start" alt="...">
                         </div>
-                        <h4 class="mb-4">Taman Indah DESAKU</h4>
-                        <p class="mb-4">Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip sed eiusmod tempor.</p>
-                        <button type="button" data-bs-toggle="modal" data-bs-target="#modalOrder" class="btn-hover-bg btn btn-primary text-white py-2 px-4">Pesan Tiket</button>
-                    </div>
-                </div>
-                <div class="event-item mb-5">
-                    <div style="width: 100%; height: 325px; background-image: url('<?= base_url('assets/user/') ?>img/produk/relax.jpg'); background-position: center; background-repeat: no-repeat; background-size: cover;"></div>
-                    <div class="event-content p-4" style="background-color: #f3e0c6 !important;">
-                        <div class="d-flex justify-content-between mb-4">
-                            <span class="text-body"><i class="fas fa-map-marker-alt me-2"></i>Pagerwojo, Desaku</span>
-                            <!-- <span class="text-body"><i class="fas fa-calendar-alt me-2"></i>01 Des, 2024</span> -->
-                            <div class="hello"> 
-                                <button class="like" id="like" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasFavorit" aria-controls="offcanvasFavorit"> 
-                                    <i class="bx bx-heart fs-3" style="color: #757575;"></i>
-                                </button> 
-                            </div>
+                        <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Air Terjun DESAKU</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip sed eiusmod tempor.</p>
+                            <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
                         </div>
-                        <h4 class="mb-4">Wisata "Relax" DESAKU</h4>
-                        <p class="mb-4">Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip sed eiusmod tempor.</p>
-                        <button type="button" data-bs-toggle="modal" data-bs-target="#modalOrder" class="btn-hover-bg btn btn-primary text-white py-2 px-4">Pesan Tiket</button>
-                    </div>
-                </div>
-                <div class="event-item mb-5">
-                    <div style="width: 100%; height: 325px; background-image: url('<?= base_url('assets/user/') ?>img/produk/camping.jpg'); background-position: center; background-repeat: no-repeat; background-size: cover;"></div>
-                    <div class="event-content p-4" style="background-color: #f3e0c6 !important;">
-                        <div class="d-flex justify-content-between mb-4">
-                            <span class="text-body"><i class="fas fa-map-marker-alt me-2"></i>Pagerwojo, Desaku</span>
-                            <!-- <span class="text-body"><i class="fas fa-calendar-alt me-2"></i>01 Des, 2024</span> -->
-                            <div class="hello"> 
-                                <button class="like" id="like" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasFavorit" aria-controls="offcanvasFavorit"> 
-                                    <i class="bx bx-heart fs-3" style="color: #757575;"></i>
-                                </button> 
-                            </div>
                         </div>
-                        <h4 class="mb-4">Wisata "The Camping" DESAKU</h4>
-                        <p class="mb-4">Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip sed eiusmod tempor.</p>
-                        <button type="button" data-bs-toggle="modal" data-bs-target="#modalOrder" class="btn-hover-bg btn btn-primary text-white py-2 px-4">Pesan Tiket</button>
                     </div>
                 </div>
             </div>

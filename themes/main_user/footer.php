@@ -37,9 +37,12 @@
         <script src="<?= base_url('assets/user/') ?>lib/counterup/counterup.min.js"></script>
         <script src="<?= base_url('assets/user/') ?>lib/owlcarousel/owl.carousel.min.js"></script>
         <script src="<?= base_url('assets/user/') ?>lib/lightbox/js/lightbox.min.js"></script>
+        <!-- <script src="<?= base_url('assets/user/') ?>js/swiper-bundle.min.js"></script> -->
         
         <!-- Template Javascript -->
         <script src="<?= base_url('assets/user/') ?>js/main.js"></script>
+
+        <script src="<?= base_url('assets/user/') ?>js/structure.js"></script>
 
         <!-- Charts -->
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

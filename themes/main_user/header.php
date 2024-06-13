@@ -14,7 +14,7 @@
 
         <!-- Icon Font Stylesheet -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
         <!-- Libraries Stylesheet -->
         <link href="<?= base_url('assets/user/') ?>lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
@@ -23,14 +23,16 @@
 
         <!-- Customized Bootstrap Stylesheet -->
         <link href="<?= base_url('assets/user/') ?>css/bootstrap.min.css" rel="stylesheet">
+        <!-- <link href="<?= base_url('assets/user/') ?>css/swiper-bundle.min.css" rel="stylesheet"> -->
 
         <!-- Template Stylesheet -->
         <link href="<?= base_url('assets/user/') ?>css/style.css" rel="stylesheet">
-        <link href="<?= base_url('assets/user/') ?>css/organization.css" rel="stylesheet" href="">
+        <link href="<?= base_url('assets/user/') ?>css/organization.css" rel="stylesheet">
+        <!-- <link href="<?= base_url('assets/user/') ?>css/structure.css" rel="stylesheet"> -->
 
         <!-- Link Fontawesome -->
         <link rel="stylesheet" 
-href= "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+            href= "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
             integrity= "sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
             crossorigin="anonymous" 
             referrerpolicy="no-referrer" />
