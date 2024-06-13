@@ -147,19 +147,51 @@ $route['catatan/(:any)/(:any)/(:any)'] = 'user/controller_ctl/base/catatan/$1/$2
 
 // ADMIN PAGE
 
-$route['master'] = 'master/controller_ctl/index';
+$route['master'] = 'master/user/controller_ctl/index';
 
-$route['master/(:any)'] = 'master/controller_ctl/$1';
+$route['master/(:any)'] = 'master/user/controller_ctl/$1';
 
-$route['master/(:any)/(:any)'] = 'master/controller_ctl/$1/$2';
+$route['master/(:any)/(:any)'] = 'master/user/controller_ctl/$1/$2';
 
-$route['master/(:any)/(:any)/(:any)'] = 'master/controller_ctl/$1/$2/$3';
+$route['master/(:any)/(:any)/(:any)'] = 'master/user/controller_ctl/$1/$2/$3';
 
-$route['master_function']  = 'master/function_ctl';
+$route['master_function']  = 'master/user/function_ctl';
 
-$route['master_function/(:any)'] = 'master/function_ctl/$1';
+$route['master_function/(:any)'] = 'master/user/function_ctl/$1';
 
-$route['master_function/(:any)/(:any)'] = 'master/function_ctl/$1/$2';
+$route['master_function/(:any)/(:any)'] = 'master/user/function_ctl/$1/$2';
+
+
+
+$route['wisata'] = 'master/wisata/controller_ctl/index';
+
+$route['wisata/(:any)'] = 'master/wisata/controller_ctl/$1';
+
+$route['wisata/(:any)/(:any)'] = 'master/wisata/controller_ctl/$1/$2';
+
+$route['wisata/(:any)/(:any)/(:any)'] = 'master/wisata/controller_ctl/$1/$2/$3';
+
+$route['wisata_function']  = 'master/wisata/function_ctl';
+
+$route['wisata_function/(:any)'] = 'master/wisata/function_ctl/$1';
+
+$route['wisata_function/(:any)/(:any)'] = 'master/wisata/function_ctl/$1/$2';
+
+
+
+$route['pengurus'] = 'master/pengurus/controller_ctl/index';
+
+$route['pengurus/(:any)'] = 'master/pengurus/controller_ctl/$1';
+
+$route['pengurus/(:any)/(:any)'] = 'master/pengurus/controller_ctl/$1/$2';
+
+$route['pengurus/(:any)/(:any)/(:any)'] = 'master/pengurus/controller_ctl/$1/$2/$3';
+
+$route['pengurus_function']  = 'master/pengurus/function_ctl';
+
+$route['pengurus_function/(:any)'] = 'master/pengurus/function_ctl/$1';
+
+$route['pengurus_function/(:any)/(:any)'] = 'master/pengurus/function_ctl/$1/$2';
 
 
 $route['setting']  = 'setting/controller_ctl';

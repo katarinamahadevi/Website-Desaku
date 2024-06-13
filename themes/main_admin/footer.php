@@ -5,6 +5,7 @@
     var hostUrl = "<?= base_url(); ?>assets/admin/";
     var css_btn_confirm = 'btn btn-primary';
     var css_btn_cancel = 'btn btn-danger';
+    var image_default = '<?= image_check('user.jpg','default') ?>'
      addEventListener('keypress', function(e) {
         if (e.keyCode === 13 || e.which === 13) {
             e.preventDefault();

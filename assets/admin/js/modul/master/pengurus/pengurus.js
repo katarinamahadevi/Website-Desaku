@@ -1,20 +1,13 @@
 
-$(function () {
-
-    $('.hps_foto').on('click', function () {
-        // console.log('hapus');
-        $('input[name=nama_foto]').val("");
-    });
-
-});
 
 
-function edit_poin(element, id) {
-    var form = document.getElementById('form_poin');
-    $('#title_modal').text('Ubah Data Poin');
-    form.setAttribute('action', BASE_URL + 'master_function/ubah_poin');
+function edit_jabatan(element, id) {
+    
+    var form = document.getElementById('form_jabatan');
+    $('#title_modal').text('Ubah Data Jabatan');
+    form.setAttribute('action', BASE_URL + 'pengurus_function/ubah_jabatan');
     $.ajax({
-        url: BASE_URL + 'master/get_single_poin',
+        url: BASE_URL + 'pengurus/get_single_jabatan',
         method: 'POST',
         data: { id: id },
         dataType: 'json',
@@ -22,24 +15,31 @@ function edit_poin(element, id) {
             // console.log('loading...')
         },
         success: function (data) {
-            $('input[name="id_poin"]').val(data.poin.id_poin);
-            $('input[name="jumlah_minimal"]').val(data.poin.jumlah_minimal);
-            $('input[name="jumlah_maximal"]').val(data.poin.jumlah_maximal);
-            $('input[name="poin"]').val(data.poin.poin);
-
-            $('#display_jumlah_minimal').val(format_uang(data.poin.jumlah_minimal));
-            $('#display_jumlah_maximal').val(format_uang(data.poin.jumlah_maximal));
-            $('#display_poin').val(format_uang(data.poin.poin));
+            var reason = '';
+            if (data.jabatan.block_reason) {
+                reason = '</br>Alasan : ' + data.jabatan.block_reason;
+            }
+            if (data.jabatan.status == 'Y') {
+                $('#lead').html('<div class="alert alert-danger d-flex justify-content-between" role="alert"><div class="col-6">\
+                    jabatan telah di block!'+ reason + '</div><div class="col-6 d-flex justify-content-end"><div class="form-check form-switch">\
+                    <input class="form-check-input cursor-pointer" type="checkbox" role="switch" onchange ="switch_block(this,event,'+ id + ',true)" id="switch-on-' + id + '" checked ></div></div>\
+                        </div>');
+            } else {
+                $('#lead').html('');
+            }
+            $('input[name="id_jabatan"]').val(data.jabatan.id_jabatan);
+            $('input[name="nama"]').val(data.jabatan.nama);
         }
     })
 }
 
-function tambah_poin() {
-    var form = document.getElementById('form_poin');
-    form.setAttribute('action', BASE_URL + 'master_function/tambah_poin');
-    $('#title_modal').text('Tambah Poin');
-    $('#form_poin input').val('');
-    $('#form_poin select').val('');
+function tambah_jabatan() {
+    var form = document.getElementById('form_jabatan');
+    form.setAttribute('action', BASE_URL + 'pengurus_function/tambah_jabatan');
+    $('#title_modal').text('Tambah Jabatan');
+    $('#form_jabatan input').val('');
+    $('#form_jabatan select').val('');
+    $('#form_jabatan select').trigger('change');
 }
 
 
@@ -50,13 +50,12 @@ function switch_block(element, e, id, two = false) {
     const icon = 'question';
     if ($(element).is(':checked')) {
         var value = 'Y';
-        var type = false;
-        var message = 'Anda yakin akan membuka blockir pada poin ini? Selanjutnya poin akan bisa mengakses sistem';
+        var type = "textarea";
+        var message = 'Anda yakin akan membuka blockir pada jabatan ini? Selanjutnya jabatan akan bisa mengakses sistem ';
     } else {
         var value = 'N';
-        var type = "textarea";
-        var message = 'Anda yakin akan melakukan blockir pada poin ini? poin tidak akan bisa mengakses sistem';
-        
+        var type = false;
+        var message = 'Anda yakin akan membuka blockir pada jabatan ini? jabatan tidak akan bisa mengakses sistem';
     }
     Swal.fire({
         text: message,
@@ -79,7 +78,7 @@ function switch_block(element, e, id, two = false) {
         if (t.isConfirmed) {
             var reason = $('textarea[name=block_reason]').val();
             $.ajax({
-                url: BASE_URL + 'master_function/block_poin/poin',
+                url: BASE_URL + 'pengurus_function/block_jabatan/jabatan',
                 method: 'POST',
                 data: { id: id, action: value, reason: reason },
                 cache: false,

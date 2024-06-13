@@ -1,4 +1,4 @@
-
+var image = document.getElementById('display_foto');
 $(function () {
 
     $('.hps_foto').on('click', function () {
@@ -10,6 +10,8 @@ $(function () {
 
 
 function edit_user(element, id) {
+    
+    var foto = $(element).data('image');
     var form = document.getElementById('form_user');
     var label_password = document.getElementById('label_password');
     var label_repassword = document.getElementById('label_repassword');
@@ -26,6 +28,7 @@ function edit_user(element, id) {
             // console.log('loading...')
         },
         success: function (data) {
+            image.style.backgroundImage = "url('" + foto + "')";
             var reason = '';
             if (data.user.block_reason) {
                 reason = '</br>Alasan : ' + data.user.block_reason;
@@ -42,7 +45,8 @@ function edit_user(element, id) {
             $('input[name="nama"]').val(data.user.nama);
             $('input[name="email"]').val(data.user.email);
             $('input[name="notelp"]').val(data.user.notelp);
-
+            $('textarea[name="alamat"]').val(data.user.alamat);
+            $('input[name="nama_foto"]').val(data.user.foto);
             $('select[name="role"]').val(data.user.role);
             $('select[name="role"]').trigger('change');
         }
@@ -60,6 +64,7 @@ function tambah_user() {
     $('#form_user input').val('');
     $('#form_user select').val('');
     $('#form_user select').trigger('change');
+    image.style.backgroundImage = "url('" + image_default + "')";
 }
 
 
@@ -70,13 +75,12 @@ function switch_block(element, e, id, two = false) {
     const icon = 'question';
     if ($(element).is(':checked')) {
         var value = 'Y';
-        var type = false;
-        var message = 'Anda yakin akan membuka blockir pada user ini? Selanjutnya user akan bisa mengakses sistem';
-    } else {
-        var value = 'N';
         var type = "textarea";
         var message = 'Anda yakin akan melakukan blockir pada user ini? user tidak akan bisa mengakses sistem';
-        
+    } else {
+        var value = 'N';
+        var type = false;
+        var message = 'Anda yakin akan membuka blockir pada user ini? Selanjutnya user akan bisa mengakses sistem';
     }
     Swal.fire({
         text: message,

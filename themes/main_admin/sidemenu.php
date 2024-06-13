@@ -28,7 +28,7 @@
                             <!--begin:Menu item-->
                             <div class="menu-item me-0 me-lg-2">
                                 <!--begin:Menu link-->
-                                <button type="button" data-editor="tentang_kami,landing_text" onclick="submit_form(this,'#kt_app_content_container',0)" id="btn_upload_setup" class="menu-link btn btn-sm" style="background-color: #288184;">
+                                <button type="button" onclick="submit_form(this,'#kt_app_content_container',0)" id="btn_upload_setup" class="menu-link btn btn-sm btn-warning">
                                     <span class="menu-title m-1 text-white">Simpan Pengaturan</span>
                                 </button>
                                 <!--end:Menu link-->
@@ -41,7 +41,7 @@
                     <div class="app-navbar-item ms-1 ms-md-3" id="kt_header_user_menu_toggle">
                         <!--begin::Menu wrapper-->
                         <div class="cursor-pointer symbol symbol-circle symbol-35px symbol-md-45px" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
-                            <img src="<?= image_check($this->session->userdata('hpalnickel_foto'), 'user') ?>" alt="Avatar" />
+                            <img src="<?= image_check($this->session->userdata(PREFIX_SESSION.'_foto'), 'user') ?>" alt="Avatar" />
                         </div>
                         <!--begin::User account menu-->
                         <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg menu-state-color fw-semibold py-4 fs-6 w-275px" data-kt-menu="true">
@@ -50,15 +50,15 @@
                                 <div class="menu-content d-flex align-items-center px-3">
                                     <!--begin::Avatar-->
                                     <div class="symbol symbol-50px me-5">
-                                        <img alt="Profil" src="<?= image_check($this->session->userdata('hpalnickel_foto'), 'user') ?>" />
+                                        <img alt="Profil" src="<?= image_check($this->session->userdata(PREFIX_SESSION.'_foto'), 'user') ?>" />
                                     </div>
                                     <!--end::Avatar-->
                                     <!--begin::Username-->
                                     <div class="d-flex flex-column">
-                                        <div class="fw-bold d-flex align-items-center fs-5"><?= short_text($this->session->userdata('hpalnickel_nama'),8); ?>
-                                            <span class="badge badge-light-success fw-bold fs-8 px-2 py-1 ms-2"><?= $this->session->userdata('hpalnickel_role') ?></span>
+                                        <div class="fw-bold d-flex align-items-center fs-5"><?= short_text($this->session->userdata(PREFIX_SESSION.'_nama'),8); ?>
+                                            <span class="badge badge-light-success fw-bold fs-8 px-2 py-1 ms-2"><?= $this->session->userdata(PREFIX_SESSION.'_role') ?></span>
                                         </div>
-                                        <a class="fw-semibold text-muted text-hover-primary fs-7"><?= '0'.$this->session->userdata('hpalnickel_notelp') ?></a>
+                                        <a class="fw-semibold text-muted text-hover-primary fs-7"><?= $this->session->userdata(PREFIX_SESSION.'_email') ?></a>
                                     </div>
                                     <!--end::Username-->
                                 </div>
@@ -141,7 +141,7 @@
                                 <!--begin:Menu item-->
                                 <div data-kt-menu-trigger="click" class="menu-item menu-accordion hover show">
                                     <!--begin:Menu link-->
-                                    <span class="menu-link <?= set_menu_active($this->uri->segment(1), ['master','product']) ?>">
+                                    <span class="menu-link <?= set_menu_active($this->uri->segment(1), ['master','pengurus']) ?>">
                                         <span class="menu-icon">
                                             <i class="ki-outline ki-gift fs-2"></i>
                                         </span>
@@ -164,40 +164,103 @@
                                         </a>
                                         <!--end:Menu item-->
                                         <!--begin:Menu item-->
-                                        <a href="<?= base_url('master/proyek') ?>" class="menu-item menu-accordion <?= set_submenu_active($this->uri->segment(1), ['master'], $this->uri->segment(2), ['proyek']) ?>">
+                                        <div data-kt-menu-trigger="click" class="menu-item menu-accordion <?= set_submenu_active($this->uri->segment(1), ['wisata'], $this->uri->segment(2), ['tiket','fasilitas','unit'], 'active hover show') ?>">
                                             <!--begin:Menu link-->
                                             <span class="menu-link">
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
                                                 <span class="menu-title">Data Wisata</span>
+                                                <span class="menu-arrow"></span>
                                             </span>
                                             <!--end:Menu link-->
-                                        </a>
+                                            <!--begin:Menu sub-->
+                                            <div class="menu-sub menu-sub-accordion">
+                                                <!--begin:Menu item-->
+                                                <div class="menu-item">
+                                                    <!--begin:Menu link-->
+                                                    <a class="menu-link"
+                                                        href="<?= base_url('wisata/tiket') ?>">
+                                                        <span class="menu-bullet">
+                                                            <span class="bullet bullet-dot"></span>
+                                                        </span>
+                                                        <span class="offit menu-title  <?= set_submenu_active($this->uri->segment(1), ['wisata'], $this->uri->segment(2), ['tiket']) ?>">Tiket</span>
+                                                    </a>
+                                                    <!--end:Menu link-->
+                                                </div>
+                                                <!--end:Menu item-->
+                                                <!--begin:Menu item-->
+                                                <div class="menu-item">
+                                                    <!--begin:Menu link-->
+                                                    <a class="menu-link"
+                                                        href="<?= base_url('wisata/fasilitas') ?>">
+                                                        <span class="menu-bullet">
+                                                            <span class="bullet bullet-dot"></span>
+                                                        </span>
+                                                        <span class="offit menu-title  <?= set_submenu_active($this->uri->segment(1), ['wisata'], $this->uri->segment(2), ['fasilitas']) ?>">Villa</span>
+                                                    </a>
+                                                    <!--end:Menu link-->
+                                                </div>
+                                                <!--end:Menu item-->
+                                                <!--begin:Menu item-->
+                                                <div class="menu-item">
+                                                    <!--begin:Menu link-->
+                                                    <a class="menu-link"
+                                                        href="<?= base_url('wisata/unit') ?>">
+                                                        <span class="menu-bullet">
+                                                            <span class="bullet bullet-dot"></span>
+                                                        </span>
+                                                        <span class="offit menu-title  <?= set_submenu_active($this->uri->segment(1), ['wisata'], $this->uri->segment(2), ['unit']) ?>">Tempat Wisata</span>
+                                                    </a>
+                                                    <!--end:Menu link-->
+                                                </div>
+                                                <!--end:Menu item-->
+                                            </div>
+                                            <!--end:Menu sub-->
+                                        </div>
                                         <!--end:Menu item-->
                                         <!--begin:Menu item-->
-                                        <a href="<?= base_url('master/bank') ?>" class="menu-item menu-accordion <?= set_submenu_active($this->uri->segment(1), ['master'], $this->uri->segment(2), ['bank']) ?>">
+                                        <div data-kt-menu-trigger="click" class="menu-item menu-accordion <?= set_submenu_active($this->uri->segment(1), ['pengurus'], $this->uri->segment(2), ['jabatan','anggota'], 'active hover show') ?>">
                                             <!--begin:Menu link-->
                                             <span class="menu-link">
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
                                                 <span class="menu-title">Data Pengurus</span>
+                                                <span class="menu-arrow"></span>
                                             </span>
                                             <!--end:Menu link-->
-                                        </a>
-                                        <!--end:Menu item-->
-                                        <!--begin:Menu item-->
-                                        <a href="<?= base_url('master/bank') ?>" class="menu-item menu-accordion <?= set_submenu_active($this->uri->segment(1), ['master'], $this->uri->segment(2), ['bank']) ?>">
-                                            <!--begin:Menu link-->
-                                            <span class="menu-link">
-                                                <span class="menu-bullet">
-                                                    <span class="bullet bullet-dot"></span>
-                                                </span>
-                                                <span class="menu-title">Data Agenda</span>
-                                            </span>
-                                            <!--end:Menu link-->
-                                        </a>
+                                            <!--begin:Menu sub-->
+                                            <div class="menu-sub menu-sub-accordion">
+                                                <!--begin:Menu item-->
+                                                <div class="menu-item">
+                                                    <!--begin:Menu link-->
+                                                    <a class="menu-link"
+                                                        href="<?= base_url('pengurus/jabatan') ?>">
+                                                        <span class="menu-bullet">
+                                                            <span class="bullet bullet-dot"></span>
+                                                        </span>
+                                                        <span class="offit menu-title  <?= set_submenu_active($this->uri->segment(1), ['pengurus'], $this->uri->segment(2), ['jabatan']) ?>">Jabatan</span>
+                                                    </a>
+                                                    <!--end:Menu link-->
+                                                </div>
+                                                <!--end:Menu item-->
+                                                <!--begin:Menu item-->
+                                                <div class="menu-item">
+                                                    <!--begin:Menu link-->
+                                                    <a class="menu-link"
+                                                        href="<?= base_url('pengurus/anggota') ?>">
+                                                        <span class="menu-bullet">
+                                                            <span class="bullet bullet-dot"></span>
+                                                        </span>
+                                                        <span class="offit menu-title  <?= set_submenu_active($this->uri->segment(1), ['pengurus'], $this->uri->segment(2), ['anggota']) ?>">Anggota</span>
+                                                    </a>
+                                                    <!--end:Menu link-->
+                                                </div>
+                                                <!--end:Menu item-->
+                                            </div>
+                                            <!--end:Menu sub-->
+                                        </div>
                                         <!--end:Menu item-->
                                     
 

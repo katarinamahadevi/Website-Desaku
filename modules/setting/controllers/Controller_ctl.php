@@ -8,8 +8,8 @@ class Controller_ctl extends MY_Admin
     {
         // Load the constructer from MY_Controller
         parent::__construct();
-        $this->id_role = $this->session->userdata('hpalnickel_id_role');
-        $this->id_user = $this->session->userdata('hpalnickel_id_user');
+        $this->id_role = $this->session->userdata(PREFIX_SESSION.'_id_role');
+        $this->id_user = $this->session->userdata(PREFIX_SESSION.'_id_user');
     }
 
     public function index()

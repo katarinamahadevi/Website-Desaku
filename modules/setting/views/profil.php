@@ -12,7 +12,7 @@
                         <!--begin: Pic-->
                         <div class="me-7 mb-4">
                             <div class="symbol symbol-100px symbol-lg-100px symbol-fixed position-relative">
-                                <img src="<?= image_check($this->session->userdata('hpalnickel_foto'), 'user'); ?>" alt="image" />
+                                <img src="<?= image_check($this->session->userdata(PREFIX_SESSION.'_foto'), 'user'); ?>" alt="image" />
                                 <div class="position-absolute translate-middle bottom-0 start-100 mb-6 bg-success rounded-circle border border-4 border-body h-20px w-20px"></div>
                             </div>
                         </div>
@@ -25,14 +25,15 @@
                                 <div class="d-flex flex-column">
                                     <!--begin::Name-->
                                     <div class="d-flex align-items-center mb-2">
-                                        <a href="#" class="text-gray-900 text-hover-primary fs-2 fw-bold me-1"><?= $this->session->userdata('hpalnickel_nama'); ?></a>
+                                        <a href="#" class="text-gray-900 text-hover-primary fs-2 fw-bold me-1"><?= $this->session->userdata(PREFIX_SESSION.'_nama'); ?></a>
                                     </div>
                                     <!--end::Name-->
                                     <!--begin::Info-->
                                     <div class="d-flex flex-wrap fw-semibold fs-6 mb-4 pe-2">
                                         <a href="#" class="d-flex align-items-center text-gray-400 text-hover-primary me-5 mb-2">
-                                        <i class="ki-outline ki-profile-circle fs-4 me-1"></i><?= $this->session->userdata('hpalnickel_role'); ?></a>
-                                        <a href="#" class="d-flex align-items-center text-gray-400 text-hover-primary mb-2">
+                                        <i class="ki-outline ki-profile-circle fs-4 me-1"></i><?= $this->session->userdata(PREFIX_SESSION.'_role'); ?></a>
+                                         <a href="#" class="d-flex align-items-center text-gray-400 text-hover-primary me-5 mb-2">
+                                        <i class="ki-outline ki-sms fs-4 me-1"></i><?= $this->session->userdata(PREFIX_SESSION.'_email'); ?></a>
                                     </div>
                                     <!--end::Info-->
                                 </div>
@@ -70,6 +71,18 @@
                         <!--begin::Col-->
                         <div class="col-lg-8">
                             <span class="fw-bold fs-6 text-gray-800"><?= $result->nama; ?></span>
+                        </div>
+                        <!--end::Col-->
+                    </div>
+                    <!--end::Row-->
+                    <!--begin::Row-->
+                    <div class="row mb-7">
+                        <!--begin::Label-->
+                        <label class="col-lg-4 fw-semibold text-muted">Alamat Email</label>
+                        <!--end::Label-->
+                        <!--begin::Col-->
+                        <div class="col-lg-8">
+                            <span class="fw-bold fs-6 text-gray-800"><?= $result->email; ?></span>
                         </div>
                         <!--end::Col-->
                     </div>
@@ -190,14 +203,26 @@
                         <!--begin::Input group-->
                         <div class="row mb-6">
                             <!--begin::Label-->
+                            <label class="col-lg-4 col-form-label fw-semibold fs-6 required">Alamat Email</label>
+                            <!--end::Label-->
+                            <!--begin::Col-->
+                            <div class="col-lg-8 fv-row" id="req_email">
+                                <input type="email" name="email" onkeyup="cek_email(this)" class="form-control form-control-lg form-control-solid" placeholder="Alamat email" value="<?= $result->email; ?>" autocomplete="off" />
+                                 <input type="hidden" id="def_email" value="<?= $result->email; ?>" />
+                            </div>
+                            <!--end::Col-->
+                        </div>
+                        <!--end::Input group-->
+                        <!--begin::Input group-->
+                        <div class="row mb-6">
+                            <!--begin::Label-->
                             <label class="col-lg-4 col-form-label required fw-semibold fs-6">Nomor Handphone</label>
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8 fv-row" id="req_notelp">
                                 <div class="input-group">
                                     <span class="input-group-text">+62</span>
-                                    <input type="number" name="notelp" onkeyup="cek_notelp(this)" id="nomor" class="form-control  mb-3 mb-lg-0"  placeholder="Masukkan nomor telepon" value="<?= $result->notelp; ?>" autocomplete="off" >
-                                    <input type="hidden" id="def_notelp" value="<?= $result->notelp; ?>" />
+                                    <input type="number" name="notelp" id="nomor" class="form-control  mb-3 mb-lg-0"  placeholder="Masukkan nomor telepon" value="<?= $result->notelp; ?>" autocomplete="off" >
                                 </div>
                             </div>
                             <!--end::Col-->

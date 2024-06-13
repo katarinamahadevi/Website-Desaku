@@ -1,20 +1,22 @@
-
+var image = document.getElementById('display_gambar');
 $(function () {
 
-    $('.hps_foto').on('click', function () {
+    $('.hps_gambar').on('click', function () {
         // console.log('hapus');
-        $('input[name=nama_foto]').val("");
+        $('input[name=nama_gambar]').val("");
     });
 
 });
 
 
-function edit_agen(element, id) {
-    var form = document.getElementById('form_agen');
-    $('#title_modal').text('Ubah Data Agen');
-    form.setAttribute('action', BASE_URL + 'master_function/ubah_agen');
+function edit_pengurus(element, id) {
+    
+    var gambar = $(element).data('image');
+    var form = document.getElementById('form_pengurus');
+    $('#title_modal').text('Ubah Data Pengurus');
+    form.setAttribute('action', BASE_URL + 'pengurus_function/ubah_pengurus');
     $.ajax({
-        url: BASE_URL + 'master/get_single_agen',
+        url: BASE_URL + 'pengurus/get_single_pengurus',
         method: 'POST',
         data: { id: id },
         dataType: 'json',
@@ -22,27 +24,39 @@ function edit_agen(element, id) {
             // console.log('loading...')
         },
         success: function (data) {
-            $('input[name="id_agen"]').val(data.id_agen);
-            $('input[name="nama"]').val(data.nama);
-            $('input[name="latitude"]').val(data.latitude);
-            $('input[name="longitude"]').val(data.longitude);
-            $('textarea[name="alamat"]').val(data.alamat);
-            
-            
+            image.style.backgroundImage = "url('" + gambar + "')";
+            var reason = '';
+            if (data.pengurus.block_reason) {
+                reason = '</br>Alasan : ' + data.pengurus.block_reason;
+            }
+            if (data.pengurus.block == 'Y') {
+                $('#lead').html('<div class="alert alert-danger d-flex justify-content-between" role="alert"><div class="col-6">\
+                    pengurus telah di block!'+ reason + '</div><div class="col-6 d-flex justify-content-end"><div class="form-check form-switch">\
+                    <input class="form-check-input cursor-pointer" type="checkbox" role="switch" onchange ="switch_block(this,event,'+ id + ',true)" id="switch-on-' + id + '" checked ></div></div>\
+                        </div>');
+            } else {
+                $('#lead').html('');
+            }
+            $('input[name="id_pengurus"]').val(data.pengurus.id_pengurus);
+            console.log(data.pengurus.id_pengurus);
+            $('input[name="nama"]').val(data.pengurus.nama);
+            $('input[name="nama_gambar"]').val(data.pengurus.gambar);
+            $('select[name="id_jabatan"]').val(data.pengurus.id_jabatan);
+            $('select[name="id_jabatan"]').trigger('change');
         }
     })
 }
 
-function tambah_agen() {
-    var form = document.getElementById('form_agen');
-    form.setAttribute('action', BASE_URL + 'master_function/tambah_agen');
-    $('#title_modal').text('Tambah Agen');
-    $('#form_agen input').val('');
-    $('#form_agen select').val('');
-
-    $('#form_agen select').trigger('change');
-    $('#form_agen textarea').val('');
+function tambah_pengurus() {
+    var form = document.getElementById('form_pengurus');
+    form.setAttribute('action', BASE_URL + 'pengurus_function/tambah_pengurus');
+    $('#title_modal').text('Tambah Pengurus');
+    $('#form_pengurus input').val('');
+    $('#form_pengurus select').val('');
+    $('#form_pengurus select').trigger('change');
+    image.style.backgroundImage = "url('" + image_default + "')";
 }
+
 
 function switch_block(element, e, id, two = false) {
     // console.log(two);
@@ -52,12 +66,12 @@ function switch_block(element, e, id, two = false) {
     if ($(element).is(':checked')) {
         var value = 'Y';
         var type = false;
-        var message = 'Anda yakin akan membuka blockir pada rekening ini? Selanjutnya rekening akan bisa mengakses sistem';
-        
+        var message = 'Anda yakin akan membuka blockir pada pengurus ini? Selanjutnya pengurus akan bisa mengakses sistem';
     } else {
         var value = 'N';
         var type = "textarea";
-        var message = 'Anda yakin akan melakukan blockir pada rekening ini? rekening tidak akan bisa mengakses sistem';
+        var message = 'Anda yakin akan melakukan blockir pada pengurus ini? pengurus tidak akan bisa mengakses sistem';
+        
     }
     Swal.fire({
         text: message,
@@ -80,7 +94,7 @@ function switch_block(element, e, id, two = false) {
         if (t.isConfirmed) {
             var reason = $('textarea[name=block_reason]').val();
             $.ajax({
-                url: BASE_URL + 'master_function/switch_agen',
+                url: BASE_URL + 'pengurus_function/block_pengurus/pengurus',
                 method: 'POST',
                 data: { id: id, action: value, reason: reason },
                 cache: false,
@@ -156,24 +170,4 @@ function switch_block(element, e, id, two = false) {
         }
     }));
 
-}
-
-
-function map_agen(lat, long) {
-    $('#map_agen').html('');
-    $('#map_agen').html('<iframe src="https://maps.google.com/maps?q='+lat+','+long+'&hl=en;z=14&output=embed" class="h-190 w-100 rounded shadow-sm" allowfullscreen="" loading="lazy"></iframe>');
-}
-
-function tambah_pengepul(element,id_agen) {
-    $.ajax({
-        url: BASE_URL + 'master/get_single_pengepul',
-        method: 'POST',
-        data: { id: id_agen},
-        cache: false,
-        success: function (msg) {
-            $('#display_pengepul').html(msg);
-        }
-    })
-    
-    
 }

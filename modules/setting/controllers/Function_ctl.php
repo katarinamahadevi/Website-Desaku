@@ -9,15 +9,16 @@ class Function_ctl extends MY_Admin
     {
         // Load the constructer from MY_Controller
         parent::__construct();
-        $this->id_role = $this->session->userdata('hpalnickel_id_role');
-        $this->id_user = $this->session->userdata('hpalnickel_id_user');
-        $this->nama = $this->session->userdata('hpalnickel_nama');
+        $this->id_role = $this->session->userdata(PREFIX_SESSION.'_id_role');
+        $this->id_user = $this->session->userdata(PREFIX_SESSION.'_id_user');
+        $this->nama = $this->session->userdata(PREFIX_SESSION.'_nama');
     }
 
     public function update()
     {
         // VARIABEL
         $arrVar['nama']             = 'Nama karyawan';
+        $arrVar['email']            = 'Alamat email';
         $arrVar['notelp']           = 'Nomor telepon';
 
         // INFORMASI UMUM
@@ -37,9 +38,16 @@ class Function_ctl extends MY_Admin
         $password = $this->input->post('password');
         $new_password = $this->input->post('new_password');
         $repassword = $this->input->post('repassword');
-        
+        $nama_foto = $this->input->post('nama_foto');
 
-        if ($result->notelp != $notelp) {
+        if ($result->email != $email) {
+            $cek_email = $this->action_m->get_single('user', ['email' => $email]);
+            if ($cek_email) {
+                $data['status'] = false;
+                $data['alert']['message'] = 'Alamat email sudah terdaftar!';
+                echo json_encode($data);
+                exit;
+            }   
             if (!$password) {
                 $data['required'][] = ['req_password', 'Kata sandi tidak boleh kosong ! Karena email berubah'];
                 $arrAccess[] = false;
@@ -54,7 +62,6 @@ class Function_ctl extends MY_Admin
                 $arrAccess[] = false;
             }     
         }
-        $nama_foto = $this->input->post('nama_foto');
         if (!in_array(false, $arrAccess)) {
             if (!empty($_FILES['foto']['tmp_name'])) {
                 $foto = $_FILES['foto'];
@@ -78,14 +85,21 @@ class Function_ctl extends MY_Admin
                 } else {
                     $data_user = array('upload_data' => $this->upload->data());
                     $post['foto'] = $data_user['upload_data']['file_name'];
-                    $arrSession['hpalnickel_foto'] = $data_user['upload_data']['file_name'];
+                    $arrSession[PREFIX_SESSION.'_foto'] = $data_user['upload_data']['file_name'];
                     if ($nama_foto) {
                         unlink($tujuan.$nama_foto);
                     }
                 }
             }
+            if (!validasi_email($email)) {
+                $data['status'] = false;
+                $data['alert']['message'] = 'Alamat email tidak valid!';
+                echo json_encode($data);
+                exit;
+            }
+
             if ($result->notelp != $notelp) {
-                $cek_notelp = $this->action_m->get_single('user', ['notelp' => $notelp,'id_user != ' => $this->id_user]);
+                $cek_notelp = $this->action_m->get_single('user', ['notelp' => $notelp]);
                 if ($cek_notelp) {
                     $data['status'] = false;
                     $data['alert']['message'] = 'Nomor telepon sudah terdaftar!';
@@ -93,17 +107,16 @@ class Function_ctl extends MY_Admin
                     exit;
                 }
             }
-            $post['notelp'] = $notelp;
 
             if ($password) {
-                if (hash_my_password($result->notelp.$password) == $result->password) {
+                if (hash_my_password($result->email.$password) == $result->password) {
                     if ($new_password != $repassword) {
                         $data['status'] = false;
                         $data['alert']['message'] = 'Konfirmasi password tidak sesuai!';
                         echo json_encode($data);
                         exit;
                     } else {
-                        $post['password'] = hash_my_password($notelp . $new_password);
+                        $post['password'] = hash_my_password($email . $new_password);
                     }
                 }else{
                     $data['status'] = false;
@@ -115,8 +128,8 @@ class Function_ctl extends MY_Admin
             }
             $update = $this->action_m->update('user', $post, ['id_user' => $id_user]);
             if ($update) {
-                $arrSession['hpalnickel_nama'] = $nama;
-                $arrSession['hpalnickel_notelp'] = $notelp;
+                $arrSession[PREFIX_SESSION.'_nama'] = $nama;
+                $arrSession[PREFIX_SESSION.'_email'] = $email;
                 $this->session->set_userdata($arrSession);
                 $data['status'] = true;
                 $data['alert']['message'] = 'Data profil berhasil di rubah!';
@@ -139,8 +152,10 @@ class Function_ctl extends MY_Admin
     public function setup()
     {
         // VARIABEL
+        $arrVar['email']                         = 'Alamat email';
         $arrVar['phone_admin']                   = 'Nomor admin';
         $arrVar['phone_cs']                      = 'Nomor customer service';
+        $arrVar['batas_waktu_pembayaran']        = 'Batas waktu pembayaran';
 
         // INFORMASI UMUM
         foreach ($arrVar as $var => $value) {
@@ -155,19 +170,16 @@ class Function_ctl extends MY_Admin
         }
 
         $tentang_kami = $this->input->post('tentang_kami');
+        $link_grub = $this->input->post('link_grub');
+        $link_youtube = $this->input->post('link_youtube');
         $text_wa = $this->input->post('text_wa');
-        $landing_text = $this->input->post('landing_text');
-        $kode_pendaftaran = $this->input->post('kode_pendaftaran');
-        $jaminan_keamanan = $this->input->post('jaminan_keamanan');
-        $logo_ojk = $this->input->post('logo_ojk');
-        $logo_ojk = ($logo_ojk != 'Y') ? 'N' : 'Y';
-
+        $text_cs = $this->input->post('text_cs');
+        
         $post['tentang_kami'] = trim($tentang_kami);
-        $post['landing_text'] = trim($landing_text);
+        $post['link_grub'] = trim($link_grub);
+        $post['link_youtube'] = trim($link_youtube);
         $post['text_wa'] = trim($text_wa);
-        $post['logo_ojk'] = trim($logo_ojk);
-        $post['kode_pendaftaran'] = trim($kode_pendaftaran);
-        $post['jaminan_keamanan'] = trim($jaminan_keamanan);
+        $post['text_cs'] = trim($text_cs);
 
         if (!in_array(false, $arrAccess)) {
             $nama_logo = $this->input->post('nama_logo');
@@ -199,9 +211,7 @@ class Function_ctl extends MY_Admin
                 } else {
                     $data_logo = array('upload_data' => $this->upload->data());
                     $post['logo'] = $data_logo['upload_data']['file_name'];
-                    if ($nama_logo) {
-                        unlink($tujuan.$nama_logo);
-                    }
+                    unlink($tujuan . $nama_logo);
                 }
             }else{
                 if ($nama_logo == '') {
@@ -241,9 +251,7 @@ class Function_ctl extends MY_Admin
                 } else {
                     $data_icon = array('upload_data' => $this->upload->data());
                     $post['icon'] = $data_icon['upload_data']['file_name'];
-                    if ($nama_icon) {
-                        unlink($tujuan2.$nama_icon);
-                    }
+                    unlink($tujuan2 . $nama_icon);
                 }
             }else{
                 if ($nama_icon == '') {
@@ -255,26 +263,26 @@ class Function_ctl extends MY_Admin
             }
 
 
-            $nama_landing_image = $this->input->post('nama_landing_image');
-            if (!empty($_FILES['landing_image']['tmp_name'])) {
+            $nama_gambar_cs = $this->input->post('nama_gambar_cs');
+            if (!empty($_FILES['gambar_cs']['tmp_name'])) {
                 if (!file_exists('/data/')) {
                     mkdir('/data/');
                 }
                 if (!file_exists('../data/setting/')) {
                     mkdir('/data/setting/');
                 }
-                $landing_image = $_FILES['landing_image'];
+                $gambar_cs = $_FILES['gambar_cs'];
                 $tujuan3 = './data/setting/';
                 $config3['upload_path'] = $tujuan3;
-                $config3['allowed_types'] = 'png|PNG|jpg|JPG|jpeg|JPEG|svg|SVG';
+                $config3['allowed_types'] = 'png|PNG';
                 $config3['file_name'] = uniqid();
                 $config3['file_ext_tolower'] = true;
 
                 $this->load->library('upload', $config3);
 
-                $data_landing_image = [];
+                $data_gambar_cs = [];
 
-                if (!$this->upload->do_upload('landing_image')) {
+                if (!$this->upload->do_upload('gambar_cs')) {
 
                     $error = $this->upload->display_errors();
                     $data['status'] = false;
@@ -282,12 +290,9 @@ class Function_ctl extends MY_Admin
                     echo json_encode($data);
                     exit;
                 } else {
-                    $data_landing_image = array('upload_data' => $this->upload->data());
-                    $post['landing_image'] = $data_landing_image['upload_data']['file_name'];
-                    if ($nama_landing_image) {
-                        unlink($tujuan3.$nama_landing_image);
-                    }
-                    
+                    $data_gambar_cs = array('upload_data' => $this->upload->data());
+                    $post['gambar_cs'] = $data_gambar_cs['upload_data']['file_name'];
+                    unlink($tujuan3 . $nama_gambar_cs);
                 }
             }
             
@@ -308,87 +313,6 @@ class Function_ctl extends MY_Admin
         echo json_encode($data);
         exit;
         
-    }
-
-
-    public function upload_banner()
-    {
-        if (!empty($_FILES['gambar']['tmp_name'])) {
-            if (!file_exists('/data/')) {
-                mkdir('/data/');
-            }
-            if (!file_exists('../data/banner/')) {
-                mkdir('/data/banner/');
-            }
-            $gambar = $_FILES['gambar'];
-            $tujuan = './data/banner/';
-            $config['upload_path'] = $tujuan;
-            $config['allowed_types'] = 'png|PNG|jpg|JPG|jpeg|JPEG';
-            $config['file_name'] = uniqid();
-            $config['file_ext_tolower'] = true;
-
-            $this->load->library('upload', $config);
-
-            $data_gambar = [];
-
-            if (!$this->upload->do_upload('gambar')) {
-
-                $error = $this->upload->display_errors();
-                $data['status'] = false;
-                $data['alert']['message'] = $error;
-                echo json_encode($data);
-                exit;
-            } else {
-                $data_gambar = array('upload_data' => $this->upload->data());
-                $post['gambar'] = $data_gambar['upload_data']['file_name'];
-                $insert = $this->action_m->insert('banner',$post);
-                if ($insert) {
-                    $data['load'][0]['parent'] = '#base_table';
-                    $data['load'][0]['reload'] = base_url('setting #reload_table');
-                    $data['status'] = true;
-                    $data['alert']['message'] = 'Banner berhasil di tambahkan';
-                    echo json_encode($data);
-                    exit;
-                }else{
-                    $data['status'] = false;
-                    $data['alert']['message'] = 'Banner gagal di tambahkan';
-                    echo json_encode($data);
-                    exit;
-                }
-            }
-        }else{
-            $data['status'] = false;
-            $data['alert']['message'] = 'Banner tidak boleh kosong!';
-            echo json_encode($data);
-            exit;
-        }
-    }
-
-
-    public function hapus_banner()
-    {
-        $id = $this->input->post('id');
-        $res = $this->action_m->get_single('banner',['id_banner' => $id]);
-        if ($res) {
-            $hapus = $this->action_m->delete('banner', ['id_banner' => $id]);
-            if ($hapus) {
-                $data['status'] = 200;
-                $data['alert']['icon'] = 'success';
-                $data['alert']['message'] = 'Data banner berhasil dihapus';
-            } else {
-                $data['status'] = 500;
-                $data['alert']['icon'] = 'warning';
-                $data['alert']['message'] = 'Data banner gagal dihapus! Coba lagi nanti atau laporkan';
-            }
-        }else{
-            $data['status'] = 500;
-            $data['alert']['icon'] = 'warning';
-            $data['alert']['message'] = 'Data banner tidak ditemukan';
-        }
-        
-
-        echo json_encode($data);
-        exit;
     }
 
 }

@@ -168,7 +168,7 @@ class Auth_ctl extends MY_User
                         $this->session->set_userdata($arrSession);
 
                         $data['status'] = 200;
-                        $data['alert']['message'] = 'Data sesuai! Selamat datang ' . get_role($result->role) . ' ' . $result->nama;
+                        $data['alert']['message'] = 'Data sesuai! Selamat datang ' . $result->nama;
                         if ($result->role < 3) {
                             $data['redirect'] = base_url('dashboard');
                         }else{
