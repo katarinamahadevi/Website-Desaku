@@ -224,15 +224,15 @@
 
 <!-- Modal Detail Berita -->
 <div class="modal fade" id="modalDetailBerita" tabindex="-1" aria-labelledby="modalDetailBeritaLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content" style="border-radius: 15px;">
             <div class="modal-header">
                 <h1 class="modal-title fs-4 mb-0" id="modalDetailBeritaLabel">Detail Berita</h1>
             </div>
             <div class="modal-body px-4 py-3" style="width: 100%;">
                 <div class="row">
-                    <div class="col-xl-7">
-                        <div style="overflow-y: scroll; height: 500px;">
+                    <div class="col-xl-12">
+                        <div>
                             <div class=" me-2">
                                 <img src="<?= base_url('assets/user/') ?>img/blog-1.jpg" alt="Image" style="width: 100%; height: 250px;">
                             </div>
@@ -253,9 +253,9 @@
                         </div>
                     </div>
 
-                    <div class="col-xl-5">
+                    <div class="col-xl-12">
                         <div>
-                            <h5 class="mb-2">Kesan & Pesan untuk DESAKU</h5>
+                            <h5 class="my-2">Kesan & Pesan untuk DESAKU</h5>
                             <form action="">
                                 <div class="mb-3">
                                     <label for="" class="form-label required">Nama Lengkap</label>
@@ -276,6 +276,26 @@
                                     <button type="submit" class="btn-hover-bg btn btn-primary fw-normal text-white py-2" style="width: 225px;">Kirim</button>
                                 </div>
                             </form>
+                        </div>
+                        <div>
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-between">
+                                        <h5 class="mb-3">Pengguna 1</h5>
+                                        <p class="fst-italic fw-light">2 hari lalu</p>
+                                    </div>
+                                    <p class="fs-6 mb-0">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi, praesentium ea nulla iste optio eaque odit ut aspernatur repellat eligendi deleniti quis adipisci sit sint obcaecati cumque magni quam ducimus.</p>
+                                </div>
+                            </div>
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-between">
+                                        <h5 class="mb-3">Pengguna 2</h5>
+                                        <p class="fst-italic fw-light">2 hari lalu</p>
+                                    </div>
+                                    <p class="fs-6 mb-0">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi, praesentium ea nulla iste optio eaque odit ut aspernatur repellat eligendi deleniti quis adipisci sit sint obcaecati cumque magni quam ducimus.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
