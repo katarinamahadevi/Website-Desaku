@@ -415,66 +415,65 @@
                     <div class="wrapper">
                         <i id="left" class="fa-solid fa-angle-left"></i>
                         <ul class="carousel">
-                            <li class="card">
+                            <li class="card_slider">
                                 <div class="img"><img src="<?= base_url('assets/user/')?>img/produk/kepala_desa.jpg" alt="img" draggable="false"></div>
                                 <h2>Ismail bin Mail</h2>
                                 <span>Kepala Desa</span>
                             </li>
-                            <li class="card">
+                            <li class="card_slider">
                                 <div class="img"><img src="<?= base_url('assets/user/')?>img/produk/bpd_desa.jpg" alt="img" draggable="false"></div>
                                 <h2>Doni sunandar</h2>
                                 <span>BPD</span>
                             </li>
-                                <li class="card">
+                                <li class="card_slider">
                                 <div class="img"><img src="<?= base_url('assets/user/')?>img/produk/sekretaris_desa.jpg" alt="img" draggable="false"></div>
                                 <h2>Dina iskandar</h2>
                                 <span>Sekretaris Desa</span>
                             </li>
 
-                            <li class="card">
+                            <li class="card_slider">
                                 <div class="img"><img src="<?= base_url('assets/user/')?>img/produk/kepala_desa.jpg" alt="img" draggable="false"></div>
                                 <h2>Baim William</h2>
                                 <span>Kasi Pemerintaha</span>
                             </li>
-                            <li class="card">
+                            <li class="card_slider">
                                 <div class="img"><img src="<?= base_url('assets/user/')?>img/produk/bpd_desa.jpg" alt="img" draggable="false"></div>
                                 <h2>Agam Adinata</h2>
                                 <span>Kasi Kesejahteraan</span>
                             </li>
-                                <li class="card">
+                                <li class="card_slider">
                                 <div class="img"><img src="<?= base_url('assets/user/')?>img/produk/sekretaris_desa.jpg" alt="img" draggable="false"></div>
                                 <h2>Apta Aradhana</h2>
                                 <span>Kasi Pelayanan</span>
                             </li>
                             
-
-                            <li class="card">
+                            <li class="card_slider">
                                 <div class="img"><img src="<?= base_url('assets/user/')?>img/produk/kepala_desa.jpg" alt="img" draggable="false"></div>
                                 <h2>Guntur Guritno</h2>
                                 <span>Kaur Tata Usaha dan Umu</span>
                             </li>
-                            <li class="card">
+                            <li class="card_slider">
                                 <div class="img"><img src="<?= base_url('assets/user/')?>img/produk/bpd_desa.jpg" alt="img" draggable="false"></div>
                                 <h2>Hamdan Hanafi</h2>
                                 <span>Kaur Keuangan</span>
                             </li>
-                                <li class="card">
+                                <li class="card_slider">
                                 <div class="img"><img src="<?= base_url('assets/user/')?>img/produk/sekretaris_desa.jpg" alt="img" draggable="false"></div>
                                 <h2>Haira Hanasta</h2>
                                 <span>Kaur Perencanaan</span>
                             </li>
 
-                            <li class="card">
+                            <li class="card_slider">
                                 <div class="img"><img src="<?= base_url('assets/user/')?>img/produk/kepala_desa.jpg" alt="img" draggable="false"></div>
                                 <h2>Indra Ismoyono</h2>
                                 <span>Kepala Dusun 1</span>
                             </li>
-                            <li class="card">
+                            <li class="card_slider">
                                 <div class="img"><img src="<?= base_url('assets/user/')?>img/produk/bpd_desa.jpg" alt="img" draggable="false"></div>
                                 <h2>Joko Jumantor</h2>
                                 <span>Kepala Dusun II</span>
                             </li>
-                                <li class="card">
+                                <li class="card_slider">
                                 <div class="img"><img src="<?= base_url('assets/user/')?>img/produk/sekretaris_desa.jpg" alt="img" draggable="false"></div>
                                 <h2>Jenar Juwita</h2>
                                 <span>Kepala Desa II</span>
