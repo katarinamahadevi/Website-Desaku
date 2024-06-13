@@ -197,7 +197,7 @@
                                                         <span class="menu-bullet">
                                                             <span class="bullet bullet-dot"></span>
                                                         </span>
-                                                        <span class="offit menu-title  <?= set_submenu_active($this->uri->segment(1), ['wisata'], $this->uri->segment(2), ['fasilitas']) ?>">Villa</span>
+                                                        <span class="offit menu-title  <?= set_submenu_active($this->uri->segment(1), ['wisata'], $this->uri->segment(2), ['fasilitas']) ?>">Fasilitas</span>
                                                     </a>
                                                     <!--end:Menu link-->
                                                 </div>

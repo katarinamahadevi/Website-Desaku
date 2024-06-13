@@ -1,22 +1,13 @@
-var image = document.getElementById('display_gambar');
-$(function () {
-
-    $('.hps_gambar').on('click', function () {
-        // console.log('hapus');
-        $('input[name=nama_gambar]').val("");
-    });
-
-});
 
 
-function edit_pengurus(element, id) {
+
+function edit_jabatan(element, id) {
     
-    var gambar = $(element).data('image');
-    var form = document.getElementById('form_pengurus');
-    $('#title_modal').text('Ubah Data Pengurus');
-    form.setAttribute('action', BASE_URL + 'pengurus_function/ubah_pengurus');
+    var form = document.getElementById('form_jabatan');
+    $('#title_modal').text('Ubah Data Jabatan');
+    form.setAttribute('action', BASE_URL + 'pengurus_function/ubah_jabatan');
     $.ajax({
-        url: BASE_URL + 'pengurus/get_single_pengurus',
+        url: BASE_URL + 'pengurus/get_single_jabatan',
         method: 'POST',
         data: { id: id },
         dataType: 'json',
@@ -24,37 +15,19 @@ function edit_pengurus(element, id) {
             // console.log('loading...')
         },
         success: function (data) {
-            image.style.backgroundImage = "url('" + gambar + "')";
-            var reason = '';
-            if (data.pengurus.block_reason) {
-                reason = '</br>Alasan : ' + data.pengurus.block_reason;
-            }
-            if (data.pengurus.status == 'N') {
-                $('#lead').html('<div class="alert alert-danger d-flex justify-content-between" role="alert"><div class="col-6">\
-                    pengurus telah di block!'+ reason + '</div><div class="col-6 d-flex justify-content-end"><div class="form-check form-switch">\
-                    <input class="form-check-input cursor-pointer" type="checkbox" role="switch" onchange ="switch_block(this,event,'+ id + ',true)" id="switch-on-' + id + '" checked ></div></div>\
-                        </div>');
-            } else {
-                $('#lead').html('');
-            }
-            $('input[name="id_pengurus"]').val(data.pengurus.id_pengurus);
-            console.log(data.pengurus.id_pengurus);
-            $('input[name="nama"]').val(data.pengurus.nama);
-            $('input[name="nama_gambar"]').val(data.pengurus.gambar);
-            $('select[name="id_jabatan"]').val(data.pengurus.id_jabatan);
-            $('select[name="id_jabatan"]').trigger('change');
+            $('input[name="id_jabatan"]').val(data.jabatan.id_jabatan);
+            $('input[name="nama"]').val(data.jabatan.nama);
         }
     })
 }
 
-function tambah_pengurus() {
-    var form = document.getElementById('form_pengurus');
-    form.setAttribute('action', BASE_URL + 'pengurus_function/tambah_pengurus');
-    $('#title_modal').text('Tambah Pengurus');
-    $('#form_pengurus input').val('');
-    $('#form_pengurus select').val('');
-    $('#form_pengurus select').trigger('change');
-    image.style.backgroundImage = "url('" + image_default + "')";
+function tambah_jabatan() {
+    var form = document.getElementById('form_jabatan');
+    form.setAttribute('action', BASE_URL + 'pengurus_function/tambah_jabatan');
+    $('#title_modal').text('Tambah Jabatan');
+    $('#form_jabatan input').val('');
+    $('#form_jabatan select').val('');
+    $('#form_jabatan select').trigger('change');
 }
 
 
@@ -65,13 +38,12 @@ function switch_block(element, e, id, two = false) {
     const icon = 'question';
     if ($(element).is(':checked')) {
         var value = 'Y';
-        var type = false;
-        var message = 'Anda yakin akan membuka blockir pada pengurus ini? Selanjutnya pengurus akan bisa mengakses sistem';
+        var type = "textarea";
+        var message = 'Anda yakin akan membuka blockir pada jabatan ini? Selanjutnya jabatan akan bisa mengakses sistem ';
     } else {
         var value = 'N';
-        var type = "textarea";
-        var message = 'Anda yakin akan melakukan blockir pada pengurus ini? pengurus tidak akan bisa mengakses sistem';
-        
+        var type = false;
+        var message = 'Anda yakin akan membuka blockir pada jabatan ini? jabatan tidak akan bisa mengakses sistem';
     }
     Swal.fire({
         text: message,
@@ -94,7 +66,7 @@ function switch_block(element, e, id, two = false) {
         if (t.isConfirmed) {
             var reason = $('textarea[name=block_reason]').val();
             $.ajax({
-                url: BASE_URL + 'pengurus_function/block_pengurus/pengurus',
+                url: BASE_URL + 'pengurus_function/block_jabatan/jabatan',
                 method: 'POST',
                 data: { id: id, action: value, reason: reason },
                 cache: false,

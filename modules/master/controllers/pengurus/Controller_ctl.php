@@ -30,7 +30,7 @@ class Controller_ctl extends MY_Admin
         $this->data['title'] = 'Data Jabatan';
         // LOAD JS
         $this->data['js_add'][] = '<script>var page = "pengurus/jabatan"</script>';
-        $this->data['js_add'][] = '<script src="' . base_url() . 'assets/admin/js/modul/master/pengurus/pengurus.js"></script>';
+        $this->data['js_add'][] = '<script src="' . base_url() . 'assets/admin/js/modul/master/pengurus/jabatan.js"></script>';
 
         // LOAD DATA
         $limit = 5;
