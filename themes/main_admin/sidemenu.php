@@ -137,19 +137,6 @@
                                     <!--end:Menu link-->
                                 </a>
                                 <!--end:Menu item-->
-
-                                <!--begin:Menu item-->
-                                <a href="<?= base_url('penarikan'); ?>" class="menu-item here show menu-accordion">
-                                    <!--begin:Menu link-->
-                                    <span class="menu-link <?= (in_array($this->uri->segment(1), ['penarikan'])) ? 'active' : ''; ?>">
-                                        <span class="menu-icon">
-                                            <i class="fa-solid fa-money-bill-transfer fs-2"></i>
-                                        </span>
-                                        <span class="menu-title">Penarikan</span>
-                                    </span>
-                                    <!--end:Menu link-->
-                                </a>
-                                <!--end:Menu item-->
                                 
                                 <!--begin:Menu item-->
                                 <div data-kt-menu-trigger="click" class="menu-item menu-accordion hover show">
@@ -183,7 +170,7 @@
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
-                                                <span class="menu-title">Data Proyek</span>
+                                                <span class="menu-title">Data Wisata</span>
                                             </span>
                                             <!--end:Menu link-->
                                         </a>
@@ -195,7 +182,75 @@
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
-                                                <span class="menu-title">Data Bank</span>
+                                                <span class="menu-title">Data Pengurus</span>
+                                            </span>
+                                            <!--end:Menu link-->
+                                        </a>
+                                        <!--end:Menu item-->
+                                        <!--begin:Menu item-->
+                                        <a href="<?= base_url('master/bank') ?>" class="menu-item menu-accordion <?= set_submenu_active($this->uri->segment(1), ['master'], $this->uri->segment(2), ['bank']) ?>">
+                                            <!--begin:Menu link-->
+                                            <span class="menu-link">
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span>
+                                                </span>
+                                                <span class="menu-title">Data Agenda</span>
+                                            </span>
+                                            <!--end:Menu link-->
+                                        </a>
+                                        <!--end:Menu item-->
+                                    
+
+                                    </div>
+                                    <!--end:Menu sub-->
+                                </div>
+                                <!--end:Menu item-->
+
+                                 <!--begin:Menu item-->
+                                <div data-kt-menu-trigger="click" class="menu-item menu-accordion hover show">
+                                    <!--begin:Menu link-->
+                                    <span class="menu-link <?= set_menu_active($this->uri->segment(1), ['cms']) ?>">
+                                        <span class="menu-icon">
+                                            <i class="ki-outline ki-gift fs-2"></i>
+                                        </span>
+                                        <span class="menu-title">CMS</span>
+                                        <span class="menu-arrow"></span>
+                                    </span>
+                                    <!--end:Menu link-->
+                                    <!--begin:Menu sub-->
+                                    <div class="menu-sub menu-sub-accordion">
+                                        <!--begin:Menu item-->
+                                        <a href="<?= base_url('master/user') ?>" class="menu-item menu-accordion <?= set_submenu_active($this->uri->segment(1), ['cms'], $this->uri->segment(2), ['user']) ?>">
+                                            <!--begin:Menu link-->
+                                            <span class="menu-link">
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span>
+                                                </span>
+                                                <span class="menu-title">Data Banner</span>
+                                            </span>
+                                            <!--end:Menu link-->
+                                        </a>
+                                        <!--end:Menu item-->
+                                        <!--begin:Menu item-->
+                                        <a href="<?= base_url('master/user') ?>" class="menu-item menu-accordion <?= set_submenu_active($this->uri->segment(1), ['cms'], $this->uri->segment(2), ['user']) ?>">
+                                            <!--begin:Menu link-->
+                                            <span class="menu-link">
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span>
+                                                </span>
+                                                <span class="menu-title">Data About</span>
+                                            </span>
+                                            <!--end:Menu link-->
+                                        </a>
+                                        <!--end:Menu item-->
+                                        <!--begin:Menu item-->
+                                        <a href="<?= base_url('master/proyek') ?>" class="menu-item menu-accordion <?= set_submenu_active($this->uri->segment(1), ['cms'], $this->uri->segment(2), ['proyek']) ?>">
+                                            <!--begin:Menu link-->
+                                            <span class="menu-link">
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span>
+                                                </span>
+                                                <span class="menu-title">Data Berita</span>
                                             </span>
                                             <!--end:Menu link-->
                                         </a>
@@ -228,34 +283,7 @@
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
-                                                <span class="menu-title">Laporan Top Up</span>
-                                            </span>
-                                            <!--end:Menu link-->
-                                        </a>
-                                        <!--end:Menu item-->
-
-                                        <!--begin:Menu item-->
-                                        <a href="<?= base_url('report/penarikan') ?>" class="menu-item menu-accordion <?= set_submenu_active($this->uri->segment(1), ['report'], $this->uri->segment(2), ['penarikan']) ?>">
-                                            <!--begin:Menu link-->
-                                            <span class="menu-link">
-                                                <span class="menu-bullet">
-                                                    <span class="bullet bullet-dot"></span>
-                                                </span>
-                                                <span class="menu-title">Laporan Penarikan</span>
-                                            </span>
-                                            <!--end:Menu link-->
-                                        </a>
-                                        <!--end:Menu item-->
-
-
-                                        <!--begin:Menu item-->
-                                        <a href="<?= base_url('report/investasi') ?>" class="menu-item menu-accordion <?= set_submenu_active($this->uri->segment(1), ['report'], $this->uri->segment(2), ['investasi']) ?>">
-                                            <!--begin:Menu link-->
-                                            <span class="menu-link">
-                                                <span class="menu-bullet">
-                                                    <span class="bullet bullet-dot"></span>
-                                                </span>
-                                                <span class="menu-title">Laporan Investasi</span>
+                                                <span class="menu-title">Laporan Pemesanan</span>
                                             </span>
                                             <!--end:Menu link-->
                                         </a>

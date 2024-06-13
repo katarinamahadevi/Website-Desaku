@@ -1,5 +1,5 @@
 <!-- Modal Daftar -->
-<div class="modal fade" id="modalDaftar" tabindex="-1" aria-labelledby="modalLoginLabel" aria-hidden="true">
+<div class="modal fade" id="modalDaftar" tabindex="-1" aria-labelledby="modalAuthLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content d-flex justify-content-center align-items-center py-2" style="border-radius: 15px;">
             <div class="modal-header d-flex flex-column border-0" style="width: 350px;">
@@ -55,11 +55,11 @@
 </div>
 
 <!-- Modal Daftar -->
-<div class="modal fade" id="modalLogin" tabindex="-1" aria-labelledby="modalLoginLabel" aria-hidden="true">
+<div class="modal fade" id="modalAuth" tabindex="-1" aria-labelledby="modalAuthLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content d-flex justify-content-center align-items-center py-2" style="border-radius: 15px;">
             <div class="modal-header d-flex flex-column border-0" style="width: 350px;">
-                <h1 class="modal-title fs-4 mb-0" id="modalLoginLabel">Masuk Sekarang</h1>
+                <h1 class="modal-title fs-4 mb-0" id="modalAuthLabel">Masuk Sekarang</h1>
                 <p class="text-center mb-0">Lengkapi data diri anda untuk bisa masuk ke dalam akun</p>
             </div>
             <form action="">

@@ -45,7 +45,7 @@ class Controller_ctl extends MY_Admin
         //     $paramsuser['columnsearch'][] = 'notelp';
         //     $paramsuser['search'] = $search;
         // }
-        // load_pagination('master/user', $limit, $jumlah);
+        load_pagination('master/user', $limit, $jumlah);
 
 
         $mydata['result'] = false;

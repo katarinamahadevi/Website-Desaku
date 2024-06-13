@@ -311,8 +311,8 @@ switch (ENVIRONMENT) {
 
     define('VIEWPATH', $view_folder.DIRECTORY_SEPARATOR);
 
-    define('MAINTITLE','NAMA APLIKASI');
-    define('PREFIX_SESSION','apk');
+    define('MAINTITLE','DESAKU');
+    define('PREFIX_SESSION','desaku');
 
 /*
  * --------------------------------------------------------------------

@@ -1,5 +1,5 @@
-<!-- Banner Start -->
-<section id="banner">
+<!-- Beranda Start -->
+<section id="beranda">
     <div class="container-fluid carousel-header vh-100 px-0">
         <div id="carouselId" class="carousel" data-bs-ride="">
             <ol class="carousel-indicators d-none">
@@ -62,7 +62,7 @@
         </div>
     </div>           
 </section>
-<!-- Banner End -->
+<!-- Beranda End -->
 
 <!-- Tentang Start -->
 <section id="tentang">
