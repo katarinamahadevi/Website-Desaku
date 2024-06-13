@@ -675,8 +675,8 @@ function validasi_email($email)
 function get_role($role = 0)
 {
   $arr[0] = 'role tidak di ketahui';
-  $arr[1] = 'developer';
-  $arr[2] = 'admin';
+  $arr[1] = 'admin';
+  $arr[2] = 'wisatator';
   $arr[3] = 'member';
 
   return $arr[$role];

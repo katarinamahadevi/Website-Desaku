@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed');
 
-class Function_ctl extends MY_Auth
+class Function_ctl extends MY_User
 {
     var $id_role = '';
     var $id_user = '';

@@ -86,9 +86,9 @@
 
 
 const wrapper = document.querySelector(".wrapper");
-const carousel = document.querySelector(".carousel");
+const carousel = document.querySelector("#struktural .carousel");
 const firstCardWidth = carousel.querySelector(".card").offsetWidth;
-const arrowBtns = document.querySelectorAll(".wrapper i");
+const arrowBtns = document.querySelectorAll(".prevnextcar");
 const carouselChildrens = [...carousel.children];
 
 let isDragging = false, isAutoPlay = true, startX, startScrollLeft, timeoutId;

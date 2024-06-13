@@ -1,82 +1,85 @@
 <!-- Modal Daftar -->
-<div class="modal fade" id="modalDaftar" tabindex="-1" aria-labelledby="modalAuthLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content d-flex justify-content-center align-items-center py-2" style="border-radius: 15px;">
-            <div class="modal-header d-flex flex-column border-0" style="width: 350px;">
-                <h1 class="modal-title fs-4 mb-0" id="modalDaftarLabel">Daftar Sekarang</h1>
-                <p class="text-center mb-0">Lengkapi data diri anda untuk bisa mendaftarkan akun</p>
-            </div>
-            <form action="">
-                <div class="modal-body section">
-                    <div class="mb-3">
-                        <label for="" class="form-label required">Nama Lengkap</label>
-                        <input type="text" class="form-control form-control-solid py-2" id="" placeholder="Masukkkan nama lengkap" autocomplete="off">
-                    </div>
-                    <div class="mb-3">
-                        <label for="" class="form-label required">Alamat Lengkap</label>
-                        <input type="text" class="form-control form-control-solid py-2" id="" placeholder="Masukkkan alamat lengkap" autocomplete="off">
-                    </div>
-                    <div class="mb-3">
-                        <label for="" class="form-label required">Nomor Telepon</label>
-                        <div class="input-group flex-nowrap">
-                            <span class="input-group-text" id="">+62</span>
-                            <input type="number" class="form-control form-control-solid no-hp py-2" placeholder="Masukkan nomor telepon" autocomplete="">
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="" class="form-label required">Email</label>
-                        <input type="email" class="form-control form-control-solid py-2" id="" placeholder="Masukkkan email" autocomplete="off">
-                    </div>
-                    <div class="mb-3">
-                        <label for="" class="form-label required">Kata Sandi</label>
-                        <input type="password" class="form-control form-control-solid py-2" id="" placeholder="Masukkkan kata sandi" autocomplete="off">
-                    </div>
-                    <div class="mb-3">
-                        <label for="" class="form-label required">Konfirmasi Kata Sandi</label>
-                        <input type="password" class="form-control form-control-solid py-2" id="" placeholder="Konfirmasi kata sandi" autocomplete="off">
-                    </div>
-                    <div class="mb-3">
-                        <label for="" class="form-label required">Pilih Hak Akses</label>
-                        <select class="form-select form-select py-2">
-                            <option selected>Pilih hak akses</option>
-                            <option value="1">Admin</option>
-                            <option value="2">User</option>
-                            <option value="3">Pengelola Wisata</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="modal-footer d-flex justify-content-center align-items-center flex-column border-0">
-                    <button type="button" class="btn-hover-bg btn btn-primary fw-normal text-white py-2" style="width: 350px;">Daftar Sekarang</button>
-                    <p class="mb-0">Apakah anda sudah memiliki akun?</p><a href="#" class="fw-medium">Login Sekarang</a>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-
-<!-- Modal Daftar -->
 <div class="modal fade" id="modalAuth" tabindex="-1" aria-labelledby="modalAuthLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content d-flex justify-content-center align-items-center py-2" style="border-radius: 15px;">
+    <div id="modal_size" class="modal-dialog modal-dialog-centered">
+        <div class="modal-content d-flex justify-content-center align-items-center py-2 " style="border-radius: 15px;">
             <div class="modal-header d-flex flex-column border-0" style="width: 350px;">
                 <h1 class="modal-title fs-4 mb-0" id="modalAuthLabel">Masuk Sekarang</h1>
                 <p class="text-center mb-0">Lengkapi data diri anda untuk bisa masuk ke dalam akun</p>
+                <a role="button" class="absolute-modal-btn btn-close" data-bs-dismiss="modal" aria-label="Close"></a>
             </div>
-            <form action="">
-                <div class="modal-body section">
-                    <div class="mb-3">
-                        <label for="" class="form-label required">Email</label>
-                        <input type="email" class="form-control form-control-solid py-2" id="" placeholder="Masukkkan email" autocomplete="off">
+            <form id="auth_path" method="POST">
+                <div id="login" class="form-responsiv-sign showin">
+                    <div class="modal-body section">
+                        <div class="mb-3" id="req_login_email">
+                            <label for="login_email" class="form-label required">Email</label>
+                            <input type="email" name="email_login" class="form-control form-control-solid py-2" id="login_email" placeholder="Masukkkan email" autocomplete="off">
+                        </div>
+                        <div class="mb-3" id="req_login_password">
+                            <label for="login_password" class="form-label required">Kata Sandi</label>
+                            <input type="password" name="password_login" class="form-control form-control-solid py-2" id="login_password" placeholder="Masukkkan kata sandi" autocomplete="off">
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="" class="form-label required">Kata Sandi</label>
-                        <input type="password" class="form-control form-control-solid py-2" id="" placeholder="Masukkkan kata sandi" autocomplete="off">
+                    <div class="modal-footer d-flex justify-content-center align-items-center flex-column border-0">
+                        <button type="button" id="button_regis" onclick="submit_form(this,'#auth_path',0,'',false,false,'','<?= base_url('auth_function/login'); ?>')" class="btn-hover-bg btn btn-primary fw-normal text-white py-2" style="width: 350px;">Masuk</button>
+                        <p class="mb-0">Apakah anda belum memiliki akun?</p><a role="button" onclick="auth_path('regis')" class="fw-medium">Daftar Sekarang</a>
                     </div>
                 </div>
-                <div class="modal-footer d-flex justify-content-center align-items-center flex-column border-0">
-                    <button type="button" class="btn-hover-bg btn btn-primary fw-normal text-white py-2" style="width: 350px;">Masuk Sekarang</button>
-                    <p class="mb-0">Apakah anda belum memiliki akun?</p><a href="#" class="fw-medium">Daftar Sekarang</a>
+                <div id="regis" class="hidin">
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-12 mb-3" id="req_regis_nama">
+                                <label for="regis_nama" class="form-label required">Nama Lengkap</label>
+                                <input type="text" name="nama" class="form-control form-control-solid py-2" id="regis_nama" placeholder="Masukkkan nama lengkap" autocomplete="off" style="width : 100%;">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="mb-3 col-xl-6" id="req_regis_notelp">
+                                <label for="regis_notelp" class="form-label required">Nomor Telepon</label>
+                                <div class="input-group flex-nowrap">
+                                    <span class="input-group-text">+62</span>
+                                    <input type="number" name="notelp" id="regis_notelp" class="form-control form-control-solid no-hp py-2" placeholder="Masukkan nomor telepon" autocomplete="">
+                                </div>
+                            </div>
+
+                            <div class="mb-3 col-xl-6" id="req_regis_email">
+                                <label for="regis_email" class="form-label required">Email</label>
+                                <input type="email" name="email" class="form-control form-control-solid py-2" id="regis_email" placeholder="Masukkkan email" autocomplete="off">
+                            </div>
+
+                        </div>
+                        
+                        <div class="mb-3" id="req_regis_alamat">
+                            <label for="regis_alamat" class="form-label">Alamat</label>
+                            <textarea cols="30" name="alamat" rows="10" class="form-control form-control-solid py-2" id="regis_alamat" autocomplete="off"></textarea>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="mb-3 col-xl-6" id="req_regis_password">
+                                <label for="regis_password" class="form-label required">Kata Sandi</label>
+                                <input type="password" name="password" class="form-control form-control-solid py-2" id="regis_password" placeholder="Masukkkan kata sandi" autocomplete="off">
+                            </div>
+                            <div class="mb-3 col-xl-6" id="req_regis_repassword">
+                                <label for="regis_repassword" class="form-label required">Konfirmasi Kata Sandi</label>
+                                <input type="password" name="repassword" class="form-control form-control-solid py-2" id="regis_repassword" placeholder="Konfirmasi kata sandi" autocomplete="off">
+                            </div>
+                        </div>
+                        
+                        <!-- <div class="mb-3">
+                            <label for="" class="form-label required">Pilih Hak Akses</label>
+                            <select class="form-select form-select py-2">
+                                <option selected>Pilih hak akses</option>
+                                <option value="1">Admin</option>
+                                <option value="2">User</option>
+                                <option value="3">Pengelola Wisata</option>
+                            </select>
+                        </div> -->
+                    </div>
+                    <div class="modal-footer d-flex justify-content-center align-items-center flex-column border-0">
+                        <button type="button" id="button_regis" onclick="submit_form(this,'#auth_path',0,'',false,false,'','<?= base_url('auth_function/register'); ?>')" class="btn-hover-bg btn btn-primary fw-normal text-white py-2" style="width: 350px;">Daftar Sekarang</button>
+                        <p class="mb-0">Apakah anda sudah memiliki akun?</p><a onclick="auth_path('login')" role="button" class="fw-medium">Masuk Sekarang</a>
+                    </div>
                 </div>
+                
             </form>
         </div>
     </div>
@@ -261,10 +264,6 @@
                                 <div class="mb-3">
                                     <label for="" class="form-label required">Email</label>
                                     <input type="email" class="form-control py-2" id="" placeholder="Masukkkan Email" autocomplete="off">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="" class="form-label required">Nomot Telephone</label>
-                                    <input type="number" class="form-control py-2" id="" placeholder="Masukkkan nomor telephone" autocomplete="off">
                                 </div>
                                 <div class="mb-3">
                                     <label for="" class="form-label required">Komentar anda</label>

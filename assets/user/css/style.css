@@ -871,3 +871,21 @@ button.like {
 } 
 
 
+/* CSS Pribadi */
+.modal .modal-dialog .modal-content {
+    border-radius: 20px;
+}
+
+
+.form-responsiv-sign input,
+.form-responsiv-sign button {
+    width: 350px !important;
+}
+
+@media only screen and (max-width: 600px) {
+
+    .form-responsiv-sign input,
+    .form-responsiv-sign button {
+        width: 300px !important;
+    }
+}

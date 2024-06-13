@@ -95,3 +95,22 @@
         width: 100%;
     }
 }
+
+.showin {
+    animation: animate 0.4s ease;
+}
+
+.hidin {
+    display: none !important;
+}
+
+
+@keyframes animate {
+    0% {
+        transform: scale(0.5);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}

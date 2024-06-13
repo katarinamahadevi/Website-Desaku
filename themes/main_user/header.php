@@ -28,7 +28,8 @@
         <link href="<?= base_url('assets/user/') ?>css/style.css" rel="stylesheet">
         <link href="<?= base_url('assets/user/') ?>css/organization.css" rel="stylesheet">
         <link href="<?= base_url('assets/user/') ?>css/carousel.css" rel="stylesheet">
-
+        <link href="<?= base_url('assets/public/') ?>css/custom_pribadi.css" rel="stylesheet">
+        <link rel="stylesheet" href="<?= base_url('assets/public/js/alert/sweetalert2.css') ?>">
         <!-- Link Fontawesome -->
         <link rel="stylesheet" 
             href= "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
@@ -38,6 +39,22 @@
 
         <!-- Link Boxicons -->
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+        <style>
+            .absolute-modal-btn{
+                position: absolute !important;
+                right: 0 !important;
+                width: 80px !important;
+            }
+            .image_profil{
+                width : 50px;
+                height : 50px;
+                background-position : center;
+                background-repeat : no-repeat;
+                background-size : cover;
+                border-radius : 100%;
+            }
+        </style>
     </head>
 
     <body>
@@ -50,8 +67,8 @@
 
 
         <!-- Navbar start -->
-        <div class="container-fluid fixed-top px-0">
-            <div class="container px-0">
+        <div class="container-fluid fixed-top px-0" >
+            <div class="container shadow-sm px-0" style="max-width : 85%">
                 <nav class="navbar navbar-light bg-light navbar-expand-xl p-2 px-4">
                     <a href="<?= base_url('beranda') ?>" class="navbar-brand ms-3">
                         <img width="150px" src="<?= image_check($setting->logo,'logo') ?>" class="my-3">
@@ -68,7 +85,11 @@
                             <a href="#wisata" class="nav-item nav-link">Wisata</a>
                         </div>
                         <div class="d-flex align-items-center flex-nowrap pt-xl-0">
-                            <button type="button" data-bs-toggle="modal" data-bs-target="#modalAuth" class="btn-hover-bg btn btn-outline-primary text-primary py-2 px-4 ms-3">Masuk</button>
+                            <?php if(!$this->session->userdata(PREFIX_SESSION.'_id_user')) : ?>
+                                <button type="button" data-bs-toggle="modal" data-bs-target="#modalAuth" class="btn-hover-bg btn btn-outline-primary text-primary py-2 px-4 ms-3">Masuk</button>
+                            <?php else: ?>
+                                <div class="image_profil" style="background-image : url('<?= image_check($this->session->userdata(PREFIX_SESSION.'_foto'),'user') ?>');"></div>
+                            <?php endif;?>
                         </div>
                     </div>
                 </nav>

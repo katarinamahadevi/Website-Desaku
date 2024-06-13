@@ -2,7 +2,7 @@
 <section id="beranda">
     <div class="container-fluid carousel-header vh-100 px-0">
         <div id="carouselId" class="carousel" data-bs-ride="">
-            <ol class="carousel-indicators d-none">
+            <ol class="carousel-indicators">
                 <li data-bs-target="#carouselId" data-bs-slide-to="0" class="active"></li>
                 <li data-bs-target="#carouselId" data-bs-slide-to="1"></li>
                 <li data-bs-target="#carouselId" data-bs-slide-to="2"></li>
@@ -22,7 +22,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="carousel-item d-none">
+                <div class="carousel-item">
                     <img src="<?= base_url('assets/user/') ?>img/carousel-2.jpg" class="img-fluid" alt="Image">
                     <div class="carousel-caption">
                         <div class="p-3" style="max-width: 900px;">
@@ -36,7 +36,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="carousel-item d-none">
+                <div class="carousel-item">
                     <img src="<?= base_url('assets/user/') ?>img/carousel-3.jpg" class="img-fluid" alt="Image">
                     <div class="carousel-caption">
                         <div class="p-3" style="max-width: 900px;">
@@ -52,12 +52,10 @@
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
+                <i class="fa-solid fa-chevron-left"></i>
             </button>
             <button class="carousel-control-next" type="button" data-bs-target="#carouselId" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
+                <i class="fa-solid fa-chevron-right"></i>
             </button>
         </div>
     </div>           
@@ -232,188 +230,11 @@
                 <h5 class="text-uppercase text-primary">Struktur DESAKU</h5>
                 <h1 class="mb-0">Struktur Pemerintahan DESAKU</h1>
             </div>
-            <div class="row d-flex g-4 d-none">
-                <h6 class="level-1 text-center rectangle">Kepala Desa</h6>
-                <ol class="level-2-wrapper">
-                    <li>
-                        <h6 class="level-2 text-center rectangle">Kepala Desa</h6>
-                        <ol class="level-3-wrapper">
-                            <li>
-                                <h6 class="level-3 text-center rectangle">Kepala Dusun I</h6>
-                            </li>
-                            <li>
-                                <h6 class="level-3 text-center rectangle">Kepala Dusun II</h6>
-                            </li>
-                            <li>
-                                <h6 class="level-3 text-center rectangle">Kepala Dusun III</h6>
-                            </li>
-                        </ol>
-                    </li>
-                    <li>
-                        <h6 class="level-2 text-center rectangle">Sekretaris Desa</h6>
-                        <ol class="level-3-wrapper">
-                            <li>
-                                <h6 class="level-3 text-center rectangle">Kaur TU & Umum</h6>
-                            </li>
-                            <li>
-                                <h6 class="level-3 text-center rectangle">Kaur Keuangan</h6>
-                            </li>
-                            <li>
-                                <h6 class="level-3 text-center rectangle">Kaur Perencanaan</h6>
-                            </li>
-                        </ol>
-                    </li>
-                    <li>
-                        <h6 class="level-2 text-center rectangle">Kepala Desa</h6>
-                        <ol class="level-3-wrapper">
-                            <li>
-                                <h6 class="level-3 text-center rectangle">Kasi Pemerintahan</h6>
-                            </li>
-                            <li>
-                                <h6 class="level-3 text-center rectangle">Kasi Kesejahteraan</h6>
-                            </li>
-                            <li>
-                                <h6 class="level-3 text-center rectangle">Kasi Pelayanan</h6>
-                            </li>
-                        </ol>
-                    </li>
-                </ol>
-            </div>
 
-            <div id="myCarousel" class="carousel slide container d-none" data-bs-ride="carousel">
-                <div class="carousel-inner w-100">
-                    <div class="carousel-item active">
-                        <div class="col-md-3">
-                            <div class="card" style="width: 20rem;">
-                                <div class="card-body d-flex justify-content-center align-items-center flex-column">
-                                    <div class="circle-profile my-3" style="background-image: url('<?= base_url('assets/user/')?>img/produk/camping.jpg')">
-                                        <!-- <img src="<?= base_url('assets/user/')?>img/produk/camping.jpg" class="card-img-top" alt="..."> -->
-                                    </div>
-                                    <h4 class="card-title">Ir. Jhon Doe S.E</h4>
-                                    <p class="card-text text-center fs-5 mb-3">Kepala Desa</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="col-md-3">
-                            <div class="card" style="width: 20rem;">
-                                <div class="card-body d-flex justify-content-center align-items-center flex-column">
-                                    <div class="circle-profile my-3" style="background-image: url('<?= base_url('assets/user/')?>img/produk/camping.jpg')">
-                                        <!-- <img src="<?= base_url('assets/user/')?>img/produk/camping.jpg" class="card-img-top" alt="..."> -->
-                                    </div>
-                                    <h4 class="card-title">Ir. Jhon Doe S.E</h4>
-                                    <p class="card-text text-center fs-5 mb-3">Kepala Desa</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="col-md-3">
-                            <div class="card" style="width: 20rem;">
-                                <div class="card-body d-flex justify-content-center align-items-center flex-column">
-                                    <div class="circle-profile my-3" style="background-image: url('<?= base_url('assets/user/')?>img/produk/camping.jpg')">
-                                        <!-- <img src="<?= base_url('assets/user/')?>img/produk/camping.jpg" class="card-img-top" alt="..."> -->
-                                    </div>
-                                    <h4 class="card-title">Ir. Jhon Doe S.E</h4>
-                                    <p class="card-text text-center fs-5 mb-3">Kepala Desa</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="col-md-3">
-                            <div class="card" style="width: 20rem;">
-                                <div class="card-body d-flex justify-content-center align-items-center flex-column">
-                                    <div class="circle-profile my-3" style="background-image: url('<?= base_url('assets/user/')?>img/produk/camping.jpg')">
-                                        <!-- <img src="<?= base_url('assets/user/')?>img/produk/camping.jpg" class="card-img-top" alt="..."> -->
-                                    </div>
-                                    <h4 class="card-title">Ir. Jhon Doe S.E</h4>
-                                    <p class="card-text text-center fs-5 mb-3">Kepala Desa</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="col-md-3">
-                            <div class="card" style="width: 20rem;">
-                                <div class="card-body d-flex justify-content-center align-items-center flex-column">
-                                    <div class="circle-profile my-3" style="background-image: url('<?= base_url('assets/user/')?>img/produk/camping.jpg')">
-                                        <!-- <img src="<?= base_url('assets/user/')?>img/produk/camping.jpg" class="card-img-top" alt="..."> -->
-                                    </div>
-                                    <h4 class="card-title">Ir. Jhon Doe S.E</h4>
-                                    <p class="card-text text-center fs-5 mb-3">Kepala Desa</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="col-md-3">
-                            <div class="card" style="width: 20rem;">
-                                <div class="card-body d-flex justify-content-center align-items-center flex-column">
-                                    <div class="circle-profile my-3" style="background-image: url('<?= base_url('assets/user/')?>img/produk/camping.jpg')">
-                                        <!-- <img src="<?= base_url('assets/user/')?>img/produk/camping.jpg" class="card-img-top" alt="..."> -->
-                                    </div>
-                                    <h4 class="card-title">Ir. Jhon Doe S.E</h4>
-                                    <p class="card-text text-center fs-5 mb-3">Kepala Desa</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="col-md-3">
-                            <div class="card" style="width: 20rem;">
-                                <div class="card-body d-flex justify-content-center align-items-center flex-column">
-                                    <div class="circle-profile my-3" style="background-image: url('<?= base_url('assets/user/')?>img/produk/camping.jpg')">
-                                        <!-- <img src="<?= base_url('assets/user/')?>img/produk/camping.jpg" class="card-img-top" alt="..."> -->
-                                    </div>
-                                    <h4 class="card-title">Ir. Jhon Doe S.E</h4>
-                                    <p class="card-text text-center fs-5 mb-3">Kepala Desa</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="col-md-3">
-                            <div class="card" style="width: 20rem;">
-                                <div class="card-body d-flex justify-content-center align-items-center flex-column">
-                                    <div class="circle-profile my-3" style="background-image: url('<?= base_url('assets/user/')?>img/produk/camping.jpg')">
-                                        <!-- <img src="<?= base_url('assets/user/')?>img/produk/camping.jpg" class="card-img-top" alt="..."> -->
-                                    </div>
-                                    <h4 class="card-title">Ir. Jhon Doe S.E</h4>
-                                    <p class="card-text text-center fs-5 mb-3">Kepala Desa</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="col-md-3">
-                            <div class="card" style="width: 20rem;">
-                                <div class="card-body d-flex justify-content-center align-items-center flex-column">
-                                    <div class="circle-profile my-3" style="background-image: url('<?= base_url('assets/user/')?>img/produk/camping.jpg')">
-                                        <!-- <img src="<?= base_url('assets/user/')?>img/produk/camping.jpg" class="card-img-top" alt="..."> -->
-                                    </div>
-                                    <h4 class="card-title">Ir. Jhon Doe S.E</h4>
-                                    <p class="card-text text-center fs-5 mb-3">Kepala Desa</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-
-            <div class="row">
+            <div id="struktural" class="row">
                 <div class="col-xl-12 d-flex justify-content-center align-items-center">
                     <div class="wrapper">
-                        <i id="left" class="fa-solid fa-angle-left"></i>
+                        <i id="left" class="prevnextcar fa-solid fa-angle-left"></i>
                         <ul class="carousel">
                             <li class="card">
                                 <div class="img"><img src="<?= base_url('assets/user/')?>img/produk/kepala_desa.jpg" alt="img" draggable="false"></div>
@@ -480,7 +301,7 @@
                                 <span>Kepala Dusun III</span>
                             </li>
                         </ul>
-                        <i id="right" class="fa-solid fa-angle-right"></i>
+                        <i id="right" class="prevnextcar fa-solid fa-angle-right"></i>
                     </div>
                 </div>
             </div>
