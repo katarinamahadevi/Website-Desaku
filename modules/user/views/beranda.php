@@ -280,159 +280,171 @@
                 </ol>
             </div>
 
-            <div class="slide-container swiper d-none">
-                <div class="slide-content">
-                    <div class="card-wrapper swiper-wrapper">
-                        <div class="card swiper-slide">
-                            <div class="image-content">
-                                <span class="overlay"></span>
-
-                                <div class="card-image">
-                                    <img src="images/profile1.jpg" alt="" class="card-img">
+            <div id="myCarousel" class="carousel slide container d-none" data-bs-ride="carousel">
+                <div class="carousel-inner w-100">
+                    <div class="carousel-item active">
+                        <div class="col-md-3">
+                            <div class="card" style="width: 20rem;">
+                                <div class="card-body d-flex justify-content-center align-items-center flex-column">
+                                    <div class="circle-profile my-3" style="background-image: url('<?= base_url('assets/user/')?>img/produk/camping.jpg')">
+                                        <!-- <img src="<?= base_url('assets/user/')?>img/produk/camping.jpg" class="card-img-top" alt="..."> -->
+                                    </div>
+                                    <h4 class="card-title">Ir. Jhon Doe S.E</h4>
+                                    <p class="card-text text-center fs-5 mb-3">Kepala Desa</p>
                                 </div>
-                            </div>
-
-                            <div class="card-content">
-                                <h2 class="name">David Dell</h2>
-                                <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-
-                                <button class="button">View More</button>
                             </div>
                         </div>
-                        <div class="card swiper-slide">
-                            <div class="image-content">
-                                <span class="overlay"></span>
-
-                                <div class="card-image">
-                                    <img src="images/profile2.jpg" alt="" class="card-img">
+                    </div>
+                    <div class="carousel-item">
+                        <div class="col-md-3">
+                            <div class="card" style="width: 20rem;">
+                                <div class="card-body d-flex justify-content-center align-items-center flex-column">
+                                    <div class="circle-profile my-3" style="background-image: url('<?= base_url('assets/user/')?>img/produk/camping.jpg')">
+                                        <!-- <img src="<?= base_url('assets/user/')?>img/produk/camping.jpg" class="card-img-top" alt="..."> -->
+                                    </div>
+                                    <h4 class="card-title">Ir. Jhon Doe S.E</h4>
+                                    <p class="card-text text-center fs-5 mb-3">Kepala Desa</p>
                                 </div>
-                            </div>
-
-                            <div class="card-content">
-                                <h2 class="name">David Dell</h2>
-                                <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-
-                                <button class="button">View More</button>
                             </div>
                         </div>
-                        <div class="card swiper-slide">
-                            <div class="image-content">
-                                <span class="overlay"></span>
-
-                                <div class="card-image">
-                                    <img src="images/profile3.jpg" alt="" class="card-img">
+                    </div>
+                    <div class="carousel-item">
+                        <div class="col-md-3">
+                            <div class="card" style="width: 20rem;">
+                                <div class="card-body d-flex justify-content-center align-items-center flex-column">
+                                    <div class="circle-profile my-3" style="background-image: url('<?= base_url('assets/user/')?>img/produk/camping.jpg')">
+                                        <!-- <img src="<?= base_url('assets/user/')?>img/produk/camping.jpg" class="card-img-top" alt="..."> -->
+                                    </div>
+                                    <h4 class="card-title">Ir. Jhon Doe S.E</h4>
+                                    <p class="card-text text-center fs-5 mb-3">Kepala Desa</p>
                                 </div>
-                            </div>
-
-                            <div class="card-content">
-                                <h2 class="name">David Dell</h2>
-                                <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-
-                                <button class="button">View More</button>
                             </div>
                         </div>
-                        <div class="card swiper-slide">
-                            <div class="image-content">
-                                <span class="overlay"></span>
-
-                                <div class="card-image">
-                                    <img src="images/profile4.jpg" alt="" class="card-img">
+                    </div>
+                    <div class="carousel-item">
+                        <div class="col-md-3">
+                            <div class="card" style="width: 20rem;">
+                                <div class="card-body d-flex justify-content-center align-items-center flex-column">
+                                    <div class="circle-profile my-3" style="background-image: url('<?= base_url('assets/user/')?>img/produk/camping.jpg')">
+                                        <!-- <img src="<?= base_url('assets/user/')?>img/produk/camping.jpg" class="card-img-top" alt="..."> -->
+                                    </div>
+                                    <h4 class="card-title">Ir. Jhon Doe S.E</h4>
+                                    <p class="card-text text-center fs-5 mb-3">Kepala Desa</p>
                                 </div>
-                            </div>
-
-                            <div class="card-content">
-                                <h2 class="name">David Dell</h2>
-                                <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-
-                                <button class="button">View More</button>
                             </div>
                         </div>
-                        <div class="card swiper-slide">
-                            <div class="image-content">
-                                <span class="overlay"></span>
-
-                                <div class="card-image">
-                                    <img src="images/profile5.jpg" alt="" class="card-img">
+                    </div>
+                    <div class="carousel-item">
+                        <div class="col-md-3">
+                            <div class="card" style="width: 20rem;">
+                                <div class="card-body d-flex justify-content-center align-items-center flex-column">
+                                    <div class="circle-profile my-3" style="background-image: url('<?= base_url('assets/user/')?>img/produk/camping.jpg')">
+                                        <!-- <img src="<?= base_url('assets/user/')?>img/produk/camping.jpg" class="card-img-top" alt="..."> -->
+                                    </div>
+                                    <h4 class="card-title">Ir. Jhon Doe S.E</h4>
+                                    <p class="card-text text-center fs-5 mb-3">Kepala Desa</p>
                                 </div>
-                            </div>
-
-                            <div class="card-content">
-                                <h2 class="name">David Dell</h2>
-                                <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-
-                                <button class="button">View More</button>
                             </div>
                         </div>
-                        <div class="card swiper-slide">
-                            <div class="image-content">
-                                <span class="overlay"></span>
-
-                                <div class="card-image">
-                                    <img src="images/profile6.jpg" alt="" class="card-img">
+                    </div>
+                    <div class="carousel-item">
+                        <div class="col-md-3">
+                            <div class="card" style="width: 20rem;">
+                                <div class="card-body d-flex justify-content-center align-items-center flex-column">
+                                    <div class="circle-profile my-3" style="background-image: url('<?= base_url('assets/user/')?>img/produk/camping.jpg')">
+                                        <!-- <img src="<?= base_url('assets/user/')?>img/produk/camping.jpg" class="card-img-top" alt="..."> -->
+                                    </div>
+                                    <h4 class="card-title">Ir. Jhon Doe S.E</h4>
+                                    <p class="card-text text-center fs-5 mb-3">Kepala Desa</p>
                                 </div>
-                            </div>
-
-                            <div class="card-content">
-                                <h2 class="name">David Dell</h2>
-                                <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-
-                                <button class="button">View More</button>
                             </div>
                         </div>
-                        <div class="card swiper-slide">
-                            <div class="image-content">
-                                <span class="overlay"></span>
-
-                                <div class="card-image">
-                                    <img src="images/profile7.jpg" alt="" class="card-img">
+                    </div>
+                    <div class="carousel-item">
+                        <div class="col-md-3">
+                            <div class="card" style="width: 20rem;">
+                                <div class="card-body d-flex justify-content-center align-items-center flex-column">
+                                    <div class="circle-profile my-3" style="background-image: url('<?= base_url('assets/user/')?>img/produk/camping.jpg')">
+                                        <!-- <img src="<?= base_url('assets/user/')?>img/produk/camping.jpg" class="card-img-top" alt="..."> -->
+                                    </div>
+                                    <h4 class="card-title">Ir. Jhon Doe S.E</h4>
+                                    <p class="card-text text-center fs-5 mb-3">Kepala Desa</p>
                                 </div>
-                            </div>
-
-                            <div class="card-content">
-                                <h2 class="name">David Dell</h2>
-                                <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-
-                                <button class="button">View More</button>
                             </div>
                         </div>
-                        <div class="card swiper-slide">
-                            <div class="image-content">
-                                <span class="overlay"></span>
-
-                                <div class="card-image">
-                                    <img src="images/profile8.jpg" alt="" class="card-img">
+                    </div>
+                    <div class="carousel-item">
+                        <div class="col-md-3">
+                            <div class="card" style="width: 20rem;">
+                                <div class="card-body d-flex justify-content-center align-items-center flex-column">
+                                    <div class="circle-profile my-3" style="background-image: url('<?= base_url('assets/user/')?>img/produk/camping.jpg')">
+                                        <!-- <img src="<?= base_url('assets/user/')?>img/produk/camping.jpg" class="card-img-top" alt="..."> -->
+                                    </div>
+                                    <h4 class="card-title">Ir. Jhon Doe S.E</h4>
+                                    <p class="card-text text-center fs-5 mb-3">Kepala Desa</p>
                                 </div>
-                            </div>
-
-                            <div class="card-content">
-                                <h2 class="name">David Dell</h2>
-                                <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-
-                                <button class="button">View More</button>
                             </div>
                         </div>
-                        <div class="card swiper-slide">
-                            <div class="image-content">
-                                <span class="overlay"></span>
-
-                                <div class="card-image">
-                                    <img src="images/profile9.jpg" alt="" class="card-img">
+                    </div>
+                    <div class="carousel-item">
+                        <div class="col-md-3">
+                            <div class="card" style="width: 20rem;">
+                                <div class="card-body d-flex justify-content-center align-items-center flex-column">
+                                    <div class="circle-profile my-3" style="background-image: url('<?= base_url('assets/user/')?>img/produk/camping.jpg')">
+                                        <!-- <img src="<?= base_url('assets/user/')?>img/produk/camping.jpg" class="card-img-top" alt="..."> -->
+                                    </div>
+                                    <h4 class="card-title">Ir. Jhon Doe S.E</h4>
+                                    <p class="card-text text-center fs-5 mb-3">Kepala Desa</p>
                                 </div>
-                            </div>
-
-                            <div class="card-content">
-                                <h2 class="name">David Dell</h2>
-                                <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-
-                                <button class="button">View More</button>
                             </div>
                         </div>
                     </div>
                 </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
 
-                <div class="swiper-button-next swiper-navBtn"></div>
-                <div class="swiper-button-prev swiper-navBtn"></div>
-                <div class="swiper-pagination"></div>
+            <div class="wrapper">
+                <i id="left" class="fa-solid fa-angle-left"></i>
+                <ul class="carousel">
+                    <li class="card">
+                        <div class="img"><img src="images/img-1.jpg" alt="img" draggable="false"></div>
+                        <h2>Blanche Pearson</h2>
+                        <span>Sales Manager</span>
+                    </li>
+                    <li class="card">
+                        <div class="img"><img src="images/img-2.jpg" alt="img" draggable="false"></div>
+                        <h2>Joenas Brauers</h2>
+                        <span>Web Developer</span>
+                    </li>
+                        <li class="card">
+                        <div class="img"><img src="images/img-3.jpg" alt="img" draggable="false"></div>
+                        <h2>Lariach French</h2>
+                        <span>Online Teacher</span>
+                    </li>
+                    <li class="card">
+                        <div class="img"><img src="images/img-4.jpg" alt="img" draggable="false"></div>
+                        <h2>James Khosravi</h2>
+                        <span>Freelancer</span>
+                    </li>
+                    <li class="card">
+                        <div class="img"><img src="images/img-5.jpg" alt="img" draggable="false"></div>
+                        <h2>Kristina Zasiadko</h2>
+                        <span>Bank Manager</span>
+                    </li>
+                    <li class="card">
+                        <div class="img"><img src="images/img-6.jpg" alt="img" draggable="false"></div>
+                        <h2>Donald Horton</h2>
+                        <span>App Designer</span>
+                    </li>
+                </ul>
+                <i id="right" class="fa-solid fa-angle-right"></i>
             </div>
         </div>
     </div>

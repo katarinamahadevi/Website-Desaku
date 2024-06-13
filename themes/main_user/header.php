@@ -23,12 +23,11 @@
 
         <!-- Customized Bootstrap Stylesheet -->
         <link href="<?= base_url('assets/user/') ?>css/bootstrap.min.css" rel="stylesheet">
-        <!-- <link href="<?= base_url('assets/user/') ?>css/swiper-bundle.min.css" rel="stylesheet"> -->
 
         <!-- Template Stylesheet -->
         <link href="<?= base_url('assets/user/') ?>css/style.css" rel="stylesheet">
         <link href="<?= base_url('assets/user/') ?>css/organization.css" rel="stylesheet">
-        <!-- <link href="<?= base_url('assets/user/') ?>css/structure.css" rel="stylesheet"> -->
+        <link href="<?= base_url('assets/user/') ?>css/carousel.css" rel="stylesheet">
 
         <!-- Link Fontawesome -->
         <link rel="stylesheet" 
