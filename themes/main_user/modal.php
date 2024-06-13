@@ -397,3 +397,53 @@
         </div>
     </div>
 </div>
+
+<!-- Offcanvas Profil -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasProfil" aria-labelledby="offcanvasProfilLabel" style="width: 400px;">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasProfilLabel">Profil Anda</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <div class="row mx-2">
+            <div class="col-xl-12">
+                <div class="container mb-3">
+                    <div class="avatar-upload">
+                        <div class="avatar-edit">
+                            <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
+                            <label for="imageUpload"></label>
+                        </div>
+                        <div class="avatar-preview">
+                            <div id="imagePreview" style="background-image: url(http://i.pravatar.cc/500?img=7);">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="card mb-3" style="border-radius: 10px;">
+                    <div class="card-body d-flex justify-content-between align-items-center text-dark">
+                        <h6 class="mb-0">Ubah Profile</h6>
+                        <i class="bi bi-chevron-right"></i>
+                    </div>
+                </a>
+                <a href="#" class="card mb-3" style="border-radius: 10px;">
+                    <div class="card-body d-flex justify-content-between align-items-center text-dark">
+                        <h6 class="mb-0">Ubah Kata Sandi</h6>
+                        <i class="bi bi-chevron-right"></i>
+                    </div>
+                </a>
+                <a href="#" class="card mb-3" style="border-radius: 10px;">
+                    <div class="card-body d-flex justify-content-between align-items-center text-dark">
+                        <h6 class="mb-0">Laporan Pemesanan</h6>
+                        <i class="bi bi-chevron-right"></i>
+                    </div>
+                </a>
+                <a href="#" class="card mb-3" style="border-radius: 10px;">
+                    <div class="card-body d-flex justify-content-between align-items-center text-dark">
+                        <h6 class="mb-0">Keluar</h6>
+                        <i class="bi bi-chevron-right"></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

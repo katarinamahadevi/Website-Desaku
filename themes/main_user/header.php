@@ -88,7 +88,9 @@
                             <?php if(!$this->session->userdata(PREFIX_SESSION.'_id_user')) : ?>
                                 <button type="button" data-bs-toggle="modal" data-bs-target="#modalAuth" class="btn-hover-bg btn btn-outline-primary text-primary py-2 px-4 ms-3">Masuk</button>
                             <?php else: ?>
-                                <div class="image_profil" style="background-image : url('<?= image_check($this->session->userdata(PREFIX_SESSION.'_foto'),'user') ?>');"></div>
+                                <div class="image_profil" style="background-image : url('<?= image_check($this->session->userdata(PREFIX_SESSION.'_foto'),'user') ?>');">
+                                    <button type="button" class="bg-transparent" data-bs-toggle="offcanvas" data-bs-target="#offcanvasProfil" aria-controls="offcanvasProfil" style="width: 100%; height: 100%; border: none;"></button>
+                                </div>
                             <?php endif;?>
                         </div>
                     </div>
