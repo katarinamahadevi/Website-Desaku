@@ -23,9 +23,11 @@
 }
 .wrapper i:first-child{
   left: -22px;
+  z-index: 1;
 }
 .wrapper i:last-child{
   right: -22px;
+  z-index: 1;
 }
 .wrapper .carousel{
   display: grid;
@@ -68,7 +70,7 @@
   border-radius: 8px;
 }
 .carousel .card .img {
-  background: #8B53FF;
+  background: #f8b864;
   height: 148px;
   width: 148px;
   border-radius: 50%;
