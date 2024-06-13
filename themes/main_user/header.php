@@ -85,7 +85,6 @@
                             <a href="#agenda" class="nav-item nav-link">Agenda</a>
                             <a href="#berita" class="nav-item nav-link">Berita</a>
                             <a href="#wisata" class="nav-item nav-link">Wisata</a>
-                            <a href="favorit.html" class="nav-item nav-link">Favorit</a>
                         </div>
                         <div class="d-flex align-items-center flex-nowrap pt-xl-0">
                             <button type="button" data-bs-toggle="modal" data-bs-target="#modalDaftar" class="btn-hover-bg btn btn-outline-primary text-primary py-2 px-4 ms-3">Daftar</button>
