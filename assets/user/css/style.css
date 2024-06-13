@@ -797,7 +797,7 @@ select.form-select.form-select{
 }
 
 .card.blog-card{
-    min-height: 285px !important;
+    height: 285px !important;
 }
 
 .image-blog{
