@@ -377,6 +377,23 @@
                         </div>
                     </div>
                 </div>
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="<?= base_url('assets/user/')?>img/produk/waterfall.jpg" class="img-fluid h-100 rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Air Terjun DESAKU</h5>
+                                <p class="card-text">Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip sed eiusmod tempor.</p>
+                                <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                            </div>
+                            <div class="card-footer bg-transparent border-0">
+                                <button type="button" data-bs-toggle="modal" data-bs-target="#modalOrder" class="btn-hover-bg btn-sm btn btn-primary text-white mb-2 py-2 px-4">Pesan Tiket</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
