@@ -14,7 +14,7 @@ class Function_ctl extends MY_Admin
         $this->nama = $this->session->userdata(PREFIX_SESSION.'_nama');
     }
 
-        // pengurus USER
+        // pengurus JABATAN
 
     public function tambah_jabatan()
     {

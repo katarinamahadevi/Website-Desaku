@@ -224,6 +224,7 @@
         </div>
     </div>
 
+    <?php if($pengurus) : ?>
     <div class="container-fluid service py-5 bg-light">
         <div class="container py-5">
             <div class="text-center mx-auto pb-5" style="max-width: 800px;">
@@ -236,70 +237,13 @@
                     <div class="wrapper">
                         <i id="left" class="prevnextcar fa-solid fa-angle-left"></i>
                         <ul class="carousel">
+                            <?php foreach($pengurus AS $row) : ?>
                             <li class="card">
-                                <div class="img"><img src="<?= base_url('assets/user/')?>img/produk/kepala_desa.jpg" alt="img" draggable="false"></div>
-                                <h2>Ismail bin Mail</h2>
-                                <span>Kepala Desa</span>
+                                <div class="img"><img src="<?= image_check($row->gambar,'pengurus') ?>" alt="img" draggable="false"></div>
+                                <h2><?= $row->nama; ?></h2>
+                                <span><?= $row->jabatan; ?></span>
                             </li>
-                            <li class="card">
-                                <div class="img"><img src="<?= base_url('assets/user/')?>img/produk/bpd_desa.jpg" alt="img" draggable="false"></div>
-                                <h2>Doni sunandar</h2>
-                                <span>BPD</span>
-                            </li>
-                                <li class="card">
-                                <div class="img"><img src="<?= base_url('assets/user/')?>img/produk/sekretaris_desa.jpg" alt="img" draggable="false"></div>
-                                <h2>Dina iskandar</h2>
-                                <span>Sekretaris Desa</span>
-                            </li>
-
-                            <li class="card">
-                                <div class="img"><img src="<?= base_url('assets/user/')?>img/produk/kepala_desa.jpg" alt="img" draggable="false"></div>
-                                <h2>Baim William</h2>
-                                <span>Kasi Pemerintaha</span>
-                            </li>
-                            <li class="card">
-                                <div class="img"><img src="<?= base_url('assets/user/')?>img/produk/bpd_desa.jpg" alt="img" draggable="false"></div>
-                                <h2>Agam Adinata</h2>
-                                <span>Kasi Kesejahteraan</span>
-                            </li>
-                                <li class="card">
-                                <div class="img"><img src="<?= base_url('assets/user/')?>img/produk/sekretaris_desa.jpg" alt="img" draggable="false"></div>
-                                <h2>Apta Aradhana</h2>
-                                <span>Kasi Pelayanan</span>
-                            </li>
-                            
-
-                            <li class="card">
-                                <div class="img"><img src="<?= base_url('assets/user/')?>img/produk/kepala_desa.jpg" alt="img" draggable="false"></div>
-                                <h2>Guntur Guritno</h2>
-                                <span>Kaur Tata Usaha dan Umu</span>
-                            </li>
-                            <li class="card">
-                                <div class="img"><img src="<?= base_url('assets/user/')?>img/produk/bpd_desa.jpg" alt="img" draggable="false"></div>
-                                <h2>Hamdan Hanafi</h2>
-                                <span>Kaur Keuangan</span>
-                            </li>
-                                <li class="card">
-                                <div class="img"><img src="<?= base_url('assets/user/')?>img/produk/sekretaris_desa.jpg" alt="img" draggable="false"></div>
-                                <h2>Haira Hanasta</h2>
-                                <span>Kaur Perencanaan</span>
-                            </li>
-
-                            <li class="card">
-                                <div class="img"><img src="<?= base_url('assets/user/')?>img/produk/kepala_desa.jpg" alt="img" draggable="false"></div>
-                                <h2>Indra Ismoyono</h2>
-                                <span>Kepala Dusun 1</span>
-                            </li>
-                            <li class="card">
-                                <div class="img"><img src="<?= base_url('assets/user/')?>img/produk/bpd_desa.jpg" alt="img" draggable="false"></div>
-                                <h2>Joko Jumantor</h2>
-                                <span>Kepala Dusun II</span>
-                            </li>
-                                <li class="card">
-                                <div class="img"><img src="<?= base_url('assets/user/')?>img/produk/sekretaris_desa.jpg" alt="img" draggable="false"></div>
-                                <h2>Jenar Juwita</h2>
-                                <span>Kepala Dusun III</span>
-                            </li>
+                            <?php endforeach;?>
                         </ul>
                         <i id="right" class="prevnextcar fa-solid fa-angle-right"></i>
                     </div>
@@ -307,6 +251,7 @@
             </div>
         </div>
     </div>
+    <?php endif;?>
 </section>
 <!-- Tentang End -->
 
@@ -501,6 +446,7 @@
 <!-- Berita End -->
 
 <!-- Wisata Start -->
+<?php if($wisata) : ?>
 <section id="wisata">
     <div class="container-fluid event py-5">
         <div class="container py-5">
@@ -509,77 +455,36 @@
                 <h1 class="mb-0">DESAKU memiliki banyak tempat wisata yang indah dan seru</h1>
             </div>
             <div class="event-carousel owl-carousel">
+                <?php foreach($wisata AS $row) : ?>
                 <div class="event-item">
-                    <div style="width: 100%; height: 325px; background-image: url('<?= base_url('assets/user/') ?>img/produk/waterfall.jpg'); background-position: center; background-repeat: no-repeat; background-size: cover;"></div>
+                    <div style="width: 100%; height: 325px; background-image: url('<?= image_check($row->gambar,'wisata') ?>'); background-position: center; background-repeat: no-repeat; background-size: cover;"></div>
                     <div class="event-content p-4">
                         <div class="d-flex justify-content-between mb-4">
-                            <span class="text-body"><i class="fas fa-map-marker-alt me-2"></i>Pagerwojo, Desaku</span>
+                            <span class="text-body"><i class="fas fa-map-marker-alt me-2"></i><?= $row->alamat; ?></span>
                             <!-- <span class="text-body"><i class="fas fa-calendar-alt me-2"></i>01 Des, 2024</span> -->
+                            <?php if($this->session->userdata(PREFIX_SESSION.'_id_user')) : ?>
                             <div class="hello"> 
                                 <button class="like" id="like" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasFavorit" aria-controls="offcanvasFavorit"> 
                                     <i class="bx bx-heart fs-3" style="color: #757575;"></i>
                                 </button> 
                             </div>
+                            <?php endif;?>
                         </div>
-                        <h4 class="mb-4">Air Terjun DESAKU</h4>
-                        <p class="mb-4">Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip sed eiusmod tempor.</p>
-                        <button type="button" data-bs-toggle="modal" data-bs-target="#modalDetailTiket" class="btn-hover-bg btn btn-primary text-white py-2 px-4">Detail Tiket    </button>
+                        <h4 class="mb-1"><?= $row->nama; ?></h4>
+                        <p class="mb-4"><?= 'Tiket tersedia : '.$row->tiket; ?></p>
+                        
+                        <?php if($this->session->userdata(PREFIX_SESSION.'_id_user')) : ?>
+                            <button type="button" data-bs-toggle="modal" data-bs-target="#modalDetailTiket" class="btn-hover-bg btn btn-primary text-white py-2 px-4">Detail Tiket</button>
+                        <?php else : ?>
+                            <button type="button" data-bs-toggle="modal" data-bs-target="#modalAuth" class="btn-hover-bg btn btn-primary text-white py-2 px-4">Masuk Terlibih Dahulu</button>
+                        <?php endif;?>
                     </div>
                 </div>
-                <div class="event-item">
-                    <div style="width: 100%; height: 325px; background-image: url('<?= base_url('assets/user/') ?>img/produk/garden.jpg'); background-position: center; background-repeat: no-repeat; background-size: cover;"></div>
-                    <div class="event-content p-4">
-                        <div class="d-flex justify-content-between mb-4">
-                            <span class="text-body"><i class="fas fa-map-marker-alt me-2"></i>Pagerwojo, Desaku</span>
-                            <!-- <span class="text-body"><i class="fas fa-calendar-alt me-2"></i>01 Des, 2024</span> -->
-                            <div class="hello"> 
-                                <button class="like" id="like" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasFavorit" aria-controls="offcanvasFavorit"> 
-                                    <i class="bx bx-heart fs-3" style="color: #757575;"></i>
-                                </button> 
-                            </div>
-                        </div>
-                        <h4 class="mb-4">Taman Indah DESAKU</h4>
-                        <p class="mb-4">Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip sed eiusmod tempor.</p>
-                        <button type="button" data-bs-toggle="modal" data-bs-target="#modalOrder" class="btn-hover-bg btn btn-primary text-white py-2 px-4">Pesan Tiket</button>
-                    </div>
-                </div>
-                <div class="event-item">
-                    <div style="width: 100%; height: 325px; background-image: url('<?= base_url('assets/user/') ?>img/produk/relax.jpg'); background-position: center; background-repeat: no-repeat; background-size: cover;"></div>
-                    <div class="event-content p-4">
-                        <div class="d-flex justify-content-between mb-4">
-                            <span class="text-body"><i class="fas fa-map-marker-alt me-2"></i>Pagerwojo, Desaku</span>
-                            <!-- <span class="text-body"><i class="fas fa-calendar-alt me-2"></i>01 Des, 2024</span> -->
-                            <div class="hello"> 
-                                <button class="like" id="like" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasFavorit" aria-controls="offcanvasFavorit"> 
-                                    <i class="bx bx-heart fs-3" style="color: #757575;"></i>
-                                </button> 
-                            </div>
-                        </div>
-                        <h4 class="mb-4">Wisata "Relax" DESAKU</h4>
-                        <p class="mb-4">Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip sed eiusmod tempor.</p>
-                        <button type="button" data-bs-toggle="modal" data-bs-target="#modalOrder" class="btn-hover-bg btn btn-primary text-white py-2 px-4">Pesan Tiket</button>
-                    </div>
-                </div>
-                <div class="event-item">
-                    <div style="width: 100%; height: 325px; background-image: url('<?= base_url('assets/user/') ?>img/produk/camping.jpg'); background-position: center; background-repeat: no-repeat; background-size: cover;"></div>
-                    <div class="event-content p-4">
-                        <div class="d-flex justify-content-between mb-4">
-                            <span class="text-body"><i class="fas fa-map-marker-alt me-2"></i>Pagerwojo, Desaku</span>
-                            <!-- <span class="text-body"><i class="fas fa-calendar-alt me-2"></i>01 Des, 2024</span> -->
-                            <div class="hello"> 
-                                <button class="like" id="like" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasFavorit" aria-controls="offcanvasFavorit"> 
-                                    <i class="bx bx-heart fs-3" style="color: #757575;"></i>
-                                </button> 
-                            </div>
-                        </div>
-                        <h4 class="mb-4">Wisata "The Camping" DESAKU</h4>
-                        <p class="mb-4">Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip sed eiusmod tempor.</p>
-                        <button type="button" data-bs-toggle="modal" data-bs-target="#modalOrder" class="btn-hover-bg btn btn-primary text-white py-2 px-4">Pesan Tiket</button>
-                    </div>
-                </div>
+                <?php endforeach;?>
             </div>
         </div>
     </div>
 </section>
+<?php endif;?>
 <!-- Wisata End -->
 

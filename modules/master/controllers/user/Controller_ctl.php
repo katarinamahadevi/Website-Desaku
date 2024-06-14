@@ -75,7 +75,6 @@ class Controller_ctl extends MY_Admin
         $this->display();
     }
 
-
     // FUNGSI AJAX
     public function get_single_user()
     {

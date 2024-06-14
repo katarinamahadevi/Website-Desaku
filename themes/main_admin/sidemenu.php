@@ -151,6 +151,7 @@
                                     <!--end:Menu link-->
                                     <!--begin:Menu sub-->
                                     <div class="menu-sub menu-sub-accordion">
+                                        <?php if(in_array($this->session->userdata(PREFIX_SESSION.'_id_role'),[1])) : ?>
                                         <!--begin:Menu item-->
                                         <a href="<?= base_url('master/user') ?>" class="menu-item menu-accordion <?= set_submenu_active($this->uri->segment(1), ['master'], $this->uri->segment(2), ['user']) ?>">
                                             <!--begin:Menu link-->
@@ -163,6 +164,7 @@
                                             <!--end:Menu link-->
                                         </a>
                                         <!--end:Menu item-->
+                                        <?php endif;?>
                                         <!--begin:Menu item-->
                                         <div data-kt-menu-trigger="click" class="menu-item menu-accordion <?= set_submenu_active($this->uri->segment(1), ['wisata'], $this->uri->segment(2), ['tiket','fasilitas','unit'], 'active hover show') ?>">
                                             <!--begin:Menu link-->
@@ -219,6 +221,7 @@
                                             <!--end:Menu sub-->
                                         </div>
                                         <!--end:Menu item-->
+                                        <?php if(in_array($this->session->userdata(PREFIX_SESSION.'_id_role'),[1])) : ?>
                                         <!--begin:Menu item-->
                                         <div data-kt-menu-trigger="click" class="menu-item menu-accordion <?= set_submenu_active($this->uri->segment(1), ['pengurus'], $this->uri->segment(2), ['jabatan','anggota'], 'active hover show') ?>">
                                             <!--begin:Menu link-->
@@ -262,6 +265,7 @@
                                             <!--end:Menu sub-->
                                         </div>
                                         <!--end:Menu item-->
+                                        <?php endif;?>
                                     
 
                                     </div>
@@ -269,6 +273,7 @@
                                 </div>
                                 <!--end:Menu item-->
 
+                                <?php if(in_array($this->session->userdata(PREFIX_SESSION.'_id_role'),[1])) : ?>
                                  <!--begin:Menu item-->
                                 <div data-kt-menu-trigger="click" class="menu-item menu-accordion hover show">
                                     <!--begin:Menu link-->
@@ -324,8 +329,9 @@
                                     <!--end:Menu sub-->
                                 </div>
                                 <!--end:Menu item-->
+                                <?php endif;?>
 
-
+                                <?php if(in_array($this->session->userdata(PREFIX_SESSION.'_id_role'),[1])) : ?>
                                 <!--begin:Menu item-->
                                 <div data-kt-menu-trigger="click" class="menu-item menu-accordion hover show">
                                     <!--begin:Menu link-->
@@ -340,7 +346,7 @@
                                     <!--begin:Menu sub-->
                                     <div class="menu-sub menu-sub-accordion">
                                         <!--begin:Menu item-->
-                                        <a href="<?= base_url('report/topup') ?>" class="menu-item menu-accordion <?= set_submenu_active($this->uri->segment(1), ['report'], $this->uri->segment(2), ['topup']) ?>">
+                                        <a href="<?= base_url('report/transaksi') ?>" class="menu-item menu-accordion <?= set_submenu_active($this->uri->segment(1), ['report'], $this->uri->segment(2), ['transaksi']) ?>">
                                             <!--begin:Menu link-->
                                             <span class="menu-link">
                                                 <span class="menu-bullet">
@@ -370,6 +376,7 @@
                                     <!--end:Menu item-->
                                 </div>
                                 <!--end:Menu item-->
+                                <?php endif;?>
 
                             </div>
                             <!--end::Sidebar menu-->

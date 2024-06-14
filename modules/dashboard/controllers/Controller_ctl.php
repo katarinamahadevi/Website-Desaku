@@ -14,12 +14,20 @@ class Controller_ctl extends MY_Admin
 
     public function index()
     {
-        $mydata = [];
+        // GLBL
+        $this->data['title'] = 'Pantau Antrian Transaksi';
 
-         // LOAD JS
-        $this->data['js_add'][] = '<script>var page = "dashboard"</script>';
-        // $this->data['js_add'][] = '<script src="' . base_url() . 'assets/admin/js/modul/dashboard/dashboard.js"></script>';
+        // JS ADD
+        $this->data['js_add'][] = '<script>var page = "dashboard";</script>';
+        $this->data['js_add'][] = '<script src="' . base_url() . 'assets/admin/js/modul/dashboard/transaksi.js"></script>';
 
+        $no = 0;
+        $status = 0;
+        foreach (status_payment(99, [2,3,0]) as $num => $name) {
+            $arr[$num] = [];
+        }
+        // MYDATA DEKLARASI
+        $mydata['result'] = $arr;
         // LOAD VIEW
         $this->data['content'] = $this->load->view('index', $mydata, TRUE);
         $this->display();

@@ -306,7 +306,7 @@
 
 <!-- Modal Detail Tiket -->
 <div class="modal fade" id="modalDetailTiket" tabindex="-1" aria-labelledby="modalDetailBeritaLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content" style="border-radius: 15px;">
             <div class="modal-header">
                 <h1 class="modal-title fs-4 mb-0" id="modalDetailBeritaLabel">Detail Tiket</h1>
@@ -314,7 +314,7 @@
             <div class="modal-body px-4 py-3" style="width: 100%;">
                 <div class="row">
                     <div class="col-xl-8">
-                        <div style="overflow-y: scroll; height: 500px;">
+                        <div>
                             <div class=" me-2">
                                 <img src="<?= base_url('assets/user/') ?>img/produk/waterfall.jpg" alt="Image" style="width: 100%; height: 250px;">
                             </div>
@@ -337,7 +337,8 @@
 
                     <div class="col-xl-4">
                         <div class="row">
-                            <h5 class="mb-2">Fasilitas Wisata Air Terjun DESAKU</h5>
+                            <button type="button" data-bs-toggle="modal" data-bs-target="#modalOrder" class="btn btn-warning mb-5">Pesan Tiket</button>
+                            <h5 class="mb-2">Fasilitas Wisata </h5>
                             <div class="col-xl-6 mb-2">
                                 <div class="d-flex justify-content-center align-items-center flex-column">
                                     <i class="bi bi-wifi text-dark" style="font-size:2rem"></i>
@@ -434,7 +435,7 @@
                             <label for="imageUpload"></label>
                         </div>
                         <div class="avatar-preview">
-                            <div id="imagePreview" style="background-image: url(http://i.pravatar.cc/500?img=7);">
+                            <div id="imagePreview" style="background-image: url('<?= image_check($this->session->userdata(PREFIX_SESSION.'_foto'),'user') ?>');">
                             </div>
                         </div>
                     </div>
@@ -457,7 +458,7 @@
                         <i class="bi bi-chevron-right"></i>
                     </div>
                 </a>
-                <a href="#" class="card mb-3" style="border-radius: 10px;">
+                <a href="<?= base_url('logout') ?>" onclick="confirm_alert(this,event,'Apakah anda yakin akan meninggalkan sistem?')" class="card mb-3" style="border-radius: 10px;">
                     <div class="card-body d-flex justify-content-between align-items-center text-dark">
                         <h6 class="mb-0">Keluar</h6>
                         <i class="bi bi-chevron-right"></i>

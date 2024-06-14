@@ -188,7 +188,7 @@ class Function_ctl extends MY_Auth
         $this->session->unset_userdata(PREFIX_SESSION.'_notelp');
         $this->session->unset_userdata(PREFIX_SESSION.'_email');
 
-        redirect('landing');
+        redirect('beranda');
     }
     
 }

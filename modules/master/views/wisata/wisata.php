@@ -10,7 +10,7 @@
                         <!--begin::Page title-->
                         <div class="page-title d-flex flex-column align-items-start">
                             <!--begin::Title-->
-                            <h1 class="d-flex text-dark fw-bold m-0 fs-3">Wisata</h1>
+                            <h1 class="d-flex text-dark fw-bold m-0 fs-3">Unit Wisata</h1>
                             <!--end::Title-->
                             <!--begin::Breadcrumb-->
                             <ul class="breadcrumb breadcrumb-dot fw-semibold text-gray-600 fs-7">
@@ -20,7 +20,10 @@
                                 </li>
                                 <!--end::Item-->
                                 <!--begin::Item-->
-                                <li class="breadcrumb-item text-gray-600">List Wisata</li>
+                                <li class="breadcrumb-item text-gray-600">Wisata</li>
+                                <!--end::Item-->
+                                <!--begin::Item-->
+                                <li class="breadcrumb-item text-gray-600">Unit</li>
                                 <!--end::Item-->
                             </ul>
                             <!--end::Breadcrumb-->
@@ -87,7 +90,7 @@
                                         <!--end::Input group-->
                                         <!--begin::Actions-->
                                         <div class="d-flex justify-content-end">
-                                            <button type="button" onclick="filter(['status'])" class="btn btn-primary fw-semibold px-6">Terapkan</button>
+                                            <button type="button" onclick="filter(['status'],false)" class="btn btn-primary fw-semibold px-6">Terapkan</button>
                                         </div>
                                         <!--end::Actions-->
                                     </div>
@@ -95,43 +98,19 @@
                                 </div>
                                 <!--end::Menu 1-->
                                 <!--end::Filter-->
-                                <!--begin::Export-->
-                                <?php
-                                    $params = '';
-                                    if ($this->input->get()){
-                                        $no=0; 
-                                        foreach ($this->input->get() as $field => $val){ 
-                                            $num = $no++;
-                                            if($num == 0){
-                                                $params .= '?'.$field.'='.$val;
-                                            }else{
-                                                $params .= '&'.$field.'='.$val;
-                                            }
-                                        }
-                                    } 
-                                ?>
-                                <a id="cetak_excel" target="_blank" href="<?= base_url('cetak/excel/user').$params ?>" onclick="confirm_alert(this,event,'Anda akan mencetak data dengan format excel sesuai dengan data filter')" class="btn btn-sm btn-primary me-3">
-                                    <i class="ki-duotone ki-exit-up fs-2">
-                                        <span class="path1"></span>
-                                        <span class="path2"></span>
-                                    </i>
-                                    Cetak Excel
-                                </a>
-                                <!--end::Export-->
-
                             </div>
                             <!--end::Toolbar-->
-                            <!--begin::Add user-->
+                            <!--begin::Add wisata-->
                             <button type="button" class="btn btn-sm btn-light" onclick="tambah_wisata()" data-bs-toggle="modal" data-bs-target="#kt_modal_wisata">
                                 <i class="ki-duotone ki-plus fs-2"></i>Tambah Wisata</button>
-                            <!--end::Add user-->
+                            <!--end::Add wisata-->
                         </div>
                     </div>
                     <!--end::Header-->
                     <!--begin::Body-->
                     <div class="card-body py-3" id="base_table">
                         <!--begin::Table container-->
-                        <form action="<?= base_url('master_function/drag_wisata') ?>" method="POST" class="table-responsive" id="reload_table">
+                        <form action="<?= base_url('wisata_function/drag_wisata') ?>" method="POST" class="table-responsive" id="reload_table">
                             <!--begin::Table-->
                             <table class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
                                 <!--begin::Table head-->
@@ -146,8 +125,8 @@
                                         </th>
                                         <th class="min-w-150px text-center">Gambar</th>
                                         <th class="min-w-150px">Wisata</th>
-                                        <th class="min-w-100px">Alamat</th>
                                         <th class="min-w-100px text-center">Tiket</th>
+                                        <th class="min-w-100px text-center">Status</th>
                                         <th class="min-w-100px text-end">Aksi</th>
                                     </tr>
                                 </thead>
@@ -177,25 +156,13 @@
                                                 <td>
                                                     <div class="d-flex justify-content-start flex-column">
                                                         <a class="text-dark fw-bold text-hover-primary fs-6"><?= ifnull($row->nama, 'Dalam proses...') ?></a>
-                                                        <span class="text-bold text-dark">Min : <?= price_format($row->min_tf,'none'); ?></span>
-                                                        <span class="text-bold text-dark">Max : <?= price_format($row->max_tf,'none'); ?></span>
+                                                         <p class="text-dark"><?= ifnull($row->alamat, 'Dalam proses...') ?></p>
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    <span class="badge <?= color_kategori($row->id_kategori_wisata); ?>"><?= $row->kategori; ?></span>
-                                                </td>
-                                                <td>
-                                                    <button onclick="modal_rate(<?= $row->id_wisata ?>)" type="button" data-bs-toggle="modal" data-bs-target="#kt_modal_rate" class="btn btn-primary fs-6 w-100">
-                                                        <?php if($row->min_rate != '') : ?>
-                                                            <?php if($row->min_rate != $row->max_rate) : ?>
-                                                                Rate <?= $row->min_rate.' - '.$row->max_rate; ?>
-                                                            <?php else : ?>
-                                                                Rate <?= $row->min_rate; ?>
-                                                            <?php endif;?>
-                                                        <?php else : ?>
-                                                            Setting Rate
-                                                        <?php endif;?>
-                                                    </button>
+                                                    <div class="d-flex justify-content-start flex-column align-items-center">
+                                                        <p class="text-dark fw-bold text-hover-primary fs-6"><?= $row->tiket; ?></p>
+                                                    </div>
                                                 </td>
                                                 <td>
                                                     <div class="d-flex justify-content-center align-items-center">
@@ -213,7 +180,7 @@
                                                         <button type="button" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1" title="Ubah data wisata" onclick="edit_wisata(this,<?= $row->id_wisata; ?>)" data-image="<?= image_check($row->gambar, 'wisata') ?>" data-bs-toggle="modal" data-bs-target="#kt_modal_wisata">
                                                             <i class="ki-outline ki-pencil fs-2"></i>
                                                         </button>
-                                                        <button type="button" onclick="hapus_data(event,<?= $row->id_wisata; ?>,'master_function/hapus_wisata','wisata')" title="Hapus data wisata" class="btn btn-icon btn-bg-light btn-active-color-danger btn-sm">
+                                                        <button type="button" onclick="hapus_data(event,<?= $row->id_wisata; ?>,'wisata_function/hapus_wisata','wisata')" title="Hapus data wisata" class="btn btn-icon btn-bg-light btn-active-color-danger btn-sm">
                                                             <i class="ki-outline ki-trash fs-2"></i>
                                                         </button>
                                                     </div>
@@ -254,22 +221,22 @@
             </div>
             <div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
                 <!--begin::Form-->
-                <form id="form_wisata" class="form" action="<?= base_url('master_function/tambah_wisata') ?>" method="POST" enctype="multipart/form-data">
+                <form id="form_wisata" class="form" action="<?= base_url('wisata_function/tambah_wisata') ?>" method="POST" enctype="multipart/form-data">
                     <!--begin::Scroll-->
                     <div class="d-flex flex-column scroll-y me-n7 pe-7" id="#" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_wisata_header" data-kt-scroll-wrappers="#kt_modal_wisata_scroll" data-kt-scroll-offset="300px">
                         <!--begin::Input group-->
                         <div class="fv-row mb-7 d-flex justify-content-center align-items-center flex-column">
                             <!--begin::Label-->
-                            <label class="d-block fw-semibold fs-6 mb-5">Gambar Wisata</label>
+                            <label class="required d-block fw-semibold fs-6 mb-5">Gambar Wisata</label>
                             <!--end::Label-->
                             <!--begin::Image input-->
                             <div class="image-input" data-kt-image-input="true" style="background-image: url('<?= base_url(); ?>/data/default/notfound.jpg')">
                                 <!--begin::Image preview wrapper-->
-                                <div id="display_foto" class="image-input-wrapper w-125px h-125px" style="background-image: url('<?= base_url(); ?>/data/default/notfound.jpg')"></div>
+                                <div id="display_gambar" class="image-input-wrapper w-125px h-125px" style="background-image: url('<?= base_url(); ?>/data/default/notfound.jpg')"></div>
                                 <!--end::Image preview wrapper-->
 
                                 <!--begin::Edit button-->
-                                <label class="btn btn-icon btn-circle btn-color-muted btn-active-color-primary w-25px h-25px bg-body shadow edt_foto" data-kt-image-input-action="change" data-bs-toggle="tooltip" data-bs-dismiss="click" title="Ubah Foto">
+                                <label class="btn btn-icon btn-circle btn-color-muted btn-active-color-primary w-25px h-25px bg-body shadow edt_gambar" data-kt-image-input-action="change" data-bs-toggle="tooltip" data-bs-dismiss="click" title="Ubah gambar">
                                     <i class="ki-duotone ki-pencil fs-6"><span class="path1"></span><span class="path2"></span></i>
 
                                     <!--begin::Inputs-->
@@ -280,13 +247,13 @@
                                 <!--end::Edit button-->
 
                                 <!--begin::Cancel button-->
-                                <span class="btn btn-icon btn-circle btn-color-muted btn-active-color-primary w-25px h-25px bg-body shadow hps_foto" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" data-bs-dismiss="click" title="Batalkan Foto">
+                                <span class="btn btn-icon btn-circle btn-color-muted btn-active-color-primary w-25px h-25px bg-body shadow hps_gambar" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" data-bs-dismiss="click" title="Batalkan gambar">
                                     <i class="ki-outline ki-cross fs-3"></i>
                                 </span>
                                 <!--end::Cancel button-->
 
                                 <!--begin::Remove button-->
-                                <span class="btn btn-icon btn-circle btn-color-muted btn-active-color-primary w-25px h-25px bg-body shadow hps_foto" data-kt-image-input-action="remove" data-bs-toggle="tooltip" data-bs-dismiss="click" title="Hapus Foto">
+                                <span class="btn btn-icon btn-circle btn-color-muted btn-active-color-primary w-25px h-25px bg-body shadow hps_gambar" data-kt-image-input-action="remove" data-bs-toggle="tooltip" data-bs-dismiss="click" title="Hapus gambar">
                                     <i class="ki-outline ki-cross fs-3"></i>
                                 </span>
                                 <!--end::Remove button-->
@@ -308,23 +275,51 @@
                             <!--end::Input-->
                         </div>
                         <!--end::Input group-->
-                        <input type="hidden" name="nama_foto">
+                        <input type="hidden" name="nama_gambar">
                         <input type="hidden" name="id_wisata">
-                        <div class="fv-row mb-7 hidin" id="display_kode_provider">
-                            <label class="form-label">Kode Provider</label>
-                            <input class="form-control form-control-solid" name="kode_provider" placeholder="Masukkan kode provider" id="kt_tagify_1" autocomplete="off"/>
-                        </div>
                         <!--begin::Input group-->
-                        <div class="fv-row mb-7" id="req_nomor_tujuan">
+                        <div class="fv-row mb-7" id="req_tiket">
                             <!--begin::Label-->
-                            <label class="required fw-semibold fs-6 mb-2">Nomor tujuan</label>
+                            <label class="required fw-semibold fs-6 mb-2">Kategori Tiket</label>
                             <!--end::Label-->
                             <!--begin::Input-->
-                            <input type="text" name="nomor_tujuan" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Masukkan nomor tujuan" autocomplete="off" />
+                            <!--end::Input-->
+                            <!--end::Input group-->
+                            <select class="form-control form-control-solid mb-3 mb-lg-0" name="tiket[]" id="select_tiket" data-control="select2" data-close-on-select="false" data-placeholder="Pilih tiket" data-allow-clear="true" multiple="multiple">
+                                <?php if($tiket) : ?>
+                                    <?php foreach($tiket AS $row) : ?>
+                                    <option value="<?= $row->id_tiket ?>"><?= $row->nama; ?></option>
+                                    <?php endforeach;?>
+                                <?php endif;?>
+                            </select>
+                            <!--begin::Input group-->
+                        </div>
+
+                        <div class="fv-row mb-7" id="req_fasilitas">
+                            <!--begin::Label-->
+                            <label class="required fw-semibold fs-6 mb-2">Fasilitas</label>
+                            <!--end::Label-->
+                            <!--begin::Input-->
+                            <!--end::Input-->
+                            <!--end::Input group-->
+                            <select class="form-control form-control-solid mb-3 mb-lg-0" name="fasilitas[]" id="select_fasilitas" data-control="select2" data-close-on-select="false" data-placeholder="Pilih fasilitas" data-allow-clear="true" multiple="multiple">
+                                <?php if($fasilitas) : ?>
+                                    <?php foreach($fasilitas AS $row) : ?>
+                                    <option value="<?= $row->id_fasilitas ?>"><?= $row->nama; ?></option>
+                                    <?php endforeach;?>
+                                <?php endif;?>
+                            </select>
+                            <!--begin::Input group-->
+                        </div>
+                        
+                         <div class="fv-row mb-7" id="req_alamat">
+                            <!--begin::Label-->
+                            <label class="required fw-semibold fs-6 mb-2">Alamat</label>
+                            <!--end::Label-->
+                            <!--begin::Input-->
+                            <textarea name="alamat" id="alamat" cols="30" rows="10"  class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Masukkan alamat" autocomplete="off"></textarea>
                             <!--end::Input-->
                         </div>
-                        <!--end::Input group-->
-                        <!--begin::Input group-->
                         <div class="fv-row mb-7" id="req_deskripsi">
                             <!--begin::Label-->
                             <label class="fw-semibold fs-6 mb-2">Deskripsi</label>
@@ -334,21 +329,11 @@
                             <!--end::Input-->
                         </div>
                         <!--end::Input group-->
-                        <!--begin::Input group-->
-                        <div class="fv-row mb-7" id="req_tutorial">
-                            <!--begin::Label-->
-                            <label class="fw-semibold fs-6 mb-2">Tutorial</label>
-                            <!--end::Label-->
-                            <!--begin::Input-->
-                            <textarea name="tutorial" id="tutorial" cols="30" rows="10"  class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Masukkan tutorial" autocomplete="off"></textarea>
-                            <!--end::Input-->
-                        </div>
-                        <!--end::Input group-->
                     </div>
                     <!--end::Scroll-->
                     <!--begin::Actions-->
                     <div class="text-center pt-15">
-                        <button type="button" id="submit_wisata" data-editor="tutorial,deskripsi" onclick="submit_form(this,'#form_wisata',1)" class="btn btn-primary">
+                        <button type="button" id="submit_wisata" data-editor="deskripsi" onclick="submit_form(this,'#form_wisata',1)" class="btn btn-primary">
                             <span class="indicator-label">Submit</span>
                         </button>
                     </div>
