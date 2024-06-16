@@ -162,6 +162,21 @@ $route['master_function/(:any)'] = 'master/user/function_ctl/$1';
 $route['master_function/(:any)/(:any)'] = 'master/user/function_ctl/$1/$2';
 
 
+$route['management'] = 'management/controller_ctl/index';
+
+$route['management/(:any)'] = 'management/controller_ctl/$1';
+
+$route['management/(:any)/(:any)'] = 'management/controller_ctl/$1/$2';
+
+$route['management/(:any)/(:any)/(:any)'] = 'management/controller_ctl/$1/$2/$3';
+
+$route['management_function']  = 'management/function_ctl';
+
+$route['management_function/(:any)'] = 'management/function_ctl/$1';
+
+$route['management_function/(:any)/(:any)'] = 'management/function_ctl/$1/$2';
+
+
 
 $route['wisata'] = 'master/wisata/controller_ctl/index';
 

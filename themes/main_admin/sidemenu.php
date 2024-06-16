@@ -166,104 +166,69 @@
                                         <!--end:Menu item-->
                                         <?php endif;?>
                                         <!--begin:Menu item-->
-                                        <div data-kt-menu-trigger="click" class="menu-item menu-accordion <?= set_submenu_active($this->uri->segment(1), ['wisata'], $this->uri->segment(2), ['tiket','fasilitas','unit'], 'active hover show') ?>">
+                                        <!--begin:Menu item-->
+                                        <a href="<?= base_url('wisata/tiket') ?>" class="menu-item menu-accordion <?= set_submenu_active($this->uri->segment(1), ['wisata'], $this->uri->segment(2), ['tiket']) ?>">
+                                            <!--begin:Menu link-->
+                                            <span class="menu-link">
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span>
+                                                </span>
+                                                <span class="menu-title">Data Tiket</span>
+                                            </span>
+                                            <!--end:Menu link-->
+                                        </a>
+                                        <!--end:Menu item-->
+
+                                        <!--begin:Menu item-->
+                                        <a href="<?= base_url('wisata/fasilitas') ?>" class="menu-item menu-accordion <?= set_submenu_active($this->uri->segment(1), ['wisata'], $this->uri->segment(2), ['fasilitas']) ?>">
+                                            <!--begin:Menu link-->
+                                            <span class="menu-link">
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span>
+                                                </span>
+                                                <span class="menu-title">Data Fasilitas</span>
+                                            </span>
+                                            <!--end:Menu link-->
+                                        </a>
+                                        <!--end:Menu item-->
+
+                                        <!--begin:Menu item-->
+                                        <a href="<?= base_url('wisata/unit') ?>" class="menu-item menu-accordion <?= set_submenu_active($this->uri->segment(1), ['wisata'], $this->uri->segment(2), ['unit']) ?>">
                                             <!--begin:Menu link-->
                                             <span class="menu-link">
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
                                                 <span class="menu-title">Data Wisata</span>
-                                                <span class="menu-arrow"></span>
                                             </span>
                                             <!--end:Menu link-->
-                                            <!--begin:Menu sub-->
-                                            <div class="menu-sub menu-sub-accordion">
-                                                <!--begin:Menu item-->
-                                                <div class="menu-item">
-                                                    <!--begin:Menu link-->
-                                                    <a class="menu-link"
-                                                        href="<?= base_url('wisata/tiket') ?>">
-                                                        <span class="menu-bullet">
-                                                            <span class="bullet bullet-dot"></span>
-                                                        </span>
-                                                        <span class="offit menu-title  <?= set_submenu_active($this->uri->segment(1), ['wisata'], $this->uri->segment(2), ['tiket']) ?>">Tiket</span>
-                                                    </a>
-                                                    <!--end:Menu link-->
-                                                </div>
-                                                <!--end:Menu item-->
-                                                <!--begin:Menu item-->
-                                                <div class="menu-item">
-                                                    <!--begin:Menu link-->
-                                                    <a class="menu-link"
-                                                        href="<?= base_url('wisata/fasilitas') ?>">
-                                                        <span class="menu-bullet">
-                                                            <span class="bullet bullet-dot"></span>
-                                                        </span>
-                                                        <span class="offit menu-title  <?= set_submenu_active($this->uri->segment(1), ['wisata'], $this->uri->segment(2), ['fasilitas']) ?>">Fasilitas</span>
-                                                    </a>
-                                                    <!--end:Menu link-->
-                                                </div>
-                                                <!--end:Menu item-->
-                                                <!--begin:Menu item-->
-                                                <div class="menu-item">
-                                                    <!--begin:Menu link-->
-                                                    <a class="menu-link"
-                                                        href="<?= base_url('wisata/unit') ?>">
-                                                        <span class="menu-bullet">
-                                                            <span class="bullet bullet-dot"></span>
-                                                        </span>
-                                                        <span class="offit menu-title  <?= set_submenu_active($this->uri->segment(1), ['wisata'], $this->uri->segment(2), ['unit']) ?>">Tempat Wisata</span>
-                                                    </a>
-                                                    <!--end:Menu link-->
-                                                </div>
-                                                <!--end:Menu item-->
-                                            </div>
-                                            <!--end:Menu sub-->
-                                        </div>
+                                        </a>
                                         <!--end:Menu item-->
                                         <?php if(in_array($this->session->userdata(PREFIX_SESSION.'_id_role'),[1])) : ?>
                                         <!--begin:Menu item-->
-                                        <div data-kt-menu-trigger="click" class="menu-item menu-accordion <?= set_submenu_active($this->uri->segment(1), ['pengurus'], $this->uri->segment(2), ['jabatan','anggota'], 'active hover show') ?>">
+                                        <a href="<?= base_url('pengurus/jabatan') ?>" class="menu-item menu-accordion <?= set_submenu_active($this->uri->segment(1), ['pengurus'], $this->uri->segment(2), ['jabatan']) ?>">
+                                            <!--begin:Menu link-->
+                                            <span class="menu-link">
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span>
+                                                </span>
+                                                <span class="menu-title">Data Jabatan</span>
+                                            </span>
+                                            <!--end:Menu link-->
+                                        </a>
+                                        <!--end:Menu item-->
+
+                                        <!--begin:Menu item-->
+                                        <a href="<?= base_url('pengurus/anggota') ?>" class="menu-item menu-accordion <?= set_submenu_active($this->uri->segment(1), ['pengurus'], $this->uri->segment(2), ['anggota']) ?>">
                                             <!--begin:Menu link-->
                                             <span class="menu-link">
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
                                                 <span class="menu-title">Data Pengurus</span>
-                                                <span class="menu-arrow"></span>
                                             </span>
                                             <!--end:Menu link-->
-                                            <!--begin:Menu sub-->
-                                            <div class="menu-sub menu-sub-accordion">
-                                                <!--begin:Menu item-->
-                                                <div class="menu-item">
-                                                    <!--begin:Menu link-->
-                                                    <a class="menu-link"
-                                                        href="<?= base_url('pengurus/jabatan') ?>">
-                                                        <span class="menu-bullet">
-                                                            <span class="bullet bullet-dot"></span>
-                                                        </span>
-                                                        <span class="offit menu-title  <?= set_submenu_active($this->uri->segment(1), ['pengurus'], $this->uri->segment(2), ['jabatan']) ?>">Jabatan</span>
-                                                    </a>
-                                                    <!--end:Menu link-->
-                                                </div>
-                                                <!--end:Menu item-->
-                                                <!--begin:Menu item-->
-                                                <div class="menu-item">
-                                                    <!--begin:Menu link-->
-                                                    <a class="menu-link"
-                                                        href="<?= base_url('pengurus/anggota') ?>">
-                                                        <span class="menu-bullet">
-                                                            <span class="bullet bullet-dot"></span>
-                                                        </span>
-                                                        <span class="offit menu-title  <?= set_submenu_active($this->uri->segment(1), ['pengurus'], $this->uri->segment(2), ['anggota']) ?>">Anggota</span>
-                                                    </a>
-                                                    <!--end:Menu link-->
-                                                </div>
-                                                <!--end:Menu item-->
-                                            </div>
-                                            <!--end:Menu sub-->
-                                        </div>
+                                        </a>
                                         <!--end:Menu item-->
                                         <?php endif;?>
                                     
@@ -274,21 +239,22 @@
                                 <!--end:Menu item-->
 
                                 <?php if(in_array($this->session->userdata(PREFIX_SESSION.'_id_role'),[1])) : ?>
+                                    
                                  <!--begin:Menu item-->
                                 <div data-kt-menu-trigger="click" class="menu-item menu-accordion hover show">
                                     <!--begin:Menu link-->
-                                    <span class="menu-link <?= set_menu_active($this->uri->segment(1), ['cms']) ?>">
+                                    <span class="menu-link <?= set_menu_active($this->uri->segment(1), ['management']) ?>">
                                         <span class="menu-icon">
                                             <i class="ki-outline ki-gift fs-2"></i>
                                         </span>
-                                        <span class="menu-title">CMS</span>
+                                        <span class="menu-title">Management</span>
                                         <span class="menu-arrow"></span>
                                     </span>
                                     <!--end:Menu link-->
                                     <!--begin:Menu sub-->
                                     <div class="menu-sub menu-sub-accordion">
                                         <!--begin:Menu item-->
-                                        <a href="<?= base_url('master/user') ?>" class="menu-item menu-accordion <?= set_submenu_active($this->uri->segment(1), ['cms'], $this->uri->segment(2), ['user']) ?>">
+                                        <a href="<?= base_url('management/banner') ?>" class="menu-item menu-accordion <?= set_submenu_active($this->uri->segment(1), ['management'], $this->uri->segment(2), ['banner']) ?>">
                                             <!--begin:Menu link-->
                                             <span class="menu-link">
                                                 <span class="menu-bullet">
@@ -300,19 +266,19 @@
                                         </a>
                                         <!--end:Menu item-->
                                         <!--begin:Menu item-->
-                                        <a href="<?= base_url('master/user') ?>" class="menu-item menu-accordion <?= set_submenu_active($this->uri->segment(1), ['cms'], $this->uri->segment(2), ['user']) ?>">
+                                        <a href="<?= base_url('management/agenda') ?>" class="menu-item menu-accordion <?= set_submenu_active($this->uri->segment(1), ['management'], $this->uri->segment(2), ['agenda']) ?>">
                                             <!--begin:Menu link-->
                                             <span class="menu-link">
                                                 <span class="menu-bullet">
                                                     <span class="bullet bullet-dot"></span>
                                                 </span>
-                                                <span class="menu-title">Data About</span>
+                                                <span class="menu-title">Data Agenda</span>
                                             </span>
                                             <!--end:Menu link-->
                                         </a>
                                         <!--end:Menu item-->
                                         <!--begin:Menu item-->
-                                        <a href="<?= base_url('master/proyek') ?>" class="menu-item menu-accordion <?= set_submenu_active($this->uri->segment(1), ['cms'], $this->uri->segment(2), ['proyek']) ?>">
+                                        <a href="<?= base_url('management/berita') ?>" class="menu-item menu-accordion <?= set_submenu_active($this->uri->segment(1), ['management'], $this->uri->segment(2), ['berita']) ?>">
                                             <!--begin:Menu link-->
                                             <span class="menu-link">
                                                 <span class="menu-bullet">
@@ -333,48 +299,16 @@
 
                                 <?php if(in_array($this->session->userdata(PREFIX_SESSION.'_id_role'),[1])) : ?>
                                 <!--begin:Menu item-->
-                                <div data-kt-menu-trigger="click" class="menu-item menu-accordion hover show">
+                                <a href="<?= base_url('report/transaksi'); ?>" class="menu-item here show menu-accordion">
                                     <!--begin:Menu link-->
-                                    <span class="menu-link <?= set_menu_active($this->uri->segment(1), ['report']) ?>">
+                                    <span class="menu-link <?= (in_array($this->uri->segment(1), ['report'])) ? 'active' : ''; ?>">
                                         <span class="menu-icon">
                                             <i class="ki-outline ki-abstract-35 fs-2"></i>
                                         </span>
-                                        <span class="menu-title">Laporan</span>
-                                        <span class="menu-arrow"></span>
+                                        <span class="menu-title">Laporan Transaksi</span>
                                     </span>
                                     <!--end:Menu link-->
-                                    <!--begin:Menu sub-->
-                                    <div class="menu-sub menu-sub-accordion">
-                                        <!--begin:Menu item-->
-                                        <a href="<?= base_url('report/transaksi') ?>" class="menu-item menu-accordion <?= set_submenu_active($this->uri->segment(1), ['report'], $this->uri->segment(2), ['transaksi']) ?>">
-                                            <!--begin:Menu link-->
-                                            <span class="menu-link">
-                                                <span class="menu-bullet">
-                                                    <span class="bullet bullet-dot"></span>
-                                                </span>
-                                                <span class="menu-title">Laporan Pemesanan</span>
-                                            </span>
-                                            <!--end:Menu link-->
-                                        </a>
-                                        <!--end:Menu item-->
-                                    
-
-                                    </div>
-                                    <!--end:Menu sub-->
-
-                                    <!--begin:Menu item-->
-                                    <a href="<?= base_url('setting'); ?>" class="menu-item here show menu-accordion">
-                                        <!--begin:Menu link-->
-                                        <span class="menu-link <?= (in_array($this->uri->segment(1), ['setting'])) ? 'active' : ''; ?>">
-                                            <span class="menu-icon">
-                                            <i class="fa-solid fa-gear fs-2"></i>
-                                            </span>
-                                            <span class="menu-title">Pengaturan</span>
-                                        </span>
-                                        <!--end:Menu link-->
-                                    </a>
-                                    <!--end:Menu item-->
-                                </div>
+                                </a>
                                 <!--end:Menu item-->
                                 <?php endif;?>
 

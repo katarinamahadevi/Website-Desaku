@@ -36,7 +36,7 @@ class Controller_ctl extends MY_Admin
         $limit = 5;
         $offset = $this->uri->segment(3);
         $params = [];
-        $params = [];
+        $where = [];
         if ($status != 'all') {
             if (in_array($status, ['Y', 'N'])) {
                 $where['status'] = $status;

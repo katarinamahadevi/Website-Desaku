@@ -1,4 +1,4 @@
-var image = document.getElementById('display_icon');
+
 $(function () {
 
     $('.hps_icon').on('click', function () {
@@ -24,7 +24,6 @@ function edit_fasilitas(element, id) {
             // console.log('loading...')
         },
         success: function (data) {
-            image.style.backgroundImage = "url('" + icon + "')";
             var reason = '';
             if (data.fasilitas.block_reason) {
                 reason = '</br>Alasan : ' + data.fasilitas.block_reason;
@@ -54,7 +53,6 @@ function tambah_fasilitas() {
     $('#form_fasilitas input').val('');
     $('#form_fasilitas select').val('');
     $('#form_fasilitas select').trigger('change');
-    image.style.backgroundImage = "url('" + image_default + "')";
 }
 
 

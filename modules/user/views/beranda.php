@@ -271,9 +271,7 @@
                             <h5 class="text-uppercase text-primary mb-3">01 - 01 - 2024</h5>
                             <a href="#" class="btn-hover-color display-6 text-white mb-3">Penanaman Hutan Kembali</a> 
                             <p class="text-white mb-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's</p>
-                            <div class="donation-btn d-flex align-items-center justify-content-start">
-                                <a class="btn-hover-bg btn btn-primary text-white py-2 px-4" href="#">Selengkapnya</a>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -284,9 +282,7 @@
                             <h5 class="text-uppercase text-primary mb-3">01 - 08 - 2024</h5>
                             <a href="#" class="btn-hover-color display-6 text-white mb-3">Pembersihan Sungai DESAKU</a>
                             <p class="text-white mb-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's</p>
-                            <div class="donation-btn d-flex align-items-center justify-content-start">
-                                <a class="btn-hover-bg btn btn-primary text-white py-2 px-4" href="#">Selengkapnya</a>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -297,9 +293,7 @@
                             <h5 class="text-uppercase text-primary mb-3">01 - 10 - 2024</h5>
                             <a href="#" class="btn-hover-color display-6 text-white mb-3">Pembersihan Sampah DESAKU</a>
                             <p class="text-white mb-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's</p>
-                            <div class="donation-btn d-flex align-items-center justify-content-start">
-                                <a class="btn-hover-bg btn btn-primary text-white py-2 px-4" href="#">Selengkapnya</a>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>

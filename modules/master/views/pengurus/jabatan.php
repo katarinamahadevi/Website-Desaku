@@ -29,39 +29,11 @@
                             <!--end::Breadcrumb-->
                         </div>
                         <!--end::Page title-->
-                    </div>
-                    <!--begin::Header-->
-                    <div class="card-header border-0 pt-5">
-                        <div class="d-flex align-items-center position-relative me-3 search_mekanik w-300px">
-                            <i class="ki-duotone ki-magnifier fs-3 position-absolute ms-5">
-                                <span class="path1"></span>
-                                <span class="path2"></span>
-                            </i>
-                            <input type="text" name="search" value="<?= $search; ?>" class="form-control form-control-solid w-250px ps-13" aria-label="Cari Jabatan" aria-describedby="button-cari-jabatan" placeholder="Cari Jabatan" autocomplete="off">
-                            <button type="button" onclick="search(false)" class="btn btn-primary d-none" type="button" id="button-cari-jabatan">
-                                <i class="ki-duotone ki-magnifier fs-2">
-                                    <span class="path1"></span>
-                                    <span class="path2"></span>
-                                </i>
-                            </button>
-                        </div>
-                        <div class="card-toolbar">
-                            <!--begin::Toolbar-->
-                            <div class="d-none justify-content-end" id="sistem_drag">
-                                <button type="button" id="btn_hapus" onclick="submit_form(this,'#reload_table',0,'/deleted',true,true)" data-message="Apakah anda yakin akan menghapus data jabatan? data yang di hapus tidak akan bisa di kembalikan" class="btn btn-sm btn-light-danger me-3">Hapus</button>
-                            </div>
-                            <div class="d-flex justify-content-end" id="sistem_filter">
-
-
-                            </div>
-                            <!--end::Toolbar-->
-                            <!--begin::Add jabatan-->
+                        <!--begin::Add jabatan-->
                             <button type="button" class="btn btn-sm btn-light" onclick="tambah_jabatan()" data-bs-toggle="modal" data-bs-target="#kt_modal_jabatan">
                                 <i class="ki-duotone ki-plus fs-2"></i>Tambah Jabatan</button>
                             <!--end::Add jabatan-->
-                        </div>
                     </div>
-                    <!--end::Header-->
                     <!--begin::Body-->
                     <div class="card-body py-3" id="base_table">
                         <!--begin::Table container-->
@@ -71,13 +43,6 @@
                                 <!--begin::Table head-->
                                 <thead>
                                     <tr class="fw-bold text-muted">
-                                        <th class="w-25px">
-                                            <div class="form-check form-check-sm form-check-custom form-check-solid">
-                                                <input class="form-check-input cursor-pointer" type="checkbox" onchange="checked_action(this)" <?php if (!$result) {
-                                                                                                                                                    echo 'disabled';
-                                                                                                                                                } ?>>
-                                            </div>
-                                        </th>
                                         <th class="min-w-200px">Jabatan</th>
                                         <th class="min-w-100px text-end">Aksi</th>
                                     </tr>
@@ -89,11 +54,6 @@
                                     <?php if ($result) : ?>
                                         <?php foreach ($result as $row) : ?>
                                             <tr>
-                                                <td>
-                                                    <div class="form-check form-check-sm form-check-custom form-check-solid">
-                                                        <input class="form-check-input widget-9-check cursor-pointer child_checkbox" name="id_batch[]" onchange="child_checked()" type="checkbox" value="<?= $row->id_jabatan ?>">
-                                                    </div>
-                                                </td>
                                                 <td>
                                                     <a class="text-dark fw-bold text-hover-primary fs-6"><?= ifnull($row->nama, 'Dalam proses...') ?></a>
                                                 </td>
@@ -112,7 +72,7 @@
                                         <?php endforeach; ?>
                                     <?php else : ?>
                                         <tr>
-                                            <td colspan="3">
+                                            <td colspan="2">
                                                 <center>Data jabatan tidak ditemukan</center>
                                             </td>
                                         </tr>

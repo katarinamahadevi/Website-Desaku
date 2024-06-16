@@ -5,13 +5,12 @@
         <div id="kt_app_content_container" class="app-container container-fluid">
             <!--begin::Row-->
             <div class="row g-5 g-xl-10">
-                
-                <div class="card mb-5 mb-xl-8 py-5">
-                    <div class="d-flex justify-content-center flex-wrap ms-10 mt-10 mb-8">
+                <div class="card mb-5 mb-xl-8">
+                    <div class="d-flex flex-stack flex-wrap ms-10 mt-10">
                         <!--begin::Page title-->
-                        <div class="page-title d-flex flex-column align-items-center justify-content-center">
+                        <div class="page-title d-flex flex-column align-items-start">
                             <!--begin::Title-->
-                            <h1 class="d-flex text-dark fw-bold m-0 fs-2">Laporan</h1>
+                            <h1 class="d-flex text-dark fw-bold m-0 fs-3">Laporan</h1>
                             <!--end::Title-->
                             <!--begin::Breadcrumb-->
                             <ul class="breadcrumb breadcrumb-dot fw-semibold text-gray-600 fs-7">
@@ -21,43 +20,13 @@
                                 </li>
                                 <!--end::Item-->
                                 <!--begin::Item-->
-                                <li class="breadcrumb-item text-gray-600">transaksi</li>
+                                <li class="breadcrumb-item text-gray-600">Transaksi</li>
                                 <!--end::Item-->
                             </ul>
                             <!--end::Breadcrumb-->
                         </div>
                         <!--end::Page title-->
                     </div>
-                    <form method="GET" class="form-inline">
-                        <div class="row d-flex justify-content-center align-items-center">
-                            <div class="col-md-3 col-xl-3" style="padding:5px;">
-                                <label class="filter-title mb-2">Tahun</label>
-                                <select id="tahun" name="tahun" data-control="select2" class="form-select form-select-sm form-select-solid" data-placeholder="Pilih" required>
-                                    <?php for($year = 2024;$year <= date('Y'); $year++) { ?>
-                                        <option value="<?= $year ?>" <?= ($year == $tahun) ? "selected" : "" ?>><?= $year ?></option>
-                                    <?php } ?>
-                                </select>
-                            </div>
-                            <div class="col-md-3 col-xl-3" style="padding:5px;">
-                                <label class="filter-title mb-2">Bulan</label>
-                                <select id="bulan" name="bulan" data-control="select2" class="form-select form-select-sm form-select-solid">
-                                    <?php if (month_from_number()) : ?>
-                                        <?php foreach (month_from_number() as $id => $val) : ?>
-                                            <option value="<?= $id; ?>" <?= ($id == $bulan) ? "selected" : "" ?>><?= $val ?></option>
-                                        <?php endforeach; ?>
-                                    <?php endif; ?>
-                                </select>
-
-                            </div>
-                            
-                        </div>
-                        <div class="col-md-12 col-xl-12 d-flex justify-content-center align-items-center mt-5">
-                                <button type="submit" class="btn btn-primary btn-sm mx-4"><i class="bi bi-arrow-repeat"></i> Tampil</button>
-                            </div>
-                    </form>
-                </div>
-
-                <div class="card mb-5 mb-xl-8">
                     <!--begin::Header-->
                     <div class="card-header border-0 pt-5">
                         <div class="card-toolbar">

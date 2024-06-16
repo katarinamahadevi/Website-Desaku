@@ -341,25 +341,21 @@
                             <h5 class="mb-2">Fasilitas Wisata </h5>
                             <div class="col-xl-6 mb-2">
                                 <div class="d-flex justify-content-center align-items-center flex-column">
-                                    <i class="bi bi-wifi text-dark" style="font-size:2rem"></i>
                                     <h6>Bebas Wifi</h6>
                                 </div>
                             </div>
                             <div class="col-xl-6 mb-2">
                                 <div class="d-flex justify-content-center align-items-center flex-column">
-                                    <i class="bi bi-p-circle text-dark" style="font-size:2rem"></i>
                                     <h6>Bebas Parkir</h6>
                                 </div>
                             </div>
                             <div class="col-xl-6 mb-2">
                                 <div class="d-flex justify-content-center align-items-center flex-column">
-                                    <i class="bi bi-clock-history text-dark" style="font-size:2rem"></i>
                                     <h6>24 Jam </h6>
                                 </div>
                             </div>
                             <div class="col-xl-6 mb-2">
                                 <div class="d-flex justify-content-center align-items-center flex-column">
-                                    <i class="bi bi-fire text-dark" style="font-size:2rem"></i>
                                     <h6 class="text-center">Area Bebas Rokok</h6>
                                 </div>
                             </div>

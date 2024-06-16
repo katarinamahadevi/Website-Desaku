@@ -26,96 +26,9 @@
                             <!--end::Breadcrumb-->
                         </div>
                         <!--end::Page title-->
-                    </div>
-                    <!--begin::Header-->
-                    <div class="card-header border-0 pt-5">
-                        <div class="d-flex align-items-center position-relative me-3 search_mekanik w-300px">
-                            <i class="ki-duotone ki-magnifier fs-3 position-absolute ms-5">
-                                <span class="path1"></span>
-                                <span class="path2"></span>
-                            </i>
-                            <input type="text" name="search" value="<?= $search; ?>" class="form-control form-control-solid w-250px ps-13" aria-label="Cari User" aria-describedby="button-cari-user" placeholder="Cari User" autocomplete="off">
-                            <button type="button" onclick="search(false)" class="btn btn-primary d-none" type="button" id="button-cari-user">
-                                <i class="ki-duotone ki-magnifier fs-2">
-                                    <span class="path1"></span>
-                                    <span class="path2"></span>
-                                </i>
-                            </button>
-                        </div>
-                        <div class="card-toolbar">
-                            <!--begin::Toolbar-->
-                            <div class="d-none justify-content-end" id="sistem_drag">
-                                <button type="button" id="btn_hapus" onclick="submit_form(this,'#reload_table',0,'/deleted',true,true)" data-message="Apakah anda yakin akan menghapus data user? data yang di hapus tidak akan bisa di kembalikan" class="btn btn-sm btn-light-danger me-3">Hapus</button>
-                                <button type="button" id="btn_block" onclick="submit_form(this,'#reload_table',0,'/block',true)" class="btn btn-sm btn-light-warning me-3">Block</button>
-                                <button type="button" id="btn_unblock" onclick="submit_form(this,'#reload_table',0,'/unblock',true)" class="btn btn-sm btn-light-primary me-3">Buka Blockir</button>
-                            </div>
-                            <div class="d-flex justify-content-end" id="sistem_filter">
-
-                                <!--begin::Filter-->
-                                <button type="button" class="btn btn-sm btn-light me-3" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
-                                    <i class="ki-duotone ki-filter fs-2">
-                                        <span class="path1"></span>
-                                        <span class="path2"></span>
-                                    </i>Penyaringan
-                                </button>
-                                <!--begin::Menu 1-->
-                                <div class="menu menu-sub menu-sub-dropdown w-300px w-md-325px filter_mekanik" data-kt-menu="true">
-                                    <!--begin::Header-->
-                                    <div class="px-7 py-5">
-                                        <div class="fs-5 text-dark fw-bold">Pilihan Penyaringan</div>
-                                    </div>
-                                    <!--end::Header-->
-                                    <!--begin::Separator-->
-                                    <div class="separator border-gray-200"></div>
-                                    <!--end::Separator-->
-                                    <!--begin::Content-->
-                                    <div class="px-7 py-5">
-                                        <!--begin::Input group-->
-                                        <div class="mb-10">
-                                            <label class="form-label fs-6 fw-semibold">Peran</label>
-                                            <select name="role" class="form-select form-select-solid filter-input" data-control="select2" data-placeholder="Pilih peran">
-                                                <option value="all">Semua</option>
-                                                <option value="1">Admin</option>
-                                                <option value="2">Wisatator</option>
-                                                <option value="3">User</option>
-                                            </select>
-                                        </div>
-                                        <!--end::Input group-->
-                                        <!--begin::Input group-->
-                                        <div class="mb-10">
-                                            <label class="form-label fs-6 fw-semibold">Status</label>
-                                            <select name="status" class="form-select form-select-solid filter-input" data-control="select2" data-placeholder="Pilih opsi status">
-                                                <option value=""></option>
-                                                <option value="N" <?php if ($this->input->get('status') == 'N') {
-                                                                        echo 'selected';
-                                                                    } ?>>Aktif</option>
-                                                <option value="Y" <?php if ($this->input->get('status') == 'Y') {
-                                                                        echo 'selected';
-                                                                    } ?>>Tidak Aktif</option>
-                                            </select>
-                                        </div>
-                                        <!--end::Input group-->
-                                        <!--begin::Actions-->
-                                        <div class="d-flex justify-content-end">
-                                            <button type="button" onclick="filter(['role','status'],false)" class="btn btn-primary fw-semibold px-6">Terapkan</button>
-                                        </div>
-                                        <!--end::Actions-->
-                                    </div>
-                                    <!--end::Content-->
-                                </div>
-                                <!--end::Menu 1-->
-                                <!--end::Filter-->
-                                <!--begin::Export-->
-                                
-                            </div>
-                            <!--end::Toolbar-->
-                            <!--begin::Add user-->
-                            <button type="button" class="btn btn-sm btn-light" onclick="tambah_user()" data-bs-toggle="modal" data-bs-target="#kt_modal_user">
+                        <button type="button" class="btn btn-sm btn-light" onclick="tambah_user()" data-bs-toggle="modal" data-bs-target="#kt_modal_user">
                                 <i class="ki-duotone ki-plus fs-2"></i>Tambah User</button>
-                            <!--end::Add user-->
-                        </div>
                     </div>
-                    <!--end::Header-->
                     <!--begin::Body-->
                     <div class="card-body py-3" id="base_table">
                         <!--begin::Table container-->
@@ -125,16 +38,8 @@
                                 <!--begin::Table head-->
                                 <thead>
                                     <tr class="fw-bold text-muted">
-                                        <th class="w-25px">
-                                            <div class="form-check form-check-sm form-check-custom form-check-solid">
-                                                <input class="form-check-input cursor-pointer" type="checkbox" onchange="checked_action(this)" <?php if (!$result) {
-                                                                                                                                                    echo 'disabled';
-                                                                                                                                                } ?>>
-                                            </div>
-                                        </th>
                                         <th class="min-w-200px">User</th>
                                         <th class="min-w-150px">Kontak</th>
-                                        <th class="min-w-50px">Block</th>
                                         <th class="min-w-100px text-end">Aksi</th>
                                     </tr>
                                 </thead>
@@ -145,11 +50,6 @@
                                     <?php if ($result) : ?>
                                         <?php foreach ($result as $row) : ?>
                                             <tr>
-                                                <td>
-                                                    <div class="form-check form-check-sm form-check-custom form-check-solid">
-                                                        <input class="form-check-input widget-9-check cursor-pointer child_checkbox" name="id_batch[]" onchange="child_checked()" type="checkbox" value="<?= $row->id_user ?>">
-                                                    </div>
-                                                </td>
                                                 <td>
                                                     <div class="d-flex align-items-center">
                                                         <div class="symbol symbol-45px me-5">
@@ -178,13 +78,6 @@
                                                     <?php endif; ?>
                                                 </td>
                                                 <td>
-                                                    <div class="form-check form-switch">
-                                                        <input class="form-check-input cursor-pointer focus-red" type="checkbox" role="switch" onchange="switch_block(this,event,<?= $row->id_user ?>)" id="switch-<?= $row->id_user ?>" <?php if ($row->blocked == 'Y') {
-                                                                                                                                                                                                                                                    echo 'checked';
-                                                                                                                                                                                                                                                } ?>>
-                                                    </div>
-                                                </td>
-                                                <td>
 
                                                     <div class="d-flex justify-content-end flex-shrink-0">
                                                         <button type="button" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1" title="Ubah data user" onclick="edit_user(this,<?= $row->id_user; ?>)" data-image="<?= image_check($row->foto, 'user') ?>" data-bs-toggle="modal" data-bs-target="#kt_modal_user">
@@ -199,7 +92,7 @@
                                         <?php endforeach; ?>
                                     <?php else : ?>
                                         <tr>
-                                            <td colspan="6">
+                                            <td colspan="3">
                                                 <center>Data user tidak ditemukan</center>
                                             </td>
                                         </tr>
