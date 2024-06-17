@@ -41,9 +41,16 @@ class Controller_ctl extends MY_User
          $pengurus = $this->action_m->get_where_params('pengurus', ['pengurus.status' => 'Y'], 'pengurus.*,jabatan.nama AS jabatan', $params2);
 
 
+         $berita = $this->action_m->get_where_params('berita',[],'*,(SELECT COUNT(*) FROM berita_komentar WHERE berita_komentar.id_berita = berita.id_berita) AS komentar',[]);
+         $agenda = $this->action_m->get_all('agenda');
+         $banner = $this->action_m->get_all('banner');
+
         // CETAK DATA
         $mydata['wisata'] = $wisata;
         $mydata['pengurus'] = $pengurus;
+        $mydata['agenda'] = $agenda;
+        $mydata['berita'] = $berita;
+        $mydata['banner'] = $banner;
         // LOAD VIEW
         $this->data['content'] = $this->load->view('beranda', $mydata, TRUE);
         $this->display();

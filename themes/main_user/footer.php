@@ -32,6 +32,7 @@
         
         <!-- Template Javascript -->
         <script src="<?= base_url('assets/user/') ?>js/main.js"></script>
+        <script src="<?= base_url('assets/user/') ?>js/user.js"></script>
 
         <!-- Charts -->
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

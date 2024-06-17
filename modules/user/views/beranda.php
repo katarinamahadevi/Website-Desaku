@@ -1,55 +1,27 @@
 <!-- Beranda Start -->
+<?php if($banner) : ?>
 <section id="beranda">
     <div class="container-fluid carousel-header vh-100 px-0">
         <div id="carouselId" class="carousel" data-bs-ride="">
             <ol class="carousel-indicators">
-                <li data-bs-target="#carouselId" data-bs-slide-to="0" class="active"></li>
-                <li data-bs-target="#carouselId" data-bs-slide-to="1"></li>
-                <li data-bs-target="#carouselId" data-bs-slide-to="2"></li>
+                <?php $no = 0; foreach($banner AS $row) : $num = $no++?>
+                <li data-bs-target="#carouselId" data-bs-slide-to="<?= $num; ?>" class="<?= ($num == 0) ? 'active' : ''; ?>"></li>
+                <?php endforeach;?>
             </ol>
             <div class="carousel-inner" role="listbox">
-                <div class="carousel-item active">
-                    <img src="<?= base_url('assets/user/') ?>img/carousel-1.jpg" class="img-fluid" alt="Image">
+                <?php $no = 0; foreach($banner AS $row) : $num = $no++?>
+                <div class="carousel-item <?= ($num == 0) ? 'active' : ''; ?>">
+                    <img src="<?= image_check($row->gambar,'banner'); ?>" class="img-fluid" alt="Image">
                     <div class="carousel-caption">
                         <div class="p-3" style="max-width: 900px;">
-                            <h4 class="text-white text-uppercase fw-bold mb-4" style="letter-spacing: 3px;">WE'll Save Our Planet</h4>
-                            <h1 class="display-1 text-capitalize text-white mb-4">Protect Environment</h1>
-                            <p class="mb-5 fs-5">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+                            <h1 class="display-1 text-capitalize text-white mb-4"><?= $row->title; ?></h1>
+                            <p class="mb-5 fs-5"> <?= $row->deskripsi; ?>; 
                             </p>
-                            <div class="d-flex align-items-center justify-content-center d-none">
-                                <a class="btn-hover-bg btn btn-primary text-white py-3 px-5" href="#">Join With Us</a>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
-                <div class="carousel-item">
-                    <img src="<?= base_url('assets/user/') ?>img/carousel-2.jpg" class="img-fluid" alt="Image">
-                    <div class="carousel-caption">
-                        <div class="p-3" style="max-width: 900px;">
-                            <h4 class="text-white text-uppercase fw-bold mb-4" style="letter-spacing: 3px;">WE'll Save Our Planet</h4>
-                            <h1 class="display-1 text-capitalize text-white mb-4">Protect Environment</h1>
-                            <p class="mb-5 fs-5">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                            </p>
-                            <div class="d-flex align-items-center justify-content-center">
-                                <a class="btn-hover-bg btn btn-primary text-white py-3 px-5" href="#">Join With Us</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="<?= base_url('assets/user/') ?>img/carousel-3.jpg" class="img-fluid" alt="Image">
-                    <div class="carousel-caption">
-                        <div class="p-3" style="max-width: 900px;">
-                            <h4 class="text-white text-uppercase fw-bold mb-4" style="letter-spacing: 3px;">WE'll Save Our Planet</h4>
-                            <h1 class="display-1 text-capitalize text-white mb-4">Protect Environment</h1>
-                            <p class="mb-5 fs-5">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                            </p>
-                            <div class="d-flex align-items-center justify-content-center">
-                                <a class="btn-hover-bg btn btn-primary text-white py-3 px-5" href="#">Join With Us</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php endforeach;?>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
                 <i class="fa-solid fa-chevron-left"></i>
@@ -60,6 +32,7 @@
         </div>
     </div>           
 </section>
+<?php endif;?>
 <!-- Beranda End -->
 
 <!-- Tentang Start -->
@@ -255,59 +228,40 @@
 </section>
 <!-- Tentang End -->
 
+<?php if($agenda) : ?>
 <!-- Agenda Start -->
 <section id="agenda">
     <div class="container-fluid donation py-5">
         <div class="container py-5">
             <div class="text-center mx-auto pb-5" style="max-width: 800px;">
-                <h5 class="text-uppercase text-primary">Agenda DESAKU</h5>
+                <h5 class="text-uppercase text-primary">AGENDA DESAKU</h5>
                 <h1 class="mb-0">Agenda Rutinitas Warga DESAKU</h1>
             </div>
             <div class="row g-4">
+                <?php foreach($agenda AS $row) : ?>
                 <div class="col-lg-4">
                     <div class="donation-item">
-                        <img src="<?= base_url('assets/user/') ?>img/donation-1.jpg" class="img-fluid w-100" alt="Image">
+                        <img src="<?= image_check($row->gambar,'agenda') ?>" class="img-fluid w-100" alt="Image" style="height : 400px;">
                         <div class="donation-content d-flex flex-column">
-                            <h5 class="text-uppercase text-primary mb-3">01 - 01 - 2024</h5>
-                            <a href="#" class="btn-hover-color display-6 text-white mb-3">Penanaman Hutan Kembali</a> 
-                            <p class="text-white mb-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's</p>
+                            <h5 class="text-uppercase text-primary mb-3"><?= date('d-m-Y',strtotime($row->create_date)); ?></h5>
+                            <a href="#" class="btn-hover-color display-6 text-white mb-3"><?= $row->title; ?></a> 
+                            <p class="text-white mb-4">
+                                <?= $row->deskripsi;?>
+                            </p>
                             
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
-                    <div class="donation-item">
-                        <img src="<?= base_url('assets/user/') ?>img/service-2.jpg" class="img-fluid w-100" alt="Image">
-                        <div class="donation-content d-flex flex-column">
-                            <h5 class="text-uppercase text-primary mb-3">01 - 08 - 2024</h5>
-                            <a href="#" class="btn-hover-color display-6 text-white mb-3">Pembersihan Sungai DESAKU</a>
-                            <p class="text-white mb-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's</p>
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="donation-item">
-                        <img src="<?= base_url('assets/user/') ?>img/donation-3.jpg" class="img-fluid w-100" alt="Image">
-                        <div class="donation-content d-flex flex-column">
-                            <h5 class="text-uppercase text-primary mb-3">01 - 10 - 2024</h5>
-                            <a href="#" class="btn-hover-color display-6 text-white mb-3">Pembersihan Sampah DESAKU</a>
-                            <p class="text-white mb-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's</p>
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 d-none">
-                    <div class="d-flex align-items-center justify-content-center">
-                        <a class="btn-hover-bg btn btn-primary text-white py-2 px-4" href="#">All Donation</a>
-                    </div>
-                </div>
+                <?php endforeach;?>
             </div>
         </div>
     </div>
 </section>
 <!-- Agenda End -->
+<?php endif;?>
 
+
+<?php if($berita) : ?>
 <!-- Berita Start -->
 <section id="berita">
     <div class="container-fluid blog py-5 mb-5">
@@ -316,128 +270,44 @@
                 <h5 class="text-uppercase text-primary">Berita Terbaru</h5>
                 <h1 class="mb-0">Berita Terbaru dan Terupdate Seputar DESAKU</h1>
             </div>
-            <div class="row g-4">
+            <div class="row g-4 d-flex justify-content-center align-items-center">
+                <?php foreach($berita AS $row) : ?>
                 <div class="col-lg-6 col-xl-3">
                     <div class="blog-item">
                         <div class="blog-img">
-                            <img src="<?= base_url('assets/user/') ?>img/blog-1.jpg" class="img-fluid w-100" alt="">
+                            <img src="<?= image_check($row->gambar,'berita'); ?>" class="img-fluid w-100" alt="" style="height : 200px;">
                             <div class="blog-info">
-                                <span><i class="fa fa-clock"></i> Des, 01.2024</span>
+                                <span><i class="fa fa-clock"></i> <?= date('M, d Y',strtotime($row->create_date)) ?></span>
                                 <div class="d-flex">
-                                    <a href="#" class="text-white">1 <i class="fa fa-comment"></i></a>
+                                    <a href="#" class="text-white"><?= ifnull($row->komentar,0) ?> <i class="fa fa-comment"></i></a>
                                 </div>
                             </div>
                             <div class="search-icon">
-                                <a href="img/blog-1.jpg" data-lightbox="Blog-1" class="my-auto"><i class="fas fa-search-plus btn-primary text-white p-3"></i></a>
+                                <a href="<?= image_check($row->gambar,'berita'); ?>" data-lightbox="Blog-1" class="my-auto"><i class="fas fa-search-plus btn-primary text-white p-3"></i></a>
                             </div>
                         </div>
                         <div class="text-dark border p-4 card blog-card">
                             <ul class="list-group list-group-flush border-0">
                                 <li class="border-0" style="list-style: none;">
-                                    <h4 class="mb-4">Kebakaran Hutan di kota X</h4>
+                                    <h4 class="mb-4"><?= $row->title;?></h4>
                                 </li>
                                 <li class="border-0" style="list-style: none;">
-                                    <p class="mb-4">Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip sed eiusmod tempor....</p>
+                                    <p class="mb-4"><?= nice_text($row->deskripsi,15); ?></p>
                                 </li>
                             </ul>
                             <div class="card-footer bg-transparent ps-0 border-0">
-                                <a class="btn-hover-bg btn btn-primary text-white py-2 px-4" data-bs-toggle="modal" href="#modalDetailBerita" role="button">Selengkapnya</a>
+                                <a onclick="modal_berita(<?= $row->id_berita; ?>)" class="btn-hover-bg btn btn-primary text-white py-2 px-4" data-bs-toggle="modal" href="#modalDetailBerita" role="button">Selengkapnya</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-xl-3">
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <img src="<?= base_url('assets/user/') ?>img/blog-2.jpg" class="img-fluid w-100" alt="">
-                            <div class="blog-info">
-                                <span><i class="fa fa-clock"></i> Des 01.2024</span>
-                                <div class="d-flex">
-                                    <a href="#" class="text-white">3 <i class="fa fa-comment"></i></a>
-                                </div>
-                            </div>
-                            <div class="search-icon">
-                                <a href="img/blog-2.jpg" data-lightbox="Blog-2" class="my-auto"><i class="fas fa-search-plus btn-primary text-white p-3"></i></a>
-                            </div>
-                        </div>
-                        <div class="text-dark border p-4 card blog-card">
-                            <ul class="list-group list-group-flush border-0">
-                                <li class="border-0" style="list-style: none;">
-                                    <h4 class="mb-4">Kincir Angin di Negara X</h4>
-                                </li>
-                                <li class="border-0" style="list-style: none;">
-                                    <p class="mb-4">Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip sed eiusmod tempor....</p>
-                                </li>
-                            </ul>
-                            <div class="card-footer bg-transparent ps-0">
-                                <a class="btn-hover-bg btn btn-primary text-white py-2 px-4" data-bs-toggle="modal" href="#modalDetailBerita" role="button">Selengkapnya</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-xl-3">
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <img src="<?= base_url('assets/user/') ?>img/blog-3.jpg" class="img-fluid w-100" alt="">
-                            <div class="blog-info">
-                                <span><i class="fa fa-clock"></i> Des 01.2024</span>
-                                <div class="d-flex">
-                                    <a href="#" class="text-white">7 <i class="fa fa-comment"></i></a>
-                                </div>
-                            </div>
-                            <div class="search-icon">
-                                <a href="img/blog-3.jpg" data-lightbox="Blog-3" class="my-auto"><i class="fas fa-search-plus btn-primary text-white p-3"></i></a>
-                            </div>
-                        </div>
-                        <div class="text-dark border p-4 card blog-card">
-                            <ul class="list-group list-group-flush border-0">
-                                <li class="border-0" style="list-style: none;">
-                                    <h4 class="mb-4">Indah Sungai dan Air Terjun di Kota X</h4>
-                                </li>
-                                <li class="border-0" style="list-style: none;">
-                                    <p class="mb-4">Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip sed eiusmod tempor....</p>
-                                </li>
-                            </ul>
-                            <div class="card-footer bg-transparent ps-0">
-                                <a class="btn-hover-bg btn btn-primary text-white py-2 px-4" data-bs-toggle="modal" href="#modalDetailBerita" role="button">Selengkapnya</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-xl-3">
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <img src="<?= base_url('assets/user/') ?>img/blog-4.jpg" class="img-fluid w-100" alt="">
-                            <div class="blog-info">
-                                <span><i class="fa fa-clock"></i> Des 01.2024</span>
-                                <div class="d-flex">
-                                    <a href="#" class="text-white">5 <i class="fa fa-comment"></i></a>
-                                </div>
-                            </div>
-                            <div class="search-icon">
-                                <a href="img/blog-4.jpg" data-lightbox="Blog-4" class="my-auto"><i class="fas fa-search-plus btn-primary text-white p-3"></i></a>
-                            </div>
-                        </div>
-                        <div class="text-dark border p-4 card blog-card">
-                            <ul class="list-group list-group-flush border-0">
-                                <li class="border-0" style="list-style: none;">
-                                    <h4 class="mb-4">Hutan Tropis di Negara X</h4>
-                                </li>
-                                <li class="border-0" style="list-style: none;">
-                                    <p class="mb-4">Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip sed eiusmod tempor....</p>
-                                </li>
-                            </ul>
-                            <div class="card-footer bg-transparent ps-0">
-                                <a class="btn-hover-bg btn btn-primary text-white py-2 px-4" data-bs-toggle="modal" href="#modalDetailBerita" role="button">Selengkapnya</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php endforeach;?>
             </div>
         </div>
     </div>
 </section>
 <!-- Berita End -->
+<?php endif;?>
 
 <!-- Wisata Start -->
 <?php if($wisata) : ?>
