@@ -230,7 +230,9 @@
                 <h1 class="modal-title fs-4 mb-0" id="modalDetailBeritaLabel">Detail Berita</h1>
             </div>
             <div class="modal-body px-4 py-3" style="width: 100%;" id="display_detail_berita">
-                
+                <?php if($this->input->get('id_berita')): ?>
+                    <?= $this->load->view('modal/berita',$data); ?>
+                <?php endif;?>
             </div>
         </div>
     </div>

@@ -44,6 +44,20 @@ class Controller_ctl extends MY_User
          $berita = $this->action_m->get_where_params('berita',[],'*,(SELECT COUNT(*) FROM berita_komentar WHERE berita_komentar.id_berita = berita.id_berita) AS komentar',[]);
          $agenda = $this->action_m->get_all('agenda');
          $banner = $this->action_m->get_all('banner');
+        
+        $id_berita = $this->input->get('id_berita');
+        if (isset($id_berita)) {
+            $result = $this->action_m->get_single('berita', ['id_berita' => $id_berita]);
+
+            $params_khusus['arrjoin']['user']['statement'] = 'berita_komentar.id_user = user.id_user';
+            $params_khusus['arrjoin']['user']['type'] = 'LEFT';
+            $komentar = $this->action_m->get_where_params('berita_komentar',['id_berita' => $id_berita],'berita_komentar.*,user.nama AS user',$params_khusus);
+            $mydata['data']['result'] = $result;
+            $mydata['data']['komentar'] = $komentar;
+        }else{
+            $mydata['data'] = '';
+        }
+        
 
         // CETAK DATA
         $mydata['wisata'] = $wisata;

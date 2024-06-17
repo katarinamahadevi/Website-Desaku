@@ -264,7 +264,7 @@
 <?php if($berita) : ?>
 <!-- Berita Start -->
 <section id="berita">
-    <div class="container-fluid blog py-5 mb-5">
+    <div class="container-fluid blog py-5 mb-5" id="reload_berita">
         <div class="container py-5">
             <div class="text-center mx-auto pb-5" style="max-width: 800px;">
                 <h5 class="text-uppercase text-primary">Berita Terbaru</h5>

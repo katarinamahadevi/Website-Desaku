@@ -9,10 +9,10 @@ class Function_ctl extends MY_User
     {
         // Load the constructer from MY_Controller
         parent::__construct();
-        $this->id_role = $this->session->userdata('hpalnickel_id_role');
-        $this->id_user = $this->session->userdata('hpalnickel_id_user');
-        $this->nama = $this->session->userdata('hpalnickel_nama');
-        $this->foto = $this->session->userdata('hpalnickel_foto');
+        $this->id_role = $this->session->userdata(PREFIX_SESSION.'_id_role');
+        $this->id_user = $this->session->userdata(PREFIX_SESSION.'_id_user');
+        $this->nama = $this->session->userdata(PREFIX_SESSION.'_nama');
+        $this->foto = $this->session->userdata(PREFIX_SESSION.'_foto');
         
     }
 
@@ -44,7 +44,7 @@ class Function_ctl extends MY_User
             $update = $this->action_m->update('user', $post, ['id_user' => $id_user]);
             
             if ($update) {
-                $arrSession['hpalnickel_nama'] = $nama;
+                $arrSession[PREFIX_SESSION.'_nama'] = $nama;
 
                 $this->session->set_userdata($arrSession);
 
@@ -176,7 +176,7 @@ class Function_ctl extends MY_User
                 $update = $this->action_m->update('user',$post,['id_user' => $this->id_user]);
                 if ($update) {
                     unlink($tujuan.$this->foto);
-                    $arrSession['hpalnickel_foto'] = $data_foto['upload_data']['file_name'];
+                    $arrSession[PREFIX_SESSION.'_foto'] = $data_foto['upload_data']['file_name'];
 
                     $this->session->set_userdata($arrSession);
 
@@ -205,8 +205,55 @@ class Function_ctl extends MY_User
         $id = $this->input->post('id');
 
         $result = $this->action_m->get_single('berita', ['id_berita' => $id]);
+
+        $params['arrjoin']['user']['statement'] = 'berita_komentar.id_user = user.id_user';
+        $params['arrjoin']['user']['type'] = 'LEFT';
+        $komentar = $this->action_m->get_where_params('berita_komentar',['id_berita' => $id],'berita_komentar.*,user.nama AS user',$params);
         $data['result'] = $result;
+        $data['komentar'] = $komentar;
 
         $this->load->view('modal/berita',$data);
+    }
+
+
+    public function insert_komentar()
+    {
+        // VARIABEL
+        $arrVar['komentar']                 = 'Komentar';
+        $arrVar['id_berita']                = 'ID Berita';
+
+        // INFORMASI UMUM
+        foreach ($arrVar as $var => $value) {
+            $$var = $this->input->post($var);
+            if (!$$var) {
+                $data['required'][] = ['req_' . $var, $value . ' tidak boleh kosong !'];
+                $arrAccess[] = false;
+            } else {
+                $post[$var] = trim($$var);
+                $arrAccess[] = true;
+            }
+           
+        }
+        $post['id_user'] = $this->id_user;
+        if (!in_array(false, $arrAccess)) {
+            $insert = $this->action_m->insert('berita_komentar', $post);
+            if ($insert) {
+                $data['status'] = true;
+                $data['alert']['message'] = 'Data komentar berhasil di tambahkan!';
+                $data['load'][0]['parent'] = '#parent_komentar';
+                $data['load'][0]['reload'] = base_url('beranda?id_berita='.$id_berita.' #reload_komentar');
+                $data['load'][1]['parent'] = '#berita';
+                $data['load'][1]['reload'] = base_url('beranda #reload_berita');
+                $data['input']['all'] = true;
+            } else {
+                $data['status'] = false;
+            }
+        }else{
+            $data['status'] = false;
+        }
+        echo json_encode($data);
+        exit;
+
+
     }
 }
