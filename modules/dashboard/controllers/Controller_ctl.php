@@ -74,7 +74,12 @@ class Controller_ctl extends MY_Admin
         
         $transaksi = $this->action_m->get_single('transaksi',['id_transaksi' => $id_transaksi]);
         $update = $this->action_m->update('transaksi',$post,['id_transaksi' => $id_transaksi]);
+        $user = $this->action_m->get_single('user',['id_user' => $transaksi->id_user]);
         if ($update) {
+            if ($status == 1) {
+                $message = 'Tiket anda telah di approve admin';
+                $mail = sendmail('admin@gmail.com',$user->email,'Konfirmasi pembayaran',$message);
+            }
             $kata = 'Berhasil merubah status <b>"'.status_payment($status).'"</b> menjadi status <b>"'.status_payment($baru).'"</b>';
             $data['status'] = true;
             $data['message'] = $kata;
