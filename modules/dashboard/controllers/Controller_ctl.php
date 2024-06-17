@@ -19,7 +19,7 @@ class Controller_ctl extends MY_Admin
 
         // JS ADD
         $this->data['js_add'][] = '<script>var page = "dashboard";</script>';
-        $this->data['js_add'][] = '<script src="' . base_url() . 'assets/admin/js/modul/dashboard/transaksi.js"></script>';
+        $this->data['js_add'][] = '<script src="' . base_url() . 'assets/admin/js/modul/dashboard/dashboard.js"></script>';
 
          // GET DATA
         $where = [];
@@ -37,15 +37,20 @@ class Controller_ctl extends MY_Admin
         $arr = [];
         if ($result) {
             foreach ($result as $row) {
-                $arr[$status][$num]['id_transaksi'] = $row->id_transaksi;
-                $arr[$status][$num]['id_user'] = $row->id_user;
-                $arr[$status][$num]['id_wisata'] = $row->id_wisata;
-                $arr[$status][$num]['user'] = $row->user;
-                $arr[$status][$num]['wisata'] = $row->wisata;
-                $arr[$status][$num]['total'] = $row->total;
-                $arr[$status][$num]['bukti_bayar'] = $row->bukti_bayar;
-                $arr[$status][$num]['create_date'] = $row->create_date;
-                $arr[$status][$num]['payment_date'] = $row->payment_date;
+                if ($status != $row->status) {
+                    $status = $row->status;
+                    $no = 0;
+                }
+                $num = $no++;
+                $arr[$row->status][$num]['id_transaksi'] = $row->id_transaksi;
+                $arr[$row->status][$num]['id_user'] = $row->id_user;
+                $arr[$row->status][$num]['id_wisata'] = $row->id_wisata;
+                $arr[$row->status][$num]['user'] = $row->user;
+                $arr[$row->status][$num]['wisata'] = $row->wisata;
+                $arr[$row->status][$num]['total'] = $row->total;
+                $arr[$row->status][$num]['bukti_bayar'] = $row->bukti_bayar;
+                $arr[$row->status][$num]['create_date'] = $row->create_date;
+                $arr[$row->status][$num]['payment_date'] = $row->payment_date;
             }
         }
         // MYDATA DEKLARASI
@@ -55,5 +60,32 @@ class Controller_ctl extends MY_Admin
         $this->display();
     }
 
-   
+
+     public function ubah_status_transaksi()
+    {
+        $status = $this->input->post('status');
+        $id_transaksi = $this->input->post('id_transaksi');
+        $baru = $this->input->post('baru');
+        
+        $post['status'] = $baru;
+        if ($status == 0 ) {
+            $post['payment_date'] = date('Y-m-d H:i:s');
+        }
+        
+        $transaksi = $this->action_m->get_single('transaksi',['id_transaksi' => $id_transaksi]);
+        $update = $this->action_m->update('transaksi',$post,['id_transaksi' => $id_transaksi]);
+        if ($update) {
+            $kata = 'Berhasil merubah status <b>"'.status_payment($status).'"</b> menjadi status <b>"'.status_payment($baru).'"</b>';
+            $data['status'] = true;
+            $data['message'] = $kata;
+        }else{
+            $kata = 'Gagal merubah status <b>"'.status_payment($status).'"</b> menjadi status <b>"'.status_payment($baru).'"</b>';
+
+            $data['status'] = true;
+            $data['message'] = $kata;
+        }
+
+        echo json_encode($data);
+        exit;
+    }
 }

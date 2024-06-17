@@ -620,10 +620,10 @@ function get_tab(property, filter_tab,vector="",filter = "data-tab",id_prefix = 
 function status_payment(status = 99)
 {
     var data = [];
-    data[0] = 'gagal';
-    data[1] = 'pending';
-    data[2] = 'menunggu';
-    data[3] = 'sukses';
+    data[0] = 'menunggu pembayaran';
+    data[1] = 'menunggu konfirmasi';
+    data[2] = 'sukses';
+    data[3] = 'gagal';
     if (data[status]) {
         return data[status];
     } else {

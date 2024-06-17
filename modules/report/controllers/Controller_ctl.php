@@ -18,11 +18,6 @@ class Controller_ctl extends MY_Admin
     }
     public function transaksi()
     {
-        // GET FILTER DATA
-        $tahun = ($this->input->get('tahun')) ? $this->input->get('tahun') : date('Y');
-        $id_kategori_produk = ($this->input->get('id_kategori_produk')) ? $this->input->get('id_kategori_produk') : 'all';
-        $bulan = ($this->input->get('bulan')) ? $this->input->get('bulan') : date('m');
-
         // LOAD MAIN DATA
         $this->data['title'] = 'Data Transaksi';
         // LOAD JS
@@ -32,15 +27,23 @@ class Controller_ctl extends MY_Admin
         // LOAD DATA
         $limit = 5;
         $offset = $this->uri->segment(3);
-        $params = [];
+        
+        // GET DATA
         $where = [];
+        $params['arrjoin']['user']['statement'] = 'transaksi.id_user = user.id_user';
+        $params['arrjoin']['user']['type'] = 'LEFT';
+        $params['arrjoin']['wisata']['statement'] = 'transaksi.id_wisata = wisata.id_wisata';
+        $params['arrjoin']['wisata']['type'] = 'LEFT';
 
-        ;
+        $select = 'transaksi.*,user.nama AS user,wisata.nama AS wisata';
+
+        $result = $this->action_m->get_where_params('transaksi',$where,$select,$params);
+
         // CETAK DATA
-        $mydata['result'] = [];
+        $mydata['result'] = $result;
         $mydata['offset'] =  ($offset+1);
 
-        load_pagination('report/transaksi', $limit, $jumlah);
+        load_pagination('report/transaksi', $limit, count($result));
 
         // LOAD VIEW
         $this->data['content'] = $this->load->view('index', $mydata, TRUE);

@@ -87,7 +87,7 @@
                                                     <td>
                                                         <div class="d-flex justify-content-center flex-shrink-0">
                                                             <?php if(in_array($num,[1])) : ?>
-                                                                <button type="button" class="btn btn-icon btn-info btn-sm me-1" title="Bukti Bayar" onclick="preview_image(this,<?= image_check($row['bukti_bayar'],'bukti'); ?>)">
+                                                                <button type="button" class="btn btn-icon btn-info btn-sm me-1" title="Bukti Bayar" onclick="preview_image(this,'<?= image_check($row['bukti_bayar'],'bukti'); ?>')">
                                                                     <i class="fa-solid fa-microchip fs-2"></i>
                                                                 </button>
                                                             <?php endif;?>

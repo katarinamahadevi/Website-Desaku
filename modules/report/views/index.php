@@ -69,66 +69,33 @@
                                 <!--begin::Table head-->
                                 <thead>
                                     <tr class="fw-bold text-muted">
-                                        <th colspan="3" class="min-w-450px"><center>Tanggal</center></th>
-                                        <th rowspan="2" class="min-w-200px"><center>Customer</center></th>
-                                        <th rowspan="2" class="min-w-80px"><center>Produk</center></th>
-                                        <th rowspan="2" class="min-w-150px"><center>Tujuan Convert</center></th>
-                                        <th rowspan="2" class="min-w-100px"><center>Jumlah Convert</center></th>
-                                        <th rowspan="2" class="min-w-100px"><center>Jumlah Diterima</center></th>
-                                        <th rowspan="2" class="min-w-100px text-center">Aksi</th>
+                                        <th rowspan="2" class="min-w-50px text-center">No</th>
+                                        <th colspan="2" class="min-w-300px"><center>Tanggal</center></th>
+                                        <th rowspan="2" class="min-w-200px"><center>Pemesaan</center></th>
+                                        <th rowspan="2" class="min-w-80px"><center>Wisata</center></th>
+                                        <th rowspan="2" class="min-w-150px"><center>Total Bayar</center></th>
+                                        <th rowspan="2" class="min-w-100px"><center>Bukti Bayar</center></th>
                                     </tr>
                                     <tr  class="fw-bold text-muted">
                                         <th class="min-w-150px text_center"><center>Transaksi</center></th>
                                         <th class="min-w-150px text_center"><center>Pembayaran</center></th>
-                                        <th class="min-w-150px text_center"><center>Approve Admin</center></th>
                                     </tr>
                                 </thead>
                                 <!--end::Table head-->
                                 <!--begin::Table body-->
                                 <tbody>
                                     <?php if($result) : ?>
-                                        <?php $no = 1; foreach($result AS $row) : ?>
+                                        <?php $no = $offset; foreach($result AS $row) : $num = $no++;?>
                                             <tr>
-                                                <td class="text-muted fw-semibold"><center><?= date('d F Y H:i',strtotime($row->tanggal)); ?></center></td>
-                                                <td class="text-muted fw-semibold"><center><?= ($row->tanggal_bayar) ? date('d F Y H:i',strtotime($row->tanggal_bayar)) : ' - '; ?></center></td>
-                                                <td class="text-muted fw-semibold"><center><?= ($row->admin_approval) ? date('d F Y H:i',strtotime($row->admin_approval)) : ' - '; ?></center></td>
-                                                <td class="text-muted fw-semibold">
-                                                    <?= $row->user; ?></br>
-                                                    Kode : <?= $row->kode_transaksi; ?></br>
-                                                    <span class="badge <?= payment_badge_color($row->status); ?>"><?= status_payment($row->status); ?></span>
-                                                </td>
-                                                <td>
-                                                    <div class="d-flex align-items-center justify-content-center flex-column">
-                                                        <?php if($row->gambar_produk != '') : ?>
-                                                            <div class="me-5" style="background-position: center; background-size: contain; background-repeat: no-repeat; width: 80px; height: 80px; background-image: url('<?= image_check($row->gambar_produk, 'produk') ?>')"></div>
-                                                        <?php else : ?>
-                                                            <div class="d-flex justify-content-start flex-column">
-                                                                <span class="text-muted fw-semibold text-muted d-block fs-7"><?= $row->produk; ?></span>
-                                                            </div>
-                                                        <?php endif;?>
-                                                        <span class="text-muted">Rate : <?= ifnull($row->rate,''); ?></span>
-                                                    </div>
-                                                </td>
-                                                    <td>
-                                                    <div class="d-flex align-items-center justify-content-center flex-column">
-                                                        <?php if(isset($row->id_user_rekening) && $row->id_user_rekening != '') : ?>
-                                                            <div class="me-5" style="background-position: center; background-size: contain; background-repeat: no-repeat; width: 80px; height: 80px; background-image: url('<?= image_check($row->gambar_rekening, 'rekening') ?>')"></div>
-                                                        <?php else : ?>
-                                                            <div class="d-flex justify-content-start flex-column">
-                                                                <span class="text-muted fw-semibold text-muted d-block fs-7">
-                                                                    <i class="fa-solid fa-money-bill-transfer"></i>
-                                                                    Saldo Pra Pulsa
-                                                                </span>
-                                                            </div>
-                                                        <?php endif;?>
-                                                        <span class="text-muted">Fee : <?= ifnull(price_format($row->nominal_fee,1),' - '); ?></span>
-                                                    </div>
-                                                </td>
-                                                <td class="text-muted fw-semibold"><center><?= price_format($row->nominal_convert,1); ?></center></td>
-                                                <td class="text-muted fw-semibold"><center><?= price_format($row->nominal_diterima,1); ?></center></td>
+                                                <td class="text-muted fw-semibold text-center"><?= $num; ?></td>
+                                                <td class="text-muted fw-semibold"><center><?= date('d F Y H:i',strtotime($row->create_date)); ?></center></td>
+                                                <td class="text-muted fw-semibold"><center><?= ($row->payment_date) ? date('d F Y H:i',strtotime($row->payment_date)) : ' - '; ?></center></td>
+                                                <td class="text-muted fw-semibold"><?= $row->user; ?></br></td>
+                                                <td class="text-muted fw-semibold"><?= $row->wisata; ?></br></td>
+                                                <td class="text-muted fw-semibold"><?= price_format($row->total,1); ?></br></td>
                                                 <td>
                                                     <div class="d-flex justify-content-center flex-shrink-0">
-                                                        <button type="button" <?= ($row->status == 1) ? 'disabled="true"' : ''; ?> class="btn btn-icon btn-secondary btn-sm me-1" title="Bukti bayar" data-bs-toggle="modal" data-bs-target="#bukti_bayar_modal" onclick="get_bukti_bayar('<?= image_check($row->bukti_bayar,'bukti_bayar'); ?>')">
+                                                        <button type="button" <?= (!$row->bukti_bayar) ? 'disabled="true"' : ''; ?> class="btn btn-icon btn-secondary btn-sm me-1" title="Bukti bayar" onclick="preview_image(this,'<?= image_check($row->bukti_bayar,'bukti'); ?>')">
                                                             <i class="fa-solid fa-image fs-2 text-white"></i>
                                                         </button>
                                                     </div>

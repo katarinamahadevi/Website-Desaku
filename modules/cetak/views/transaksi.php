@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Cetak Data Isi Ulang</title>
+    <title>Cetak Data Transaksi</title>
     <style type="text/css">
         body {
             font-family: sans-serif;
@@ -38,43 +38,41 @@
 <body>
     <?php
     header("Content-type: application/vnd-ms-excel");
-    header("Content-Disposition: attachment; filename=Data Isi Ulang ".month_from_number($result['bulan'])." ".$result['tahun'].".xls");
+    header("Content-Disposition: attachment; filename=Data Transaksi.xls");
     ?>
 
 
     <table>
         <thead>
             <tr>
-                <th colspan="3">DATA ISI ULANG</th>
+                <th colspan="6">DATA PENARIKAN</th>
             </tr>
             <tr>
-                <th><center>Tanggal</center></th>
-                <th><center>Customer</center></th>
-                <th><center>Nominal Top Up</center></th>
+                <th><center>Tanggal Transaksi</center></th>
+                <th><center>Tanggal Pembayaran</center></th>
+                <th><center>Pemesan</center></th>
+                <th><center>Wisata</center></th>
+                <th><center>Total Harga</center></th>
+                <th><center>Status</center></th>
             </tr>
         </thead>
         <tbody>
             <?php if ($result['result']) : ?>
                 <?php $no = 1;
                 foreach ($result['result'] as $row) : ?>
-                    <tr>
-                        <td>
-                            <center><?= date('d F Y H:i',strtotime($row->create_date)); ?></center>
-                        </td>
-                        <td>
-                            <?= $row->user; ?>
-                        </td>
-                        <td>
-                         <center>
-                            <?= price_format($row->nominal,1); ?>
-                         </center>   
-                        </td>
+                     <tr>
+                        <td><center><?= date('d F Y H:i',strtotime($row->create_date)); ?></center></td>
+                        <td><center><?= date('d F Y H:i',strtotime($row->payment_date)); ?></center></td>
+                        <td><center><?= $row->user; ?></center></td>
+                        <td><?= $row->wisata; ?></td>
+                        <td><center><?= price_format($row->total,1); ?></center></td>
+                        <td><?= status_payment($row->status); ?></td>
                     </tr>
                 <?php endforeach; ?>
             <?php else : ?>
                 <tr>
-                    <td colspan="3">
-                        <center>Tidak ada data isi ulang</center>
+                    <td colspan="6">
+                        <center>Tidak ada data transaksi</center>
                     </td>
                 </tr>
             <?php endif; ?>
