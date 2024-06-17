@@ -215,6 +215,21 @@ class Function_ctl extends MY_User
         $this->load->view('modal/berita',$data);
     }
 
+    public function get_single_tiket()
+    {
+        $id = $this->input->post('id');
+
+        $result = $this->action_m->get_single('wisata', ['id_wisata' => $id]);
+
+        $params['arrjoin']['fasilitas']['statement'] = 'wisata_fasilitas.id_fasilitas = fasilitas.id_fasilitas';
+        $params['arrjoin']['fasilitas']['type'] = 'LEFT';
+        $fasilitas = $this->action_m->get_where_params('wisata_fasilitas',['id_wisata' => $id],'wisata_fasilitas.*,fasilitas.nama AS fasilitas',$params);
+        $data['result'] = $result;
+        $data['fasilitas'] = $fasilitas;
+
+        $this->load->view('modal/tiket',$data);
+    }
+
 
     public function insert_komentar()
     {

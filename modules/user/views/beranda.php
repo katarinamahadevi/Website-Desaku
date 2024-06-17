@@ -338,7 +338,7 @@
                         <p class="mb-4"><?= 'Tiket tersedia : '.$row->tiket; ?></p>
                         
                         <?php if($this->session->userdata(PREFIX_SESSION.'_id_user')) : ?>
-                            <button type="button" data-bs-toggle="modal" data-bs-target="#modalDetailTiket" class="btn-hover-bg btn btn-primary text-white py-2 px-4">Detail Tiket</button>
+                            <button type="button" onclick="modal_tiket(<?= $row->id_wisata; ?>)" data-bs-toggle="modal" data-bs-target="#modalDetailTiket" class="btn-hover-bg btn btn-primary text-white py-2 px-4">Detail Tiket</button>
                         <?php else : ?>
                             <button type="button" data-bs-toggle="modal" data-bs-target="#modalAuth" class="btn-hover-bg btn btn-primary text-white py-2 px-4">Masuk Terlibih Dahulu</button>
                         <?php endif;?>

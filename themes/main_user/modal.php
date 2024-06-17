@@ -239,64 +239,16 @@
 </div>
 
 <!-- Modal Detail Tiket -->
-<div class="modal fade" id="modalDetailTiket" tabindex="-1" aria-labelledby="modalDetailBeritaLabel" aria-hidden="true">
+<div class="modal fade" id="modalDetailTiket" tabindex="-1" aria-labelledby="modalDetailTicketLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content" style="border-radius: 15px;">
             <div class="modal-header">
-                <h1 class="modal-title fs-4 mb-0" id="modalDetailBeritaLabel">Detail Tiket</h1>
+                <h1 class="modal-title fs-4 mb-0" id="modalDetailTicketLabel">Detail Tiket</h1>
             </div>
-            <div class="modal-body px-4 py-3" style="width: 100%;">
-                <div class="row">
-                    <div class="col-xl-8">
-                        <div>
-                            <div class=" me-2">
-                                <img src="<?= base_url('assets/user/') ?>img/produk/waterfall.jpg" alt="Image" style="width: 100%; height: 250px;">
-                            </div>
-                            <div class="content me-2">
-                                <h4 class="my-3">Informasi seputar DESAKU</h4>
-                                <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil adipisci cum neque harum et similique fugiat sed    temporibus reiciendis, ipsum vitae ut nisi rerum beatae. Explicabo sunt officia expedita ipsum.</p>
+            <div id="display_detail_ticket">
 
-                                <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil adipisci cum neque harum et similique fugiat sed    temporibus reiciendis, ipsum vitae ut nisi rerum beatae. Explicabo sunt officia expedita ipsum.</p>
-
-                                <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil adipisci cum neque harum et similique fugiat sed    temporibus reiciendis, ipsum vitae ut nisi rerum beatae. Explicabo sunt officia expedita ipsum.</p>
-
-                                <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil adipisci cum neque harum et similique fugiat sed    temporibus reiciendis, ipsum vitae ut nisi rerum beatae. Explicabo sunt officia expedita ipsum.</p>
-
-                                <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil adipisci cum neque harum et similique fugiat sed    temporibus reiciendis, ipsum vitae ut nisi rerum beatae. Explicabo sunt officia expedita ipsum.</p>
-
-                                <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil adipisci cum neque harum et similique fugiat sed    temporibus reiciendis, ipsum vitae ut nisi rerum beatae. Explicabo sunt officia expedita ipsum.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-xl-4">
-                        <div class="row">
-                            <button type="button" data-bs-toggle="modal" data-bs-target="#modalOrder" class="btn btn-warning mb-5">Pesan Tiket</button>
-                            <h5 class="mb-2">Fasilitas Wisata </h5>
-                            <div class="col-xl-6 mb-2">
-                                <div class="d-flex justify-content-center align-items-center flex-column">
-                                    <h6>Bebas Wifi</h6>
-                                </div>
-                            </div>
-                            <div class="col-xl-6 mb-2">
-                                <div class="d-flex justify-content-center align-items-center flex-column">
-                                    <h6>Bebas Parkir</h6>
-                                </div>
-                            </div>
-                            <div class="col-xl-6 mb-2">
-                                <div class="d-flex justify-content-center align-items-center flex-column">
-                                    <h6>24 Jam </h6>
-                                </div>
-                            </div>
-                            <div class="col-xl-6 mb-2">
-                                <div class="d-flex justify-content-center align-items-center flex-column">
-                                    <h6 class="text-center">Area Bebas Rokok</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
+            
         </div>
     </div>
 </div>
