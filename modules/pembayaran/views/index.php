@@ -42,7 +42,7 @@
                                         <?php endforeach;?>
                                         <tr>
                                             <td colspan="2" class="text-end">Total Bayar : </td>
-                                            <td class="text-center"><?= price_format($result->total_bayar,1); ?></td>
+                                            <td class="text-center"><?= price_format($result->total,1); ?></td>
                                         </tr>
                                     <?php endif;?>
                                 </tbody>
