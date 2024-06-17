@@ -63,7 +63,15 @@ class Controller_ctl extends MY_User
         $params5['arrjoin']['wisata']['type'] = 'LEFT';
         $history = $this->action_m->get_where_params('transaksi', [], 'transaksi.*,wisata.nama AS wisata, wisata.gambar', $params5);
         
-
+        $params6['arrjoin']['wisata']['statement'] = 'favorit.id_wisata = wisata.id_wisata';
+        $params6['arrjoin']['wisata']['type'] = 'LEFT';
+        $favorit = $this->action_m->get_where_params('favorit', [], 'favorit.id_favorit,wisata.*', $params6);
+        $id_favorit = [];
+        if ($favorit) {
+            foreach ($favorit as $key) {
+                $id_favorit[] = $key->id_wisata;
+            }
+        }
         // CETAK DATA
         $mydata['wisata'] = $wisata;
         $mydata['pengurus'] = $pengurus;
@@ -71,6 +79,8 @@ class Controller_ctl extends MY_User
         $mydata['berita'] = $berita;
         $mydata['banner'] = $banner;
          $mydata['history'] = $history;
+         $mydata['favorit'] = $favorit;
+         $mydata['id_favorit'] = $id_favorit;
         // LOAD VIEW
         $this->data['content'] = $this->load->view('beranda', $mydata, TRUE);
         $this->display();

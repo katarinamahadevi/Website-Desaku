@@ -343,6 +343,25 @@ class Function_ctl extends MY_User
     }
 
 
+    public function set_fav()
+    {
+        $id_wisata = $this->input->post('id');
+        $action = $this->input->post('action');
+
+        if ($action == 'Y') {
+            $in['id_wisata'] = $id_wisata;
+            $s = $this->action_m->insert('favorit',$in);
+        }else{
+            $s = $this->action_m->delete('favorit',['id_wisata' => $id_wisata]);
+        }
+
+        if ($s) {
+            echo json_encode(true);
+        }else{
+            echo json_encode(false);
+        }
+    }
+
     public function upload_bukti_bayar()
     {
         

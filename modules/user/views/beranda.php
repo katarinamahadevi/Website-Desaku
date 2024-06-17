@@ -328,9 +328,19 @@
                             <!-- <span class="text-body"><i class="fas fa-calendar-alt me-2"></i>01 Des, 2024</span> -->
                             <?php if($this->session->userdata(PREFIX_SESSION.'_id_user')) : ?>
                             <div class="hello"> 
-                                <button class="like" id="like" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasFavorit" aria-controls="offcanvasFavorit"> 
-                                    <i class="bx bx-heart fs-3" style="color: #757575;"></i>
-                                </button> 
+                                
+                                <div class="like">
+                                    <input type="checkbox" value="<?= $row->id_wisata; ?>" onchange="set_fav(this)" <?= (in_array($row->id_wisata,$id_favorit)) ? 'checked="true"' : '' ?> style="position : absolute;width : 30px;height : 30px;opacity : 0;">
+                                    <div class="home-like-<?= $row->id_wisata; ?>">
+                                        <?php if(in_array($row->id_wisata,$id_favorit)) :?>
+                                            <i class="bx bxs-heart fs-3" style="color: #f52e4b;"></i>
+                                        <?php else : ?>
+                                            <i class="bx bx-heart fs-3" style="color: #757575;"></i>
+                                        <?php endif;?>
+                                    </div>
+                                    
+                                    
+                                </div> 
                             </div>
                             <?php endif;?>
                         </div>

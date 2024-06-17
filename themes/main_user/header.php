@@ -55,6 +55,9 @@
                 background-size : cover;
                 border-radius : 100%;
             }
+            input[type="checkbox"]{
+                cursor: pointer;
+            }
         </style>
     </head>
 
@@ -84,6 +87,9 @@
                             <a href="#agenda" class="nav-item nav-link">Agenda</a>
                             <a href="#berita" class="nav-item nav-link">Berita</a>
                             <a href="#wisata" class="nav-item nav-link">Wisata</a>
+                            <?php if($this->session->userdata(PREFIX_SESSION.'_id_user')) : ?>
+                                <a role="button" class="nav-item nav-link" data-bs-toggle="offcanvas" data-bs-target="#offcanvasFavorit" aria-controls="offcanvasFavorit">Favorit</a>
+                            <?php endif;?>
                         </div>
                         <div class="d-flex align-items-center flex-nowrap pt-xl-0">
                             <?php if(!$this->session->userdata(PREFIX_SESSION.'_id_user')) : ?>

@@ -10,7 +10,10 @@ function modal_berita(id) {
     });
 }
 
-function modal_tiket(id) {
+function modal_tiket(id,offcanvas = false,idc,action) {
+    if (offcanvas == true) {
+         $('#'+idc).offcanvas(action);
+    }
     $.ajax({
         url: BASE_URL + 'user_function/get_single_tiket',
         method: 'POST',
@@ -116,4 +119,28 @@ function cek_button(element) {
 
 function off_canvas(id, action) {
     $('#'+id).offcanvas(action);
+}
+
+function set_fav(element) {
+    var id = $(element).val();
+    var action = '';
+    if ($(element).is(':checked')) {
+        $('.home-like-'+id).html('<i class="bx bxs-heart fs-3" style="color: #f52e4b;"></i>');
+        action = 'Y';
+    } else {
+        $('.home-like-'+id).html('<i class="bx bx-heart fs-3" style="color: #757575;"></i>');
+        action = 'N';
+    }
+
+    $.ajax({
+        url: BASE_URL + 'user_function/set_fav',
+        method: 'POST',
+        data: { id: id ,action: action},
+        cache : false,
+        dataType : 'json',
+        success: function (data) {
+            $('#parent_favorit').load(BASE_URL+'beranda/ #reload_favorit');
+        }
+    });
+
 }
