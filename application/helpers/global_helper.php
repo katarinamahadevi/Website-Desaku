@@ -220,8 +220,7 @@ function status_payment($status = 99)
   $data[0] = 'menunggu pembayaran';
   $data[1] = 'menunggu konfirmasi';
   $data[2] = 'sukses';
-  $data[3] = 'batal';
-  $data[4] = 'gagal';
+  $data[3] = 'gagal';
   if (isset($data[$status])) {
     return $data[$status];
   } else {
@@ -331,9 +330,8 @@ function payment_color($status = 99)
 {
   $data[0] = 'bg-light-warning';
   $data[1] = 'bg-light-info';
-  $data[2] = 'bg-light-primary';
+  $data[2] = 'bg-light-success';
   $data[3] = 'bg-light-danger';
-  $data[4] = 'bg-light-secondary';
   if (isset($data[$status])) {
     return $data[$status];
   } else {

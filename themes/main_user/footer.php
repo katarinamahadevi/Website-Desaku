@@ -44,6 +44,7 @@
         <script src="<?= base_url('assets/user/') ?>js/like.js"></script>
         <script src="<?= base_url('assets/user/') ?>js/mekanik.js"></script>
         <script src="<?= base_url('assets/public/') ?>js/function.js"></script>
+        <script src="<?= base_url('assets/public/') ?>js/mekanik.js"></script>
         <script src="<?= base_url('assets/public/') ?>js/alert/sweetalert2.js"></script>
         <script src="<?= base_url('assets/public/') ?>js/alert/scriptalert.js"></script>
     </body>

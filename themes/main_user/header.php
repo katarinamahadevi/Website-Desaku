@@ -13,6 +13,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600&family=Roboto&display=swap" rel="stylesheet"> 
 
         <!-- Icon Font Stylesheet -->
+         <link rel="shortcut icon" href="<?= image_check($setting->icon,'icon'); ?>" />
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 

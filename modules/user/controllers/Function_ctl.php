@@ -230,6 +230,20 @@ class Function_ctl extends MY_User
         $this->load->view('modal/tiket',$data);
     }
 
+    public function pesiapan_order()
+    {
+        $id = $this->input->post('id');
+
+        $result = $this->action_m->get_single('wisata', ['id_wisata' => $id]);
+        $params['arrjoin']['tiket']['statement'] = 'wisata_tiket.id_tiket = tiket.id_tiket';
+        $params['arrjoin']['tiket']['type'] = 'LEFT';
+        $tiket = $this->action_m->get_where_params('wisata_tiket',['id_wisata' => $id],'wisata_tiket.*,tiket.nama AS tiket,tiket.harga',$params);
+        $data['result'] = $result;
+        $data['tiket'] = $tiket;
+
+        $this->load->view('modal/order',$data);
+    }
+
 
     public function insert_komentar()
     {
@@ -270,5 +284,64 @@ class Function_ctl extends MY_User
         exit;
 
 
+    }
+
+
+    public function transaksi()
+    {
+        $nama = $this->input->post('pengunjung');
+        $id_tiket = $this->input->post('id_tiket');
+        $id_wisata = $this->input->post('id_wisata');
+        $total_harga = $this->input->post('total_harga');
+        if ($nama != NULL && $id_tiket != NULL) {
+            if (count($nama) <= 0 || count($id_tiket) <= 0) {
+                $data['status'] = false;
+                $data['alert']['message'] = 'Isi formulir pengunjung terlebih dahulu';
+                echo json_encode($data);
+                exit;
+            }
+        }else{
+            $data['status'] = false;
+            $data['alert']['message'] = 'Isi formulir pengunjung terlebih dahulu';
+            echo json_encode($data);
+            exit;
+        }
+
+        $post1['id_user'] = $this->id_user;
+        $post1['id_wisata'] = $id_wisata;
+        $post1['total'] = $total_harga;
+
+        $in = $this->action_m->insert('transaksi',$post1);
+        if ($in) {
+            $no = 0;
+            foreach ($nama as $value) {
+                $num = $no++;
+                $post2[$num]['id_transaksi'] = $in;
+                $post2[$num]['nama'] = $value;
+                $post2[$num]['id_tiket'] = $id_tiket[$num];
+            }
+            
+            $in2 = $this->action_m->insert_batch('transaksi_detail',$post2);
+            if ($in2) {
+                $data['status'] = true;
+                $data['alert']['message'] = 'Tiket berhasil di tambahkan';
+                $data['modal']['id'] = '#modalOrder';
+                $data['modal']['action'] = 'hide';
+                $data['input']['all'] = true;
+                echo json_encode($data);
+                exit;
+            }else{
+                $data['status'] = false;
+                $data['alert']['message'] = 'Berhasil insert transaksi namun gagal insert detail';
+                echo json_encode($data);
+                exit;   
+            }
+        }else{
+            $data['status'] = false;
+            $data['alert']['message'] = 'Gagal menambahkan tiket! Coba lagi nanti atau hubungi developer';
+            echo json_encode($data);
+            exit;
+        }
+    
     }
 }

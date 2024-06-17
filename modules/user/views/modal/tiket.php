@@ -26,5 +26,5 @@
     </div>      
 </div>
 <div class="modal-footer d-flex justify-content-center align-items-center">
-    <button class="btn btn-warning">Pesan Tiket</button>
+    <button onclick="modal_pesan(<?= $result->id_wisata;?>)" data-bs-toggle="modal" href="#modalOrder" type="button" class="btn btn-warning">Pesan Tiket</button>
 </div>
