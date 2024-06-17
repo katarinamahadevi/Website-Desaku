@@ -93,7 +93,9 @@
                 <h1 class="modal-title fs-4 mb-0" id="modalOrderLabel">Pemesanan Tiket</h1>
                 <p class="text-center mb-0">Lengkapi formulir dibawah ini untuk bisa memesan tiket masuk wisata DESAKU</p>
             </div>
-            <div id="display_order"></div>
+            <div id="display_order">
+                <form></form>
+            </div>
         </div>
     </div>
 </div>
@@ -128,6 +130,101 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="modalProfil" tabindex="-1" aria-labelledby="modalProfilLabel" aria-hidden="true">
+    <div id="modal_size" class="modal-dialog modal-dialog-centered">
+        <div class="modal-content d-flex justify-content-center align-items-center py-2 " style="border-radius: 15px;">
+            <div class="modal-header d-flex flex-column border-0" style="width: 350px;">
+                <h1 class="modal-title fs-4 mb-0" id="modalProfilLabel">Ubah Profil</h1>
+                <a role="button" class="absolute-modal-btn btn-close" data-bs-dismiss="modal" aria-label="Close"></a>
+            </div>
+            <form id="form_profil" action="<?= base_url('user_function/profil') ?>" method="POST">
+                <div class="">
+                    <div class="modal-body section">
+                        <div class="mb-3" id="req_profil_nama">
+                            <label for="profil_nama" class="form-label required">Nama</label>
+                            <input type="text" name="nama" class="form-control form-control-solid py-2" id="profil_nama" placeholder="Masukkkan nama" value="<?= $this->session->userdata(PREFIX_SESSION.'_nama') ?>" autocomplete="off">
+                        </div>
+                        <div class="mb-3" id="req_profil_notelp">
+                            <label for="profil_notelp" class="form-label required">Nomor Telepon</label>
+                            <div class="input-group flex-nowrap">
+                                <span class="input-group-text">+62</span>
+                                <input type="number" name="notelp" id="profil_notelp" class="form-control form-control-solid no-hp py-2" placeholder="Masukkan nomor telepon" value="<?= $this->session->userdata(PREFIX_SESSION.'_notelp') ?>" autocomplete="off">
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="modal-footer d-flex justify-content-center align-items-center flex-column border-0">
+                        <button type="button" id="button_ubah_profil" onclick="submit_form(this,'#form_profil',2)" class="btn-hover-bg btn btn-primary fw-normal text-white py-2" style="width: 350px;">Ubah Profil</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalPassword" tabindex="-1" aria-labelledby="modalPasswordLabel" aria-hidden="true">
+    <div id="modal_size" class="modal-dialog modal-dialog-centered">
+        <div class="modal-content d-flex justify-content-center align-items-center py-2 " style="border-radius: 15px;">
+            <div class="modal-header d-flex flex-column border-0" style="width: 350px;">
+                <h1 class="modal-title fs-4 mb-0" id="modalPasswordLabel">Ubah Password</h1>
+                <a role="button" class="absolute-modal-btn btn-close" data-bs-dismiss="modal" aria-label="Close"></a>
+            </div>
+            <form id="form_ubah_sandi" action="<?= base_url('user_function/ubah_sandi') ?>" method="POST">
+                <div class="">
+                    <div class="modal-body section">
+                        <div class="mb-3" id="req_profil_password">
+                            <label for="profil_password" class="form-label required">Kata sandi</label>
+                            <input type="password" name="password" class="form-control form-control-solid py-2" id="profil_password" placeholder="Masukkkan kata sandi" value="" autocomplete="off">
+                        </div>
+
+                        <div class="mb-3" id="req_profil_repassword">
+                            <label for="profil_repassword" class="form-label required">Kata sandi baru</label>
+                            <input type="password" name="repassword" class="form-control form-control-solid py-2" id="profil_repassword" placeholder="Masukkkan kata sandi" value="" autocomplete="off">
+                        </div>
+
+                        <div class="mb-3" id="req_profil_new_password">
+                            <label for="profil_new_password" class="form-label required">Konfirmasi kata sandi baru</label>
+                            <input type="password" name="new_password" class="form-control form-control-solid py-2" id="profil_new_password" placeholder="Masukkkan kata sandi" value="" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-center align-items-center flex-column border-0">
+                        <button type="button" id="button_ubah_sandi" onclick="submit_form(this,'#form_ubah_sandi',3)" class="btn-hover-bg btn btn-primary fw-normal text-white py-2" style="width: 350px;">Ubah Sandi</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Modal Pesan Tiket -->
+<div class="modal fade" id="modalHistory" tabindex="-1" aria-labelledby="modalHistoryLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content d-flex justify-content-center align-items-center py-2" style="border-radius: 15px;">
+            <div class="modal-header d-flex flex-column border-0">
+                <h1 class="modal-title fs-4 mb-0" id="modalHistoryLabel">History Tiket</h1>
+            </div>
+            <div class="modal-body d-flex justify-content-center align-items-center flex-wrap">
+                <?php if($history) : ?>
+                    <?php foreach($history AS $row) : ?>
+                    <div class="card" style="width: 100%;">
+                    <div class="card-body">
+                        <h5 class="card-title"><?= $row->wisata ?></h5>
+                        <p class="card-text">Tanggal &nbsp; : <?= date('d M Y',strtotime($row->create_date)); ?></p>
+                        <p class="card-text">Total bayar : <?= price_format($row->total,1); ?></p>
+                        <a role="button" class="btn btn-primary"><?= status_payment($row->status); ?></a>
+                    </div>
+                    </div>
+                    <?php endforeach;?>
+                <?php endif;?>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <!-- Offcanvas Favorit -->
 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasFavorit" aria-labelledby="offcanvasFavoritLabel" style="width: 500px;">
@@ -198,19 +295,19 @@
                         </div>
                     </div>
                 </div>
-                <a href="#" class="card mb-3" style="border-radius: 10px;">
+                <a role="button" onclick="off_canvas('offcanvasProfil','hide')" data-bs-toggle="modal" data-bs-target="#modalProfil" class="card mb-3" style="border-radius: 10px;">
                     <div class="card-body d-flex justify-content-between align-items-center text-dark">
                         <h6 class="mb-0">Ubah Profile</h6>
                         <i class="bi bi-chevron-right"></i>
                     </div>
                 </a>
-                <a href="#" class="card mb-3" style="border-radius: 10px;">
+                <a role="button" onclick="off_canvas('offcanvasProfil','hide')" data-bs-toggle="modal" data-bs-target="#modalPassword" class="card mb-3" style="border-radius: 10px;">
                     <div class="card-body d-flex justify-content-between align-items-center text-dark">
                         <h6 class="mb-0">Ubah Kata Sandi</h6>
                         <i class="bi bi-chevron-right"></i>
                     </div>
                 </a>
-                <a href="#" class="card mb-3" style="border-radius: 10px;">
+                <a role="button" onclick="off_canvas('offcanvasProfil','hide')" data-bs-toggle="modal" data-bs-target="#modalHistory" class="card mb-3" style="border-radius: 10px;">
                     <div class="card-body d-flex justify-content-between align-items-center text-dark">
                         <h6 class="mb-0">Laporan Pemesanan</h6>
                         <i class="bi bi-chevron-right"></i>

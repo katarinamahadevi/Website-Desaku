@@ -21,7 +21,7 @@ class Function_ctl extends MY_User
     {
         // VARIABEL
         $arrVar['nama']            = 'Nama';
-        $arrVar['nik']            = 'NIK';
+        $arrVar['notelp']            = 'Nomor telepon';
 
         // INFORMASI UMUM
         foreach ($arrVar as $var => $value) {
@@ -36,7 +36,7 @@ class Function_ctl extends MY_User
         }
         $id_user = $this->id_user;
 
-        $result = $this->action_m->get_single('user', ['id_user' => $id_user,'blocked' => 'N']);
+        $result = $this->action_m->get_single('user', ['id_user' => $id_user]);
         if (!$result) {
             redirect('logout');
         }
@@ -45,16 +45,14 @@ class Function_ctl extends MY_User
             
             if ($update) {
                 $arrSession[PREFIX_SESSION.'_nama'] = $nama;
+                $arrSession[PREFIX_SESSION.'_notelp'] = $notelp;
 
                 $this->session->set_userdata($arrSession);
 
                 $data['status'] = true;
                 $data['alert']['message'] = 'Biodata berhasil di rubah!';
-                $data['load'][0]['parent'] = '#parent_ubah_profil';
-                $data['load'][0]['reload'] = base_url('profil/ubah/ #reload_ubah_profil');
-                $data['input']['password'] = true;
-                $data['canvas'][0]['id'] = '#offcanvasNama';
-                $data['canvas'][0]['action'] = 'hide';
+                $data['modal']['id'] = '#modalProfil';
+                $data['modal']['action'] = 'hide';
                
             } else {
                 $data['status'] = false;
@@ -69,7 +67,6 @@ class Function_ctl extends MY_User
     public function ubah_sandi()
     {
         // VARIABEL
-        $arrVar['type_form']             = 'Form tipe';
         $arrVar['password']              = 'Kata sandi';
         $arrVar['repassword']            = 'Konfirmasi kata sandi';
         $arrVar['new_password']           = 'Kata sandi baru';
@@ -81,7 +78,7 @@ class Function_ctl extends MY_User
                 $data['required'][] = ['req_profil_' . $var, $value . ' tidak boleh kosong !'];
                 $arrAccess[] = false;
             } else {
-                if (!in_array($var,['type_form','password','repassword','new_password'])) {
+                if (!in_array($var,['password','repassword','new_password'])) {
                     $post[$var] = trim($$var);
                 }
                 $arrAccess[] = true;
@@ -89,31 +86,19 @@ class Function_ctl extends MY_User
         }
         $id_user = $this->id_user;
 
-        $result = $this->action_m->get_single('user', ['id_user' => $id_user,'blocked' => 'N']);
+        $result = $this->action_m->get_single('user', ['id_user' => $id_user]);
         if (!$result) {
             redirect('logout');
         }
-        if (!in_array($type_form,['masuk','pembayaran'])) {
-            $data['status'] = false;
-            $data['alert']['message'] = 'Type Form tidak di ketahui';
-            echo json_encode($data);
-            exit;
-        }
         if (!in_array(false, $arrAccess)) {
-            if (hash_my_password($result->notelp.$password) == $result->password) {
+            if (hash_my_password($result->email.$password) == $result->password) {
                 if ($new_password != $repassword) {
                     $data['status'] = false;
                     $data['alert']['message'] = 'Konfirmasi kata sandi tidak sesuai!';
                     echo json_encode($data);
                     exit;
                 } else {
-                    if ($type_form == 'masuk') {
-                        $post['password'] = hash_my_password($result->notelp . $new_password);
-                    }
-
-                    if ($type_form == 'pembayaran') {
-                        $post['password_payment'] = hash_my_password($result->notelp . $new_password);
-                    }
+                    $post['password'] = hash_my_password($result->email . $new_password);
                     
                 }
             }else{
@@ -126,11 +111,11 @@ class Function_ctl extends MY_User
             $update = $this->action_m->update('user', $post, ['id_user' => $id_user]);
             if ($update) {
                 $data['status'] = true;
-                $data['alert']['message'] = 'Kata sandi '.$type_form.' berhasil di rubah!';
-                $data['load'][0]['parent'] = '#parent_ubah_profil';
-                $data['load'][0]['reload'] = base_url('profil/ubah/ #reload_ubah_profil');
-                $data['canvas'][0]['id'] = '#offcanvasSandi';
-                $data['canvas'][0]['action'] = 'hide';
+                $data['alert']['message'] = 'Kata sandi berhasil di rubah!';
+                $data['modal']['id'] = '#modalPassword';
+                $data['modal']['action'] = 'hide';
+                $data['input']['id'] = '#form_ubah_sandi';
+                $data['input']['all'] = true;
                
             } else {
                 $data['status'] = false;
@@ -299,6 +284,7 @@ class Function_ctl extends MY_User
                 $data['alert']['message'] = 'Isi formulir pengunjung terlebih dahulu';
                 echo json_encode($data);
                 exit;
+                
             }
         }else{
             $data['status'] = false;
@@ -311,6 +297,7 @@ class Function_ctl extends MY_User
         $post1['id_wisata'] = $id_wisata;
         $post1['total'] = $total_harga;
 
+        $user = $this->action_m->get_single('user',['id_user' => $this->id_user]);
         $in = $this->action_m->insert('transaksi',$post1);
         if ($in) {
             $no = 0;
@@ -323,8 +310,18 @@ class Function_ctl extends MY_User
             
             $in2 = $this->action_m->insert_batch('transaksi_detail',$post2);
             if ($in2) {
+                $message = '<div>
+                    <h1>Anda harus melakukan pembayaran sebesar '.price_format($total_harga,1).'</h1></br>
+                    <a href="'.base_url('pembayaran/upload?id_transaksi='.$in).'" class="">Tekan tombol berikut untuk menuju halaman pembayaran</a>
+                </div>';
+                $mail = sendmail('admin@gmail.com',$user->email,'Link Pembayaran',$message);
+                if ($mail == true) {
+                    $msg = 'cek email anda (cek folder spam jika tidak masuk)';
+                }else{
+                    $msg = 'Email tidak terkirim karena gangguan';
+                }
                 $data['status'] = true;
-                $data['alert']['message'] = 'Tiket berhasil di tambahkan';
+                $data['alert']['message'] = 'Tiket berhasil di tambahkan '.$msg;
                 $data['modal']['id'] = '#modalOrder';
                 $data['modal']['action'] = 'hide';
                 $data['input']['all'] = true;
@@ -344,4 +341,65 @@ class Function_ctl extends MY_User
         }
     
     }
+
+
+    public function upload_bukti_bayar()
+    {
+        
+        $id_transaksi = $this->input->post('id_transaksi');
+        $cek = $this->action_m->get_single('transaksi',['id_transaksi' => $id_transaksi,'status' => 0]);
+        if (!$cek) {
+            redirect('beranda');
+        }
+        if (!$id_transaksi) {
+            $data['status'] = false;
+            $data['alert']['message'] = 'ID Transaksi tidak boleh kosong';
+            echo json_encode($data);
+            exit;
+        }
+        if (!empty($_FILES['bukti_bayar']['tmp_name'])) {
+            $bukti_bayar = $_FILES['bukti_bayar'];
+            $tujuan = './data/bukti/';
+            $config['upload_path'] = $tujuan;
+            $config['allowed_types'] = 'png|jpg|jpeg|PNG|JPG|JPEG';
+            $config['file_name'] = uniqid();
+            $config['file_ext_tolower'] = true;
+
+            $this->load->library('upload', $config);
+
+            $data_produk = [];
+
+            if (!$this->upload->do_upload('bukti_bayar')) {
+
+                $error = $this->upload->display_errors();
+                $data['status'] = false;
+                $data['alert']['message'] = $error;
+                echo json_encode($data);
+                exit;
+            } else {
+                $data_produk = array('upload_data' => $this->upload->data());
+                $post['bukti_bayar'] = $data_produk['upload_data']['file_name'];
+            }
+        }else{
+            $data['status'] = false;
+            $data['alert']['message'] = 'Bukti bayar tidak boleh kosong!';
+            echo json_encode($data);
+            exit;
+        }
+        $post['payment_date'] = date('Y-m-d H:i:s');
+        $post['status'] = 1;
+
+        $update = $this->action_m->update('transaksi',$post,['id_transaksi' => $id_transaksi]);
+        if ($update) {
+            $data['status'] = true;
+            $data['alert']['message'] = 'Bukti bayar berhasil di kirimkan!';
+            $data['redirect'] = base_url('beranda');
+        } else {
+            $data['status'] = false;
+            $data['alert']['message'] = 'Bukti bayar gagal di kirimkan! Coba lagi atau tunggu beberapa saat';
+        }
+        echo json_encode($data);
+        exit;
+    }
 }
+

@@ -179,7 +179,7 @@ $autoload['drivers'] = array();
 
 */
 
-$autoload['helper'] = array('url', 'array', 'global', 'pagination');
+$autoload['helper'] = array('url', 'array', 'global', 'pagination','sendmail');
 
 
 

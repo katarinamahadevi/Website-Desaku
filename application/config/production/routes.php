@@ -229,6 +229,8 @@ $route['profile/(:any)'] = 'setting/controller_ctl/profil/$1';
 $route['profile/(:any)/(:any)'] = 'setting/controller_ctl/profil/$1/$2';
 
 
+
+
 $route['dashboard']  = 'dashboard/controller_ctl/index';
 
 $route['dashboard/(:any)'] = 'dashboard/controller_ctl/$1';
@@ -241,7 +243,19 @@ $route['dashboard_function/(:any)'] = 'dashboard/function_ctl/$1';
 
 $route['dashboard_function/(:any)/(:any)'] = 'dashboard/function_ctl/$1/$2';
 
-$route['penarikan']  = 'dashboard/controller_ctl/penarikan';
+
+
+$route['pembayaran']  = 'pembayaran/controller_ctl/index';
+
+$route['pembayaran/(:any)'] = 'pembayaran/controller_ctl/$1';
+
+$route['pembayaran/(:any)/(:any)'] = 'pembayaran/controller_ctl/$1/$2';
+
+$route['pembayaran_function']  = 'pembayaran/function_ctl/index';
+
+$route['pembayaran_function/(:any)'] = 'pembayaran/function_ctl/$1';
+
+$route['pembayaran_function/(:any)/(:any)'] = 'pembayaran/function_ctl/$1/$2';
 
 
 $route['report/(:any)'] = 'report/controller_ctl/$1';

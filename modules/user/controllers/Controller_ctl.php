@@ -57,6 +57,11 @@ class Controller_ctl extends MY_User
         }else{
             $mydata['data'] = '';
         }
+
+
+        $params5['arrjoin']['wisata']['statement'] = 'transaksi.id_wisata = wisata.id_wisata';
+        $params5['arrjoin']['wisata']['type'] = 'LEFT';
+        $history = $this->action_m->get_where_params('transaksi', [], 'transaksi.*,wisata.nama AS wisata, wisata.gambar', $params5);
         
 
         // CETAK DATA
@@ -65,6 +70,7 @@ class Controller_ctl extends MY_User
         $mydata['agenda'] = $agenda;
         $mydata['berita'] = $berita;
         $mydata['banner'] = $banner;
+         $mydata['history'] = $history;
         // LOAD VIEW
         $this->data['content'] = $this->load->view('beranda', $mydata, TRUE);
         $this->display();

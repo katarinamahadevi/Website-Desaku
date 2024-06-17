@@ -112,3 +112,8 @@ function cek_button(element) {
         $('#btn_tambah_pengunjung').attr('disabled', true);
     }
 }   
+
+
+function off_canvas(id, action) {
+    $('#'+id).offcanvas(action);
+}

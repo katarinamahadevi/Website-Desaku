@@ -1,4 +1,3 @@
-<!--begin::Javascript-->
 
 <script>
     var BASE_URL = '<?= base_url(); ?>';

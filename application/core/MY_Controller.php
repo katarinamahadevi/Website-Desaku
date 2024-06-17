@@ -145,6 +145,36 @@ class MY_User extends MY_Controller
         $this->load->view($tpl, $this->data);
     }
 }
+
+class MY_Auth extends MY_Controller
+{
+
+
+    var $path_theme = '';
+    public function __construct()
+    {
+
+        parent::__construct();
+
+        $this->path_theme = 'main_auth';
+        
+    }
+
+
+
+    function display($name = '')
+    {
+
+
+
+        $tpl = $this->path_theme . '/layout_single';
+
+
+
+        $this->load->view($tpl, $this->data);
+    }
+}
+
 class MY_Admin extends MY_Controller
 {
 
